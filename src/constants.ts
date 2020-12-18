@@ -1,0 +1,17 @@
+export const URL_LOGIN = "";
+export const FLOW_LOGIN = "FLOW_LOGIN";
+export const FLOW_LOGOUT = "FLOW_LOGOUT";
+
+export enum AUTH_LOGIN_STATES {
+  START = 'AUTH_LOGIN_START',
+  SUCCESS = 'AUTH_LOGIN_SUCCESS',
+  FAIL = 'AUTH_LOGIN_FAIL',
+  LOGOUT = 'AUTH_LOGIN_LOGOUT',
+}
+
+export enum ASYNC_STATUS {
+  IDLE = 'IDLE',
+  PENDING = 'PENDING',
+  SUCCESS = 'SUCCESS',
+  FAIL = 'FAIL',
+}
