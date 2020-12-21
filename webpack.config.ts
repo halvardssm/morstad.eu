@@ -32,7 +32,7 @@ const postcssConfig = (isProd: boolean) => ({
   plugins: [
     atImport(),
     postcssPresetEnv(),
-    tailwind(),
+    tailwind({ purge: false }),
     autoprefixer(),
     isProd && cssNano({
       preset: "default",
@@ -69,7 +69,7 @@ const result: webpack.Configuration = {
   },
   output: {
     path: pathDist,
-    filename: "bundle.[hash].js",
+    filename: "bundle.js",
   },
   devServer: {
     contentBase: pathPublic,
