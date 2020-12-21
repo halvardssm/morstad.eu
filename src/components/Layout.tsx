@@ -1,34 +1,37 @@
 import * as React from "react";
-import {Helmet} from "react-helmet";
-import {ThemeProvider} from "styled-components";
-import {defaultTheme, GlobalStyle} from "../style/theme";
-import {Footer} from "./Footer";
-import {Header} from "./Header";
+import { Helmet } from "react-helmet";
+import { Footer } from "./Footer";
+import { Header } from "./Header";
 
 interface LayoutProps {
   skipHeader?: boolean;
   skipFooter?: boolean;
+  sidebar?: Record<string, any>;
   debug?: boolean;
+  title?: string
 }
 
 export const Layout: React.FC<LayoutProps> = ({
   children,
   skipHeader,
   skipFooter,
+  sidebar,
+  title,
   debug = false,
 }) => {
   return (
-    <ThemeProvider theme={defaultTheme}>
+    <div className='container mx-auto'>
       <Helmet>
       </Helmet>
-      <GlobalStyle />
       {!skipHeader && (
-        <Header />
+        <Header title={title} />
       )}
-      {children}
+      {!sidebar
+        ? children
+        : <div ></div>}
       {!skipFooter && (
         <Footer />
       )}
-    </ThemeProvider>
+    </div>
   );
 };
