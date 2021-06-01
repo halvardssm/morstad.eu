@@ -5,7 +5,7 @@ module.exports = {
       "./components/**/*.{js,ts,jsx,tsx}",
     ],
     options: {
-      safelist: [/(bg|text)-(.*)-(\\d{1}0{1,2})/],
+      safelist: [/(bg|text)-(.*)-(\d{1}0{1,2})/],
     },
   },
   darkMode: false, // or 'media' or 'class'
