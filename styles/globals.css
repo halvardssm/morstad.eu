@@ -1,0 +1,69 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  @variants responsive {
+    .masonry-4-col {
+      column-count: 4;
+      column-gap: 0.5rm;
+    }
+    .masonry-3-col {
+      column-count: 3;
+      column-gap: 0.5rm;
+    }
+    .masonry-2-col {
+      column-count: 2;
+      column-gap: 0.5rm;
+    }
+    .masonry-1-col {
+      column-count: 1;
+      column-gap: 0.5rm;
+    }
+    .break-inside {
+      break-inside: avoid;
+    }
+    .emoji {
+      display: inline-block;
+      width: auto;
+      height: 1em;
+      vertical-align: -0.125em;
+    }
+  }
+}
+
+@layer base {
+  html,
+  body {
+    padding: 0;
+    margin: 0;
+  }
+  body {
+    @apply flex flex-col h-full;
+    font-family: "Courier New", Courier, monospace;
+  }
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  /* footer {
+    width: 100%;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 25px;
+  } */
+
+  /* footer a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
+  } */
+}
+
+* {
+  box-sizing: border-box;
+}
