@@ -19,12 +19,6 @@ export default function Home() {
     return Math.floor(diff / 31536000000);
   }
 
-  enum TAGS {
-    TypeScript,
-    'Full-Stack Developer'
-
-  }
-
   return (
     <div className='flex flex-col justify-between h-screen'>
       <Head>
