@@ -307,9 +307,9 @@ export default function Portfolio() {
             {TAGS_MAPPED.map((tag, i) => {
 
                 const isSelected = selectedTags.includes(tag.code)
-                const bgColor = isSelected ? tag.color : 'gray-200'
+                const colors = isSelected ? `text-white bg-${tag.color}` : `text-${tag.color} bg-gray-200`
 
-                return <span key={i} onClick={() => onTagClick(tag)} className={`cursor-pointer inline-block rounded-min text-white bg-${bgColor} px-2 py-1 text-xs select-none font-bold mr-2 mb-1`}>
+                return <span key={i} onClick={() => onTagClick(tag)} className={`cursor-pointer inline-block rounded-min ${colors} px-2 py-1 text-xs select-none font-bold mr-2 mb-1`}>
                     {tag.name}
                 </span>
             })}
