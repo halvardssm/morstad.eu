@@ -75,7 +75,7 @@ const PROJECTS = [
     {
         symbol: "🦕",
         title: "Nessie",
-        tags: [TAGS.deno, TAGS.js, TAGS.ts, TAGS.lib],
+        tags: [TAGS.deno, TAGS.js, TAGS.ts, TAGS.lib, TAGS.docker, TAGS.mysql, TAGS.pg, TAGS.sqlite],
         url: "https://github.com/halvardssm/deno-nessie",
         description:
             "A modular Deno library for PostgreSQL, MySQL, MariaDB and SQLite migrations.",
