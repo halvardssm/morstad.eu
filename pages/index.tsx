@@ -33,8 +33,8 @@ export default function Home() {
         </h1>
       </header>
 
-      <main className='pt-5 pb-5 flex flex-col justify-center max-w-5xl mx-auto'>
-        <div className='text-center max-w-4xl'>
+      <main className='pt-5 pb-5 flex flex-col justify-center max-w-5xl mx-5 lg:mx-auto'>
+        <div className='max-w-4xl text-justify text-last-center'>
           <p>Welcome to my page!</p>
           <br />
           <p>If you are wondering if I am the right fit for your next employee or contractor, the answer is 'yes'!</p>
