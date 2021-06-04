@@ -14,6 +14,8 @@ enum TAGS {
     redux = "redux",
     observables = "observables",
     saga = "saga",
+    next = "next",
+    tw = "tw",
 
     java = "java",
     spring = "spring",
@@ -47,6 +49,8 @@ const _TAGS: Record<keyof typeof TAGS, string> = {
     redux: "Redux",
     observables: "Redux Observables",
     saga: "Redux Saga",
+    next: "NextJS",
+    tw: "Tailwind",
 
     java: "Java",
     spring: "Spring",
@@ -215,25 +219,31 @@ const PROJECTS = [
         url: "https://github.com/codash-platform/codash",
         description: "A COVID-19 dashboard.",
     },
+    {
+        symbol: "👨🏼‍💻",
+        title: "halvardssm.github.io",
+        tags: [
+            TAGS.react,
+            TAGS.js,
+            TAGS.ts,
+            TAGS.feApp,
+            TAGS.next,
+            TAGS.tw,
+        ],
+        url: "https://github.com/halvardssm/halvardssm.github.io",
+        description:
+            "This exact website, my personal portfolio.",
+    },
 ];
 
 const TW_COLORS = [
     "red",
-    // "orange",
-    // "amber",
     "yellow",
-    // "lime",
     "green",
-    // "emerald",
-    // "teal",
-    // "cyan",
     "blue",
     "indigo",
-    // "violet",
     "purple",
-    // "fuchsia",
     "pink",
-    // "rose",
 ];
 
 const TAGS_MAPPED = Object.entries(_TAGS)
