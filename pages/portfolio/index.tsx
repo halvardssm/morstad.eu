@@ -33,6 +33,7 @@ enum TAGS {
     sqlite = "sqlite",
     gql = "gql",
 
+    course = "course",
     lib = "lib",
     feApp = "feApp",
     beApp = "beApp",
@@ -68,6 +69,7 @@ const _TAGS: Record<keyof typeof TAGS, string> = {
     sqlite: "SQLite",
     gql: "GraphQL",
 
+    course: "Course",
     lib: "Library",
     feApp: "Frontend Application",
     beApp: "Backend Application",
@@ -83,6 +85,14 @@ const PROJECTS = [
         url: "https://github.com/halvardssm/deno-nessie",
         description:
             "A modular Deno library for PostgreSQL, MySQL, MariaDB and SQLite migrations.",
+    },
+    {
+        symbol: "📖",
+        title: "Build and Deploy a REST API with Deno",
+        tags: [TAGS.deno, TAGS.js, TAGS.ts, TAGS.beApp, TAGS.docker, TAGS.mysql, TAGS.pg, TAGS.sqlite, TAGS.course],
+        url: "https://www.newline.co/courses/build-and-deploy-a-rest-api-with-deno",
+        description:
+            "A course on Newline.co where I teach about Deno and how to crate and deploy a REST API from scratch.",
     },
     {
         symbol: "🎵",
@@ -353,4 +363,4 @@ export default function Portfolio() {
             <Footer />
         </div>
     );
-};
+}
