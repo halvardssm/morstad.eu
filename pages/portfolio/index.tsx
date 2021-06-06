@@ -150,7 +150,7 @@ const PROJECTS = [
         ],
         url: "https://github.com/halvardssm/go-domeneshop-client",
         description:
-            "A client for domene.shop to use with Terraform for provisioning.",
+            "A Go client for domene.shop.",
     },
     {
         symbol: "☂️",
