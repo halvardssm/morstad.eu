@@ -8,12 +8,13 @@ module.exports = {
       safelist: [/(bg|text)-(.*)-(\d{1}0{1,2})/],
     },
   },
-  darkMode: false, // or 'media' or 'class'
+  darkMode: "class",
   theme: {
     extend: {},
   },
   variants: {
-    extend: {},
+    extend: {
+    },
   },
   plugins: [],
 };

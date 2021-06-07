@@ -287,10 +287,10 @@ export default function Portfolio() {
             .map((project, i) => {
                 return <div key={i} className="break-inside w-full mb-4">
 
-                    <article className="overflow-hidden rounded-lg shadow-lg">
+                    <article className="overflow-hidden rounded-lg shadow-lg dark:shadow-none border border-white">
                         <header className="flex items-center justify-between leading-tight p-2 md:p-4">
                             <h2 className="text-lg">
-                                <a className="no-underline hover:underline text-black" href={project.url}>
+                                <a className="no-underline hover:underline text-black dark:text-white" href={project.url}>
                                     <Emoji symbol={project.symbol} className='mr-2' />
                                     {project.title}
                                     <LinkIcon className='inline-block ml-2' size={16} />
@@ -302,7 +302,7 @@ export default function Portfolio() {
                             {project.tags.map((tagCode, i) => {
                                 const tag = TAGS_MAPPED.find(el => el.code === tagCode)!
 
-                                return <span key={i} className={`inline-block rounded-min text-white bg-${tag.color} px-2 py-1 text-xs font-bold mr-2 mb-1`}>
+                                return <span key={i} className={`inline-block rounded-min text-white bg-${tag.color} px-2 py-1 text-xs font-bold mr-2 mb-1 dark:text-black`}>
                                     {tag.name}
                                 </span>
                             })}
@@ -327,9 +327,9 @@ export default function Portfolio() {
             {TAGS_MAPPED.map((tag, i) => {
 
                 const isSelected = selectedTags.includes(tag.code)
-                const colors = isSelected ? `text-white bg-${tag.color} border border-${tag.color}` : `text-${tag.color} bg-white border border-${tag.color}`
+                const colors = isSelected ? `text-white bg-${tag.color} border-${tag.color}` : `text-${tag.color} bg-white border-${tag.color} dark:bg-black`
 
-                return <span key={i} onClick={() => onTagClick(tag)} className={`cursor-pointer inline-block rounded-min ${colors} px-2 py-1 text-xs select-none font-bold mr-2 mb-1`}>
+                return <span key={i} onClick={() => onTagClick(tag)} className={`cursor-pointer inline-block rounded-min border ${colors} px-2 py-1 text-xs select-none font-bold mr-2 mb-1`}>
                     {tag.name}
                 </span>
             })}
