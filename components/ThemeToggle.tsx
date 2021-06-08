@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { useTheme } from 'next-themes';
 import { Sun, Moon } from 'react-feather';
 
-export default function ThemeToggle()  {
+export default function ThemeToggle() {
     const { theme, setTheme } = useTheme();
 
     const dark = theme === 'dark' ? true : false;
@@ -26,6 +26,6 @@ export default function ThemeToggle()  {
     const classes = 'm-auto'
 
     return checked
-        ? <Moon className={classes} onClick={() => handleChange(false)} />
-        : <Sun className={classes} onClick={() => handleChange(true)} />
+        ? <Sun className={classes} onClick={() => handleChange(false)} />
+        : <Moon className={classes} onClick={() => handleChange(true)} />
 }

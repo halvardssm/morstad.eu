@@ -344,7 +344,7 @@ export default function Portfolio() {
                 <link rel="icon" href="/favicon.ico" />
             </Head>
 
-            <main className='pt-5 pb-5 mx-auto flex-grow flex flex-col'>
+            <main className='pt-5 pb-5 mx-auto flex-grow flex flex-col max-w-screen-2xl'>
                 <div className="w-full flex items-center mt-5 mb-5 px-6 py-2">
                     <Link href='/' >
                         <a className='mr-6'><Home /></a>
