@@ -4,6 +4,8 @@ import Head from 'next/head'
 import Link from 'next/link'
 import { Home, Link as LinkIcon } from 'react-feather';
 import Footer from "../../components/Footer";
+import { useTranslation } from 'next-i18next'
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 
 enum TAGS {
     js = "js",
@@ -16,6 +18,7 @@ enum TAGS {
     saga = "saga",
     next = "next",
     tw = "tw",
+    bootstrap = "bootstrap",
 
     java = "java",
     spring = "spring",
@@ -52,6 +55,7 @@ const _TAGS: Record<keyof typeof TAGS, string> = {
     saga: "Redux Saga",
     next: "NextJS",
     tw: "Tailwind",
+    bootstrap: "Bootstrap",
 
     java: "Java",
     spring: "Spring",
@@ -83,16 +87,14 @@ const PROJECTS = [
         title: "Nessie",
         tags: [TAGS.deno, TAGS.js, TAGS.ts, TAGS.lib, TAGS.docker, TAGS.mysql, TAGS.pg, TAGS.sqlite],
         url: "https://github.com/halvardssm/deno-nessie",
-        description:
-            "A modular Deno library for PostgreSQL, MySQL, MariaDB and SQLite migrations.",
+        description: "p_nessie_description",
     },
     {
         symbol: "📖",
         title: "Build and Deploy a REST API with Deno",
         tags: [TAGS.deno, TAGS.js, TAGS.ts, TAGS.beApp, TAGS.docker, TAGS.mysql, TAGS.pg, TAGS.sqlite, TAGS.course],
         url: "https://www.newline.co/courses/build-and-deploy-a-rest-api-with-deno",
-        description:
-            "A course on Newline.co where I teach about Deno and how to crate and deploy a REST API from scratch.",
+        description: "p_newline_course_description",
     },
     {
         symbol: "🎵",
@@ -108,23 +110,21 @@ const PROJECTS = [
             TAGS.gql,
         ],
         url: "https://github.com/SocialSlam/social-slam-frontend",
-        description:
-            "A Hackathon project where the concept is to create a live stream of people playing music together remotely.",
+        description: "p_social_slam_description",
     },
     {
         symbol: "🌍",
         title: "Translation Fetch",
         tags: [TAGS.node, TAGS.js, TAGS.ts, TAGS.lib],
         url: "https://github.com/halvardssm/package-translation-fetch",
-        description:
-            "A NPM package for syncing translations from POEditor to a repo, and then downloading them.",
+        description: "p_translation_fetch_description",
     },
     {
         symbol: "🗝",
         title: "Oak Middleware JWT",
         tags: [TAGS.deno, TAGS.js, TAGS.ts, TAGS.lib],
         url: "https://github.com/halvardssm/oak-middleware-jwt",
-        description: "A JWT middleware for the Oak server.",
+        description: "p_oak_middleware_jwt_description",
     },
     {
         symbol: "🎓",
@@ -138,8 +138,7 @@ const PROJECTS = [
             TAGS.mysql,
         ],
         url: "https://github.com/halvardssm/java-campus-management-system",
-        description:
-            "A university project used to provide an interface for room bookings across the university buildings.",
+        description: "p_tudelft_cms_description",
     },
     {
         symbol: "🐹",
@@ -149,8 +148,7 @@ const PROJECTS = [
             TAGS.lib,
         ],
         url: "https://github.com/halvardssm/go-domeneshop-client",
-        description:
-            "A Go client for domene.shop.",
+        description: "p_go_domeneshop_client_description",
     },
     {
         symbol: "☂️",
@@ -161,7 +159,7 @@ const PROJECTS = [
             TAGS.tf,
         ],
         url: "https://github.com/halvardssm/terraform-provider-domeneshop",
-        description: "A Terraform provider for Domeneshop.",
+        description: "p_terraform_domeneshop_provider_description",
     },
     {
         symbol: "♟",
@@ -174,8 +172,7 @@ const PROJECTS = [
             TAGS.game,
         ],
         url: "https://github.com/halvardssm/js-chess-has-quirks",
-        description:
-            "A university project where a creation of chess in JavaScript was required.",
+        description: "p_chess_has_quirks_description",
     },
     {
         symbol: "👾",
@@ -186,7 +183,7 @@ const PROJECTS = [
             TAGS.game,
         ],
         url: "https://github.com/CodeChroma/gmtk_2020",
-        description: "A game entry for GMTK 2020 written in c# with Unity.",
+        description: "p_gmtk_2020_description",
     },
     {
         symbol: "⚔️",
@@ -196,7 +193,7 @@ const PROJECTS = [
             TAGS.android,
         ],
         url: "https://github.com/halvardssm/munchkin-buddy",
-        description: "An Android helper application for Munchkin, the board game.",
+        description: "p_munchkin_buddy_description",
     },
     {
         symbol: "🚢",
@@ -205,7 +202,7 @@ const PROJECTS = [
             TAGS.docker,
         ],
         url: "https://github.com/halvardssm/docker-custom-images",
-        description: "A collection of custom docker images used for development.",
+        description: "p_docker_images_description",
     },
     {
         symbol: "🎴",
@@ -214,7 +211,7 @@ const PROJECTS = [
             TAGS.c,
         ],
         url: "https://github.com/halvardssm/c-checkers",
-        description: "The checkers game written in C.",
+        description: "p_c_checkers_description",
     },
     {
         symbol: "🦠",
@@ -225,9 +222,10 @@ const PROJECTS = [
             TAGS.react,
             TAGS.saga,
             TAGS.redux,
+            TAGS.bootstrap
         ],
         url: "https://github.com/codash-platform/codash",
-        description: "A COVID-19 dashboard.",
+        description: "p_codash_description",
     },
     {
         symbol: "👨🏼‍💻",
@@ -241,8 +239,7 @@ const PROJECTS = [
             TAGS.tw,
         ],
         url: "https://github.com/halvardssm/halvardssm.github.io",
-        description:
-            "This exact website, my personal portfolio.",
+        description: "p_moerstad_eu_description",
     },
 ];
 
@@ -269,7 +266,14 @@ const TAGS_MAPPED = Object.entries(_TAGS)
         };
     });
 
+    export const getStaticProps = async ({ locale }: { locale: string }) => ({
+        props: {
+          ...await serverSideTranslations(locale, ['common']),
+        },
+      })
+
 export default function Portfolio() {
+    const {t}= useTranslation()
     const [selectedTags, setSelectedTags] = React.useState<TAGS[]>([])
 
     const onTagClick = (tag: typeof TAGS_MAPPED[number]) => {
@@ -308,15 +312,7 @@ export default function Portfolio() {
                             })}
                         </div>
 
-                        <p className='p-2 md:p-4'>{project.description}</p>
-
-                        {/* <footer className="flex items-center justify-between leading-none p-2 md:p-4">
-                      <a className="no-underline text-grey-darker" href="#">
-                        <i className="fa fa-link mr-2"></i>
-                        {t('project.link_text')}
-                      </a>
-                    </footer> */}
-
+                        <p className='p-2 md:p-4'>{t(project.description)}</p>
                     </article>
                 </div>
             })
@@ -339,8 +335,8 @@ export default function Portfolio() {
     return (
         <div className='flex flex-col justify-between h-screen'>
             <Head>
-                <title>Halvard Mørstad - Portfolio</title>
-                <meta name="description" content="Portfolio" />
+                <title>{t('portfolio_title')}</title>
+                <meta name="description" content="portfolio_description" />
                 <link rel="icon" href="/favicon.ico" />
             </Head>
 
@@ -350,7 +346,7 @@ export default function Portfolio() {
                         <a className='mr-6'><Home /></a>
                     </Link>
 
-                    <h1 className='text-4xl'>Portfolio</h1>
+                    <h1 className='text-4xl'>{t('portfolio')}</h1>
                 </div>
                 <div>
                     {renderTags()}

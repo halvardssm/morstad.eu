@@ -2,7 +2,11 @@ import { useState, useEffect } from 'react';
 import { useTheme } from 'next-themes';
 import { Sun, Moon } from 'react-feather';
 
-export default function ThemeToggle() {
+export type ThemeToggleProps = {
+    className: string
+}
+
+export default function ThemeToggle(props: ThemeToggleProps) {
     const { theme, setTheme } = useTheme();
 
     const dark = theme === 'dark' ? true : false;
@@ -23,9 +27,11 @@ export default function ThemeToggle() {
 
     if (!mounted) return null;
 
-    const classes = 'm-auto'
+    const classes = 'm-auto cursor-pointer'
 
-    return checked
-        ? <Sun className={classes} onClick={() => handleChange(false)} />
-        : <Moon className={classes} onClick={() => handleChange(true)} />
+    return <div className={props.className}>
+        {checked
+            ? <Sun className={classes} onClick={() => handleChange(false)} />
+            : <Moon className={classes} onClick={() => handleChange(true)} />}
+    </div>
 }

@@ -2,7 +2,7 @@ import '../styles/globals.css'
 import type { AppProps } from 'next/app'
 import { Fragment } from 'react'
 import { ThemeProvider } from 'next-themes'
-
+import { appWithTranslation } from 'next-i18next'
 
 function App({ Component, pageProps }: AppProps) {
   return <Fragment>
@@ -11,4 +11,5 @@ function App({ Component, pageProps }: AppProps) {
     </ThemeProvider>
   </Fragment>
 }
-export default App
+
+export default appWithTranslation(App)
