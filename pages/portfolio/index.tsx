@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Emoji from '../../components/Emoji';
 import Head from 'next/head'
 import Link from 'next/link'
@@ -6,6 +6,12 @@ import { Home, Link as LinkIcon } from 'react-feather';
 import Footer from "../../components/Footer";
 import { useTranslation } from 'next-i18next'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
+
+type TagsT = {
+    name: string,
+    code: TAGS,
+    color: string,
+}
 
 enum TAGS {
     js = "js",
@@ -253,30 +259,18 @@ const TW_COLORS = [
     "pink",
 ];
 
-const TAGS_MAPPED = Object.entries(_TAGS)
-    .map((e) => {
-        const colorNumber = Math.floor(Math.random() * TW_COLORS.length);
-        const color = TW_COLORS[colorNumber];
-        const gradient = Math.floor(Math.random() * (7 - 2 + 1) + 2) * 100;
-
-        return {
-            name: e[1],
-            code: e[0] as TAGS,
-            color: `${color}-${gradient}`,
-        };
-    });
-
-    export const getStaticProps = async ({ locale }: { locale: string }) => ({
-        props: {
-          ...await serverSideTranslations(locale, ['common']),
-        },
-      })
+export const getStaticProps = async ({ locale }: { locale: string }) => ({
+    props: {
+        ...await serverSideTranslations(locale, ['common']),
+    },
+})
 
 export default function Portfolio() {
-    const {t}= useTranslation()
+    const { t } = useTranslation()
     const [selectedTags, setSelectedTags] = React.useState<TAGS[]>([])
+    const [mappedTags, setMappedTags] = useState<TagsT[] | undefined>(undefined);
 
-    const onTagClick = (tag: typeof TAGS_MAPPED[number]) => {
+    const onTagClick = (tag: TagsT) => {
         if (selectedTags.includes(tag.code)) {
             setSelectedTags(selectedTags.filter(el => el !== tag.code))
         } else {
@@ -284,7 +278,31 @@ export default function Portfolio() {
         }
     }
 
-    const renderTiles = () => {
+    const renderTags = (tags: TagsT[]) => {
+        const usedTags = new Set<TAGS>()
+
+        PROJECTS.forEach(project => {
+            project.tags.forEach(tag => {
+                usedTags.add(tag)
+            })
+        })
+
+        return <div className="flex flex-wrap p-2 md:p-4">
+            {tags
+                .filter(tag => usedTags.has(tag.code))
+                .map((tag, i) => {
+
+                    const isSelected = selectedTags.includes(tag.code)
+                    const colors = isSelected ? `text-white bg-${tag.color} border-${tag.color}` : `text-${tag.color} bg-white border-${tag.color} dark:bg-black`
+
+                    return <span key={i} onClick={() => onTagClick(tag)} className={`cursor-pointer inline-block rounded-min border ${colors} px-2 py-1 text-xs select-none font-bold mr-2 mb-1`}>
+                        {tag.name}
+                    </span>
+                })}
+        </div>
+    }
+
+    const renderTiles = (tags: TagsT[]) => {
         return PROJECTS.filter(el => selectedTags.length > 0
             ? selectedTags.some(ell => el.tags.includes(ell))
             : true)
@@ -304,7 +322,7 @@ export default function Portfolio() {
 
                         <div className="flex flex-wrap p-2 md:p-4">
                             {project.tags.map((tagCode, i) => {
-                                const tag = TAGS_MAPPED.find(el => el.code === tagCode)!
+                                const tag = tags.find(el => el.code === tagCode)!
 
                                 return <span key={i} className={`inline-block rounded-min text-white bg-${tag.color} px-2 py-1 text-xs font-bold mr-2 mb-1 dark:text-black`}>
                                     {tag.name}
@@ -318,19 +336,22 @@ export default function Portfolio() {
             })
     }
 
-    const renderTags = () => {
-        return <div className="flex flex-wrap p-2 md:p-4">
-            {TAGS_MAPPED.map((tag, i) => {
+    useEffect(() => {
+        const tags = Object.entries(_TAGS)
+            .map((e) => {
+                const colorNumber = Math.floor(Math.random() * TW_COLORS.length);
+                const color = TW_COLORS[colorNumber];
+                const gradient = Math.floor(Math.random() * (7 - 2 + 1) + 2) * 100;
 
-                const isSelected = selectedTags.includes(tag.code)
-                const colors = isSelected ? `text-white bg-${tag.color} border-${tag.color}` : `text-${tag.color} bg-white border-${tag.color} dark:bg-black`
+                return {
+                    name: e[1],
+                    code: e[0] as TAGS,
+                    color: `${color}-${gradient}`,
+                };
+            });
 
-                return <span key={i} onClick={() => onTagClick(tag)} className={`cursor-pointer inline-block rounded-min border ${colors} px-2 py-1 text-xs select-none font-bold mr-2 mb-1`}>
-                    {tag.name}
-                </span>
-            })}
-        </div>
-    }
+        setMappedTags(tags)
+    }, [])
 
     return (
         <div className='flex flex-col justify-between h-screen'>
@@ -349,10 +370,10 @@ export default function Portfolio() {
                     <h1 className='text-4xl'>{t('portfolio')}</h1>
                 </div>
                 <div>
-                    {renderTags()}
+                    {mappedTags && renderTags(mappedTags)}
                 </div>
                 <div className="masonry-1-col sm:masonry-2-col lg:masonry-3-col 2xl:masonry-4-col m-5 flex-grow">
-                    {renderTiles()}
+                    {mappedTags && renderTiles(mappedTags)}
                 </div>
             </main>
 
