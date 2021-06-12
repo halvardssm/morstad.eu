@@ -238,8 +238,8 @@ const PROJECTS = [
             TAGS.next,
             TAGS.tw,
         ],
-        url: "https://github.com/halvardssm/halvardssm.github.io",
-        description: "p_moerstad_eu_description",
+        url: "https://github.com/halvardssm/morstad.eu",
+        description: "p_morstad_eu_description",
     },
 ];
 

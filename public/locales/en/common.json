@@ -20,5 +20,5 @@
   "p_docker_images_description": "A collection of custom docker images used for development.",
   "p_c_checkers_description": "The checkers game written in C.",
   "p_codash_description": "A COVID-19 dashboard.",
-  "p_moerstad_eu_description": "This exact website, my personal portfolio."
+  "p_morstad_eu_description": "This exact website, my personal portfolio."
 }
