@@ -1,4 +1,4 @@
-import { GitHub, Twitter, Send, Linkedin, Calendar, Settings } from 'react-feather';
+import { GitHub, Twitter, Send, Linkedin, Calendar, Umbrella } from 'react-feather';
 import { Popover } from '@headlessui/react'
 import ThemeToggle from './ThemeToggle'
 import LanguageToggle from './LanguageToggle';
@@ -22,11 +22,10 @@ export default function Footer() {
                 <Send className='mx-auto' />
             </a>
             <div className="flex-auto">
-                {/* Add the following once there are more settings, and add pb-2 to footer tag */}
                 <Popover className="relative">
-                    <Popover.Button><Settings /></Popover.Button>
+                    <Popover.Button className='focus:ring-0 focus:outline-none'><Umbrella /></Popover.Button>
 
-                    <Popover.Panel className="absolute z-10 right-0 bottom-16 bg-white dark:bg-black w-28 flex flex-col p-2 py-3 rounded-sm border border-grey">
+                    <Popover.Panel className="absolute z-10 right-0 bottom-16 bg-white dark:bg-black w-40 flex flex-col p-2 py-3 rounded-sm border border-grey">
                         <LanguageToggle className='mx-full min-h-full mb-3 text-2xl' />
                         <ThemeToggle className='mx-full min-h-full' />
                     </Popover.Panel>

@@ -1,37 +1,48 @@
 import { useState, useEffect } from 'react';
 import { useTheme } from 'next-themes';
-import { Sun, Moon } from 'react-feather';
+import { Sun, Moon, Monitor } from 'react-feather';
+
+type Theme = 'system' | 'dark' | 'light'
+const themes: Theme[] = ['system', 'dark', 'light']
 
 export type ThemeToggleProps = {
     className: string
 }
 
+export function isTheme(theme: unknown): theme is Theme {
+    return typeof theme === 'string' && themes.includes(theme as Theme)
+}
+
 export default function ThemeToggle(props: ThemeToggleProps) {
     const { theme, setTheme } = useTheme();
 
-    const dark = theme === 'dark' ? true : false;
+    const initialTheme: Theme = isTheme(theme) ? theme : 'system'
 
-    const [checked, setChecked] = useState(dark);
+    const [localTheme, setLocalTheme] = useState<Theme>(initialTheme);
     const [mounted, setMounted] = useState(false);
-
-    const handleChange = (nextChecked: boolean) => {
-        setChecked(nextChecked);
-    };
 
     // When mounted on client, now we can show the UI
     useEffect(() => setMounted(true), []);
 
     useEffect(() => {
-        setTheme(checked ? 'dark' : 'light');
-    }, [checked, setTheme]);
+        setTheme(localTheme);
+    }, [localTheme, setTheme]);
 
     if (!mounted) return null;
 
-    const classes = 'm-auto cursor-pointer'
+    const iconProps = { className: 'inline-block mr-2 mb-1', size: 18 }
 
     return <div className={props.className}>
-        {checked
-            ? <Sun className={classes} onClick={() => handleChange(false)} />
-            : <Moon className={classes} onClick={() => handleChange(true)} />}
+        {theme === 'light'
+            ? <Sun {...iconProps} />
+            : theme === 'dark'
+                ? <Moon {...iconProps} />
+                : <Monitor {...iconProps} />}
+
+        <select className='inline-block focus:ring-0 focus:outline-none' name="themes" id="theme-select" onChange={e => setLocalTheme(e.target.value as Theme)}>
+            {themes.map(el => {
+                return <option value={el}>{el}</option>
+            })}
+        </select>
     </div>
 }
