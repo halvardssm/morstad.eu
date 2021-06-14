@@ -1,13 +1,13 @@
-import React from 'react';
-import twemoji from 'twemoji'
+import React from "react";
+import twemoji from "twemoji";
 
 interface EmojiProps {
   label?: string;
   symbol: string;
-  className?: string
+  className?: string;
 }
 
-const Emoji: React.FC<EmojiProps> = props => (
+const Emoji: React.FC<EmojiProps> = (props) => (
   <span
     className={`emoji ${props.className}`}
     role="img"
@@ -17,11 +17,12 @@ const Emoji: React.FC<EmojiProps> = props => (
     <span
       dangerouslySetInnerHTML={{
         __html: twemoji.parse(props.symbol, {
-          folder: 'svg',
-          ext: '.svg'
-        })
+          folder: "svg",
+          ext: ".svg",
+        }),
       }}
     />
-  </span>);
+  </span>
+);
 
 export default Emoji;
