@@ -254,7 +254,7 @@ const PROJECTS = [
   },
   {
     symbol: "👨🏼‍💻",
-    title: "halvardssm.github.io",
+    title: "morstad.eu",
     tags: [
       TAGS.react,
       TAGS.js,
