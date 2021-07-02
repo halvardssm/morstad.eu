@@ -43,7 +43,7 @@ export default function Footer() {
       >
         <Calendar className="mx-auto" />
       </a>
-      <a href="mailto:jobs@moerstad.no" target="_blank" className="flex-auto">
+      <a href="mailto:jobs@morstad.eu" target="_blank" className="flex-auto">
         <Send className="mx-auto" />
       </a>
       <div className="flex-auto">
