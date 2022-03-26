@@ -5,11 +5,13 @@ import { ThemeProvider } from "next-themes";
 import { appWithTranslation } from "next-i18next";
 
 function App({ Component, pageProps }: AppProps) {
-  return <Fragment>
-    <ThemeProvider attribute="class">
-      <Component {...pageProps} />
-    </ThemeProvider>
-  </Fragment>;
+  return (
+    <Fragment>
+      <ThemeProvider attribute="class">
+        <Component {...pageProps} />
+      </ThemeProvider>
+    </Fragment>
+  );
 }
 
 export default appWithTranslation(App);

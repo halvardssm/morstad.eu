@@ -16,6 +16,8 @@ const Emoji: React.FC<EmojiProps> = (props) => (
   >
     <span
       dangerouslySetInnerHTML={{
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        // @ts-ignore
         __html: twemoji.parse(props.symbol, {
           folder: "svg",
           ext: ".svg",

@@ -6,7 +6,7 @@ module.exports = {
 
   safelist: [
     {
-      pattern:/(bg|text|border)-(.*)-(\d{1}0{1,2})/,
+      pattern: /(bg|text|border)-(.*)-(\d{1}0{1,2})/,
     },
   ],
   darkMode: "class",

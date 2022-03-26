@@ -8,7 +8,10 @@
     "build": "next build",
     "start": "next start",
     "export": "next export",
-    "deploy": "gh-pages -d dist"
+    "deploy": "gh-pages -d dist",
+    "format": "prettier --write \"{components,pages,public,styles}/**/*.{ts,tsx,json,md}\" \"*.{js,json,md}\"",
+    "format:check": "prettier --check \"{components,pages,public,styles}/**/*.{ts,tsx,json,md}\" \"*.{js,json,md}\"",
+    "lint": "echo 'checking eslint' && eslint components pages && echo 'eslint complete\nchecking tsc' && tsc --noEmit && echo 'tsc complete'"
   },
   "dependencies": {
     "@emotion/css": "^11.7.1",

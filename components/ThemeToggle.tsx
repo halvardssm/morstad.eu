@@ -34,17 +34,13 @@ export default function ThemeToggle(props: ThemeToggleProps) {
 
   return (
     <div className={props.className}>
-      {theme === "light"
-        ? (
-          <Sun {...iconProps} />
-        )
-        : theme === "dark"
-        ? (
-          <Moon {...iconProps} />
-        )
-        : (
-          <Monitor {...iconProps} />
-        )}
+      {theme === "light" ? (
+        <Sun {...iconProps} />
+      ) : theme === "dark" ? (
+        <Moon {...iconProps} />
+      ) : (
+        <Monitor {...iconProps} />
+      )}
 
       <select
         name="themes"

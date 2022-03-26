@@ -21,15 +21,19 @@ export default function LanguageToggle(props: LanguageToggleProps) {
 
   const locales = i18nextConfig.i18n.locales || [];
 
-  return <div className={`flex flex-row justify-around ${props.className}`}>
-    {locales.map((lng) => {
-      return <div
-        className="m-auto cursor-pointer"
-        key={lng}
-        onClick={() => changeLanguage(lng)}
-      >
-        <Emoji symbol={languageMap[lng]} />
-      </div>;
-    })}
-  </div>;
+  return (
+    <div className={`flex flex-row justify-around ${props.className}`}>
+      {locales.map((lng) => {
+        return (
+          <div
+            className="m-auto cursor-pointer"
+            key={lng}
+            onClick={() => changeLanguage(lng)}
+          >
+            <Emoji symbol={languageMap[lng]} />
+          </div>
+        );
+      })}
+    </div>
+  );
 }

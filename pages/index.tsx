@@ -7,7 +7,7 @@ import { useTranslation } from "next-i18next";
 
 export const getStaticProps = async ({ locale }: { locale: string }) => ({
   props: {
-    ...await serverSideTranslations(locale, ["common"]),
+    ...(await serverSideTranslations(locale, ["common"])),
   },
 });
 
@@ -23,6 +23,7 @@ export default function Home() {
   function getAge(birthDate: string) {
     const birthdate = new Date(birthDate);
     const cur = new Date();
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore works
     const diff = cur - birthdate;
     return Math.floor(diff / 31536000000);
@@ -40,9 +41,7 @@ export default function Home() {
         <h1 className="text-6xl font-medium text-center">{t("name")}</h1>
       </header>
 
-      <main
-        className="pt-5 pb-5 flex flex-col justify-center max-w-5xl mx-5 lg:mx-auto"
-      >
+      <main className="pt-5 pb-5 flex flex-col justify-center max-w-5xl mx-5 lg:mx-auto">
         <div
           className="max-w-4xl text-justify text-last-center"
           dangerouslySetInnerHTML={{
@@ -54,9 +53,7 @@ export default function Home() {
         />
 
         <Link href="/portfolio">
-          <a
-            className="mt-20 flex flex-row justify-center no-underline hover:underline"
-          >
+          <a className="mt-20 flex flex-row justify-center no-underline hover:underline">
             <code>{t("portfolio_link")}</code>
             <Coffee className="mx-2" />
           </a>
