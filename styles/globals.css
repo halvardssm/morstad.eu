@@ -16,32 +16,30 @@
     text-align-last: justify;
   }
 
-  @variants responsive {
-    .masonry-4-col {
-      column-count: 4;
-      column-gap: 0.5rm;
-    }
-    .masonry-3-col {
-      column-count: 3;
-      column-gap: 0.5rm;
-    }
-    .masonry-2-col {
-      column-count: 2;
-      column-gap: 0.5rm;
-    }
-    .masonry-1-col {
-      column-count: 1;
-      column-gap: 0.5rm;
-    }
-    .break-inside {
-      break-inside: avoid;
-    }
-    .emoji {
-      display: inline-block;
-      width: auto;
-      height: 1em;
-      vertical-align: -0.125em;
-    }
+  .masonry-4-col {
+    column-count: 4;
+    column-gap: 0.5rm;
+  }
+  .masonry-3-col {
+    column-count: 3;
+    column-gap: 0.5rm;
+  }
+  .masonry-2-col {
+    column-count: 2;
+    column-gap: 0.5rm;
+  }
+  .masonry-1-col {
+    column-count: 1;
+    column-gap: 0.5rm;
+  }
+  .break-inside {
+    break-inside: avoid;
+  }
+  .emoji {
+    display: inline-block;
+    width: auto;
+    height: 1em;
+    vertical-align: -0.125em;
   }
 }
 
