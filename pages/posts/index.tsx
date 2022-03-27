@@ -1,41 +1,29 @@
 import React from "react";
-import Emoji from "../../components/Emoji";
-import Head from "../../components/Head";
-import { Link as LinkIcon } from "react-feather";
-import Footer from "../../components/Footer";
-import { useTranslation } from "next-i18next";
-import { serverSideTranslations } from "next-i18next/serverSideTranslations";
-import { Header } from "../../components/Header";
-import { Tags, TagT } from "../../components/Tags";
-import Masonry from "../../components/Masonry";
+import { getAllPosts, PostT } from "../../lib/api";
+import Link from "next/link";
 import Container from "../../components/Container";
+import { Layout } from "../../components/Layout";
+import Head from "../../components/Head";
+import { useTranslation } from "next-i18next";
+import { Header } from "../../components/Header";
 import Card from "../../components/Card";
-import { getAllProjects, ProjectT } from "../../lib/api";
 import { useMappedTags } from "../../lib/hooks/useMappedTags";
+import { Tags, TagT } from "../../components/Tags";
 import { TAGS } from "../../lib/contstants";
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 
-export async function getStaticProps({ locale }: { locale: string }) {
-  const { _nextI18Next } = await serverSideTranslations(locale, ["common"]);
-  const projects = getAllProjects();
-  return {
-    props: {
-      _nextI18Next,
-      projects,
-    },
-  };
-}
-
-export default function Portfolio({ projects }: { projects: ProjectT[] }) {
+export default function Posts({ posts }: { posts: PostT[] }) {
   const { t } = useTranslation();
   const [mappedTags, setIsSelected] = useMappedTags();
   const [selectedTags, setSelectedTags] = React.useState<string[]>([]);
 
   const renderTags = () => {
     if (!mappedTags) return null;
+
     const usedTags = new Set<string>();
 
-    projects.forEach((project) => {
-      project.tags.forEach((tag) => {
+    posts.forEach((post) => {
+      post.tags?.forEach((tag) => {
         usedTags.add(tag);
         if (TAGS[tag] === undefined)
           console.warn(`Tag '${tag}' is not defined`);
@@ -57,33 +45,26 @@ export default function Portfolio({ projects }: { projects: ProjectT[] }) {
     return <Tags tags={tags} onTagClick={(tag) => onTagClick(tag)} />;
   };
 
-  const renderTiles = () => {
+  const renderList = () => {
     if (!mappedTags) return null;
 
-    const tiles = projects
-      .filter((el) =>
-        selectedTags.length > 0
-          ? selectedTags.some((it) => (el.tags as string[]).includes(it))
-          : true
-      )
-      .map((project) => {
-        return (
-          <Card>
+    return (
+      <div className="flex flex-col flex-grow space-y-4 m-5">
+        {posts.map((post) => (
+          <Card key={post.slug}>
             <header className="flex items-center justify-between leading-tight mb-2 md:mb-4">
               <h2 className="text-lg">
-                <a
-                  className="no-underline hover:underline text-black dark:text-white"
-                  href={project.url}
-                >
-                  <Emoji symbol={project.symbol} className="mr-2" />
-                  {project.title}
-                  <LinkIcon className="inline-block ml-2" size={16} />
-                </a>
+                <Link href={`/posts/${post.slug}`}>
+                  <a className="no-underline hover:underline text-black dark:text-white">
+                    {post.title}
+                  </a>
+                </Link>
               </h2>
+              <small className="ml-5">{post.date}</small>
             </header>
 
             <div className="flex flex-wrap mb-2 md:mb-4">
-              {project.tags.map((tagCode, i) => {
+              {post.tags?.map((tagCode, i) => {
                 const tag = mappedTags.find(
                   (el) => el.code === tagCode
                 ) as TagT;
@@ -99,29 +80,34 @@ export default function Portfolio({ projects }: { projects: ProjectT[] }) {
               })}
             </div>
 
-            <p>{t(project.description)}</p>
+            {/*<p>{ t(project.description) }</p>*/}
           </Card>
-        );
-      });
-
-    return <Masonry elements={tiles} />;
+        ))}
+      </div>
+    );
   };
 
   return (
-    <div className="flex flex-col justify-between h-screen">
-      <Head
-        title={t("portfolio_title")}
-        description={t("portfolio_description")}
-      />
-
-      <Container wide footer>
-        <Header title={t("portfolio")} />
-
+    <Layout>
+      <Head title={t("posts_title")} description={t("posts_description")} />
+      <Container>
+        <Header title={t("posts")} />
         {renderTags()}
-        {renderTiles()}
+        {renderList()}
       </Container>
-
-      <Footer />
-    </div>
+    </Layout>
   );
+}
+
+export async function getStaticProps({ locale }: { locale: string }) {
+  const { _nextI18Next } = await serverSideTranslations(locale, ["common"]);
+
+  const posts = getAllPosts(["title", "date", "slug", "tags"]);
+
+  return {
+    props: {
+      _nextI18Next,
+      posts,
+    },
+  };
 }

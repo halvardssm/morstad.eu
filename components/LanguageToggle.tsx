@@ -1,5 +1,5 @@
 import { useRouter } from "next/router";
-import i18nextConfig from "../next-i18next.config";
+import { i18n } from "../next-i18next.config.js";
 import Emoji from "./Emoji";
 
 export type LanguageToggleProps = {
@@ -19,7 +19,7 @@ export default function LanguageToggle(props: LanguageToggleProps) {
     router.push(router.pathname, router.pathname, { locale: language });
   };
 
-  const locales = i18nextConfig.i18n.locales || [];
+  const locales = i18n.locales || [];
 
   return (
     <div className={`flex flex-row justify-around ${props.className}`}>
