@@ -63,7 +63,7 @@ export default function Portfolio({ projects }: { projects: ProjectT[] }) {
     const tiles = projects
       .filter((el) =>
         selectedTags.length > 0
-          ? selectedTags.some((it) => (el.tags as string[]).includes(it))
+          ? selectedTags.some((it) => el.tags.includes(it))
           : true
       )
       .map((project) => {

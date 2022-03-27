@@ -7,7 +7,7 @@ export type PostT = {
   content: string;
   title: string;
   date: string;
-  tags?: string[];
+  tags: string[];
   [key: string]: unknown;
 };
 

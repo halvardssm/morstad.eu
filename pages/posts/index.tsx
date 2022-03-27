@@ -50,39 +50,45 @@ export default function Posts({ posts }: { posts: PostT[] }) {
 
     return (
       <div className="flex flex-col flex-grow space-y-4 m-5">
-        {posts.map((post) => (
-          <Card key={post.slug}>
-            <header className="flex items-center justify-between leading-tight mb-2 md:mb-4">
-              <h2 className="text-lg">
-                <Link href={`/posts/${post.slug}`}>
-                  <a className="no-underline hover:underline text-black dark:text-white">
-                    {post.title}
-                  </a>
-                </Link>
-              </h2>
-              <small className="ml-5">{post.date}</small>
-            </header>
+        {posts
+          .filter((el) =>
+            selectedTags.length > 0
+              ? selectedTags.some((it) => el.tags?.includes(it))
+              : true
+          )
+          .map((post) => (
+            <Card key={post.slug}>
+              <header className="flex items-center justify-between leading-tight mb-2 md:mb-4">
+                <h2 className="text-lg">
+                  <Link href={`/posts/${post.slug}`}>
+                    <a className="no-underline hover:underline text-black dark:text-white">
+                      {post.title}
+                    </a>
+                  </Link>
+                </h2>
+                <small className="ml-5">{post.date}</small>
+              </header>
 
-            <div className="flex flex-wrap mb-2 md:mb-4">
-              {post.tags?.map((tagCode, i) => {
-                const tag = mappedTags.find(
-                  (el) => el.code === tagCode
-                ) as TagT;
+              <div className="flex flex-wrap mb-2 md:mb-4">
+                {post.tags?.map((tagCode, i) => {
+                  const tag = mappedTags.find(
+                    (el) => el.code === tagCode
+                  ) as TagT;
 
-                return (
-                  <span
-                    key={i}
-                    className={`inline-block rounded-min text-white bg-${tag.color} px-2 py-1 text-xs font-bold mr-2 mb-1 dark:text-black`}
-                  >
-                    {tag.name}
-                  </span>
-                );
-              })}
-            </div>
+                  return (
+                    <span
+                      key={i}
+                      className={`inline-block rounded-min text-white bg-${tag.color} px-2 py-1 text-xs font-bold mr-2 mb-1 dark:text-black`}
+                    >
+                      {tag.name}
+                    </span>
+                  );
+                })}
+              </div>
 
-            {/*<p>{ t(project.description) }</p>*/}
-          </Card>
-        ))}
+              {/*<p>{ t(project.description) }</p>*/}
+            </Card>
+          ))}
       </div>
     );
   };
