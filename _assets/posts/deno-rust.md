@@ -2,6 +2,7 @@
 title: Increase Performance of Your Deno Application with Rust
 date: "2022-03-27"
 tags: [deno, rust]
+codeFolderLink: https://github.com/halvardssm/blog-code/tree/main/code/deno_rust
 ---
 
 # Increase Performance of Your Deno Application with Rust

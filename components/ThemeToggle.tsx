@@ -6,7 +6,7 @@ type Theme = "system" | "dark" | "light";
 const themes: Theme[] = ["system", "dark", "light"];
 
 export type ThemeToggleProps = {
-  className: string;
+  className?: string;
 };
 
 export function isTheme(theme: unknown): theme is Theme {

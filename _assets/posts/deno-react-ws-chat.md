@@ -2,6 +2,7 @@
 title: Realtime chat application with Deno and React
 date: "2022-03-29"
 tags: [deno, react, ws]
+codeFolderLink: https://github.com/halvardssm/blog-code/tree/main/code/deno_rtc
 ---
 
 # Realtime chat application with Deno and React

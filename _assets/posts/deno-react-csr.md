@@ -2,6 +2,7 @@
 title: React CSR with Deno
 date: "2022-03-28"
 tags: [deno, react]
+codeFolderLink: https://github.com/halvardssm/blog-code/tree/main/code/deno_react
 ---
 
 # React CSR with Deno

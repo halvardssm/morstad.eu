@@ -8,6 +8,7 @@ export type PostT = {
   title: string;
   date: string;
   tags: string[];
+  codeFolderLink?:string
   [key: string]: unknown;
 };
 
