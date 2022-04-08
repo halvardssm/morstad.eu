@@ -6,6 +6,8 @@ tags: [deno]
 
 # Introduction to Deno
 
+> This post is related to my course ['Build and Deploy a REST API with Deno' on Newline.co](https://www.newline.co/courses/build-and-deploy-a-rest-api-with-deno). Take a look if you are interested in learning more!
+
 In preparation for the launch of my new course (and to get you all a bit hyped), this is part 1 in a miniseries about Deno. In this post, you will be introduced to Deno, and hopefully become addicted to its easy entry requirements compared to Node (although I do not expect you to immediately port all your projects over as not every NPM module is compatible at this point in time).
 
 ## History of Deno

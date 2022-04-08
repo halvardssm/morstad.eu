@@ -7,6 +7,8 @@ codeFolderLink: https://github.com/halvardssm/blog-code/tree/main/code/deno_reac
 
 # React CSR with Deno
 
+> This post is related to my course ['Build and Deploy a REST API with Deno' on Newline.co](https://www.newline.co/courses/build-and-deploy-a-rest-api-with-deno). Take a look if you are interested in learning more!
+
 When you think of building a React app, the first thing you most likely consider is which build tool to use. Coming from Node, there are at least a dozen different ones, including [Parcel](https://parceljs.org/), [WebPack](https://webpack.js.org/) and many more. The headache with many of these tools is that we often have different requirements, including TypeScript support, experimental features, bundling with compatibility support, and often it takes us longer than expected to get into the actual development as you have to set up your build tool first. Deno by itself is not (yet at least) the solution to the problem, but it does get us a step along the way, and if you are really passionate, you can even create an entire React app using it. This guide is meant for the more adventurous of the developers out there, so don't expect to create your next company web app using this guide (take a look at [Aleph.js](https://alephjs.org/) if you want to go the Deno route).
 
 ## Basics of a React App

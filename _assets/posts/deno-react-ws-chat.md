@@ -7,6 +7,8 @@ codeFolderLink: https://github.com/halvardssm/blog-code/tree/main/code/deno_rtc
 
 # Realtime chat application with Deno and React
 
+> This post is related to my course ['Build and Deploy a REST API with Deno' on Newline.co](https://www.newline.co/courses/build-and-deploy-a-rest-api-with-deno). Take a look if you are interested in learning more!
+
 In this post, we will take a look at how to create a chat application by using Deno as our build tool for the frontend and backend. For our frontend, we will use the same setup with React as in the [previous blogpost](/posts/deno-react-csr), while the backend will be vanilla Deno.
 
 For the chat functionality, we will be using WebSockets and also storing the chat on the server to provide a historical chat log. To keep the application simple, we will not require a login, and we will also skip validation and sanitation of messages.
