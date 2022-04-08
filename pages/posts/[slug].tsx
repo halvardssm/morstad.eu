@@ -43,7 +43,7 @@ export default function PostPage({ post }: { post: PostT }) {
   function CodeFolderLink() {
     if (!post.codeFolderLink) return null;
     return (
-      <div className="p-2 mb-5 bg-gray-100">
+      <div className="p-2 mb-5 bg-gray-100 dark:bg-black">
         This post has a connected code folder that you can find{" "}
         <a
           className="no-underline hover:underline font-semibold cursor-pointer"
