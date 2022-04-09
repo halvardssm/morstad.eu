@@ -201,7 +201,9 @@ The first thing to notice is that it looks pretty much like a standard npm proje
 Now that we have our WASM compiled Rust code ready for import, we can now import it into our `main.ts` file. Add the following two lines to the top of the file.
 
 ```ts
-import init, { fibonacci as fibonacciWasm } from "./rs_helpers_wasm/pkg/rs_helpers_wasm.js";
+import init, {
+  fibonacci as fibonacciWasm,
+} from "./rs_helpers_wasm/pkg/rs_helpers_wasm.js";
 
 await init();
 ```
@@ -223,7 +225,9 @@ timeRs();
 Yes, it is this easy to import and use the Rust code in our JS file! The entire file should now look something like this.
 
 ```ts
-import init, { fibonacci as fibonacciWasm } from "./rs_helpers_wasm/pkg/rs_helpers_wasm.js";
+import init, {
+  fibonacci as fibonacciWasm,
+} from "./rs_helpers_wasm/pkg/rs_helpers_wasm.js";
 
 const FIBONACCI_NUMBER = 42;
 
@@ -351,7 +355,9 @@ If you have a sharp eye, you will also see that we added permissions to the `run
 If everything is compiled without issues, it is time to import the bindings into our `main.ts`.
 
 ```ts
-import init, { fibonacci as fibonacciWasm } from "./rs_helpers_wasm/pkg/rs_helpers_wasm.js";
+import init, {
+  fibonacci as fibonacciWasm,
+} from "./rs_helpers_wasm/pkg/rs_helpers_wasm.js";
 import { fibonacci as fibonacciC } from "./rs_helpers_c/bindings/bindings.ts";
 
 const FIBONACCI_NUMBER = 43;
@@ -390,7 +396,7 @@ function timeC() {
 
 timeJs();
 timeWasm();
-timeC()
+timeC();
 ```
 
 So, assuming your excitement and anticipation are through the roof, we will not run `make run`. You should get an output similar to this.

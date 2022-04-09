@@ -18,7 +18,9 @@ So what exactly is needed to create a React app? Well, in its basics, React is j
 ```html
 <!DOCTYPE html>
 <html lang="en">
-<body>Hello world!</body>
+  <body>
+    Hello world!
+  </body>
 </html>
 ```
 
@@ -39,33 +41,35 @@ So how can we add React to this page without needing any external tools? Well, H
 ```html
 <!DOCTYPE html>
 <html lang="en">
-<body>
-Hello, world!
+  <body>
+    Hello, world!
 
-<div id="like_button_container"></div>
+    <div id="like_button_container"></div>
 
-<script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
-<script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+    <script
+      src="https://unpkg.com/react@17/umd/react.development.js"
+      crossorigin
+    ></script>
+    <script
+      src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"
+      crossorigin
+    ></script>
 
-<script>
-  'use strict'
+    <script>
+      "use strict";
 
-  const e = React.createElement
+      const e = React.createElement;
 
-  const LikeButton = () => {
-    const [liked, setLiked] = React.useState(false)
-    if (liked) return 'You liked this.'
-    return e(
-      'button',
-      { onClick: () => setLiked(true) },
-      'Like'
-    )
-  }
+      const LikeButton = () => {
+        const [liked, setLiked] = React.useState(false);
+        if (liked) return "You liked this.";
+        return e("button", { onClick: () => setLiked(true) }, "Like");
+      };
 
-  const domContainer = document.querySelector('#like_button_container')
-  ReactDOM.render(e(LikeButton), domContainer)
-</script>
-</body>
+      const domContainer = document.querySelector("#like_button_container");
+      ReactDOM.render(e(LikeButton), domContainer);
+    </script>
+  </body>
 </html>
 ```
 
@@ -82,28 +86,34 @@ One thing to notice is that this is all standard JS, so if you want to use the p
 ```html
 <!DOCTYPE html>
 <html lang="en">
-<body>
-Hello, world!
+  <body>
+    Hello, world!
 
-<div id="like_button_container"></div>
+    <div id="like_button_container"></div>
 
-<script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
-<script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
-<script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    <script
+      src="https://unpkg.com/react@17/umd/react.development.js"
+      crossorigin
+    ></script>
+    <script
+      src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"
+      crossorigin
+    ></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
 
-<script type="text/babel">
-  'use strict'
+    <script type="text/babel">
+      "use strict";
 
-  const LikeButton = () => {
-    const [liked, setLiked] = React.useState(false)
-    if (liked) return 'You liked this.'
-    return <button onClick={() => setLiked(true)}>Like</button>
-  }
+      const LikeButton = () => {
+        const [liked, setLiked] = React.useState(false);
+        if (liked) return "You liked this.";
+        return <button onClick={() => setLiked(true)}>Like</button>;
+      };
 
-  const domContainer = document.querySelector('#like_button_container')
-  ReactDOM.render(<LikeButton/>, domContainer)
-</script>
-</body>
+      const domContainer = document.querySelector("#like_button_container");
+      ReactDOM.render(<LikeButton />, domContainer);
+    </script>
+  </body>
 </html>
 ```
 
@@ -116,11 +126,11 @@ Now that you have a basic understanding of how React works with an HTML page, we
 ```html
 <!DOCTYPE html>
 <html lang="en">
-<body>
-Hello, world!
-<div id="app"></div>
-<script type="module" src="index.js"></script>
-</body>
+  <body>
+    Hello, world!
+    <div id="app"></div>
+    <script type="module" src="index.js"></script>
+  </body>
 </html>
 ```
 
@@ -170,13 +180,10 @@ Now if you are not too familiar with Makefiles, I will give you a quick run-up o
 
 Now if you run `make bundle` you will see that you get a TypeScript error complaining that you need to change your target libraries. Create a `deno.jsonc` file, and add the following lines to it. This will tell Deno that we want to use the browser and the latest ES configuration when bundling. If you want to learn more about Deno config, take a look at the [first post](/posts/deno-introduction) in this series, or the [official docs](https://deno.land/manual/getting_started/configuration_file).
 
-```json5
+```json
 {
   "compilerOptions": {
-    "lib": [
-      "dom",
-      "esnext"
-    ]
+    "lib": ["dom", "esnext"]
   }
 }
 ```
@@ -188,6 +195,3 @@ Try to run `make bundle` again, and this time id should not throw any errors. Ta
 Well done! You have now completed the mini-lesson on how to use Deno to bundle your React app! Although it is not yet fully optimized for production, you can avoid many of the headaches you would usually have when using Node. Share your websites [here](https://github.com/halvardssm/blog-code/blob/main/deno-react-cra.md) for others to draw inspiration from!
 
 See you around! 👋🏻
-
-
-

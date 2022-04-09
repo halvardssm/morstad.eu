@@ -34,18 +34,19 @@ As we know from the Deno manual, the simplest way of creating a server is by usi
 ```ts
 import { serve } from "https://deno.land/std/http/server.ts";
 
-serve((req) => {
-
-}, { port: 8000 })
+serve((req) => {}, { port: 8000 });
 ```
 
 Now that the server is ready, we can add the WebSocket server integration. To do this, we use the built-in [upgradeWebSocket](https://doc.deno.land/deno/stable/~/Deno.upgradeWebSocket) to initiate the socket and create a response. Change the server to the following.
 
 ```ts
-serve((req) => {
-  const { socket, response } = Deno.upgradeWebSocket(req);
-  return response;
-}, { port: 8000 })
+serve(
+  (req) => {
+    const { socket, response } = Deno.upgradeWebSocket(req);
+    return response;
+  },
+  { port: 8000 }
+);
 ```
 
 Voilà! The WebSocket server is initiated! Ok, but we won't be able to do much with only this. For the socket connection to be properly configured, we need to handle a couple of different events (you can see details for the events [here](https://developer.mozilla.org/docs/Web/API/WebSocket#events)):
@@ -67,35 +68,38 @@ const messages: Message[] = [];
 const participants = new Map<number, WebSocket>();
 let participantId = 1;
 
-serve((req) => {
-  const { socket, response } = Deno.upgradeWebSocket(req);
-  const socketId = participantId++;
+serve(
+  (req) => {
+    const { socket, response } = Deno.upgradeWebSocket(req);
+    const socketId = participantId++;
 
-  socket.onopen = () => {
-    participants.set(socketId, socket);
-    console.log(
-      `Participant ${ socketId } has entered. Current participants: ${ participants.size }`,
-    );
-  };
+    socket.onopen = () => {
+      participants.set(socketId, socket);
+      console.log(
+        `Participant ${socketId} has entered. Current participants: ${participants.size}`
+      );
+    };
 
-  socket.onmessage = (e) => {
-    console.log(`Message received from participant ${ socketId }:`, e.data);
-  };
+    socket.onmessage = (e) => {
+      console.log(`Message received from participant ${socketId}:`, e.data);
+    };
 
-  socket.onclose = () => {
-    participants.delete(socketId);
-    console.log(
-      `Participant ${ socketId } has left. Current participants: ${ participants.size }`,
-    );
-  };
+    socket.onclose = () => {
+      participants.delete(socketId);
+      console.log(
+        `Participant ${socketId} has left. Current participants: ${participants.size}`
+      );
+    };
 
-  socket.onerror = (e) => {
-    participants.delete(socketId);
-    console.error("WebSocket error:", e);
-  };
+    socket.onerror = (e) => {
+      participants.delete(socketId);
+      console.error("WebSocket error:", e);
+    };
 
-  return response;
-}, { port: 8000 });
+    return response;
+  },
+  { port: 8000 }
+);
 ```
 
 ## The Client (part 1)
@@ -104,13 +108,10 @@ Now that we have a basic setup for our server, we can move on to the client. For
 
 Since we need to bundle for the web, start by adding a deno config file `deno.client.jsonc`. This will ensure that Deno will use the correct typings when transpiling TSX.
 
-```json5
+```json
 {
   "compilerOptions": {
-    "lib": [
-      "dom",
-      "esnext"
-    ]
+    "lib": ["dom", "esnext"]
   }
 }
 ```
@@ -120,10 +121,10 @@ Let's move on to the actual code. As always, start with this minimal codebase fo
 ```html
 <!DOCTYPE html>
 <html lang="en">
-<body>
-<div id="app"></div>
-<script type="module" src="client.js"></script>
-</body>
+  <body>
+    <div id="app"></div>
+    <script type="module" src="client.js"></script>
+  </body>
 </html>
 ```
 
@@ -159,14 +160,11 @@ const App: FC = () => {
     };
   }, []);
 
-  return (
-    <>
-    </>
-  );
+  return <></>;
 };
 
 const app = document.getElementById("app");
-ReactDOM.render(<App/>, app);
+ReactDOM.render(<App />, app);
 ```
 
 Exciting, no? Now lastly before we try it out, we can add the following to a `Makefile`.
@@ -205,13 +203,15 @@ Once you have confirmed that the server and client both work and that the connec
 In your `shared.ts` file, add a new interface to symbolize the above messages.
 
 ```ts
-export type WsMessage = {
-  type: "backlog";
-  messages: Message[];
-} | {
-  type: "message";
-  message: Message;
-};
+export type WsMessage =
+  | {
+      type: "backlog";
+      messages: Message[];
+    }
+  | {
+      type: "message";
+      message: Message;
+    };
 ```
 
 ## The Server (part 2)
@@ -224,7 +224,7 @@ The `open` handler should send a message to the client with the chat history.
 socket.onopen = () => {
   participants.set(socketId, socket);
   console.log(
-    `Participant ${ socketId } has entered. Current participants: ${ participants.size }`,
+    `Participant ${socketId} has entered. Current participants: ${participants.size}`
   );
   socket.send(JSON.stringify(<WsMessage>{ type: "backlog", messages }));
 };
@@ -234,15 +234,14 @@ The `onmessage` handler should be altered to handle incoming messages, and as th
 
 ```ts
 socket.onmessage = (e) => {
-  console.log(`Message received from participant ${ socketId }:`, e.data);
+  console.log(`Message received from participant ${socketId}:`, e.data);
   const msg: WsMessage = JSON.parse(e.data);
   if (msg.type === "message") {
     messages.push(msg.message);
     participants.delete(socketId);
     participants.forEach((ws) => {
-        ws.send(e.data);
-      },
-    );
+      ws.send(e.data);
+    });
   }
 };
 ```
@@ -305,7 +304,12 @@ socket.current.onmessage = (m) => {
 Lastly, we need to update the HTML to allow for input. We need a name field, a message field, and finally also a chat log list. For this post, we won't focus on the visuals, but feel free to go on a UI rampage. In the end, your `client.tsx` file should look like this.
 
 ```tsx
-import React, { useState, useEffect, useRef, FC } from "https://esm.sh/react@17";
+import React, {
+  useState,
+  useEffect,
+  useRef,
+  FC,
+} from "https://esm.sh/react@17";
 import ReactDOM from "https://esm.sh/react-dom@17";
 import { Message, WsMessage } from "./shared.ts";
 
@@ -366,28 +370,29 @@ const App: FC = () => {
   return (
     <>
       <p>Name</p>
-      <input value={ name } onChange={ (e) => setName(e.target.value) }/>
-      <hr/>
+      <input value={name} onChange={(e) => setName(e.target.value)} />
+      <hr />
       <input
-        value={ newMessage }
-        onChange={ (e) => setNewMessage(e.target.value) }
+        value={newMessage}
+        onChange={(e) => setNewMessage(e.target.value)}
       />
-      <button onClick={ () => sendMessage() }>Send</button>
+      <button onClick={() => sendMessage()}>Send</button>
       <div>
-        { messages.map((msg) => (
+        {messages.map((msg) => (
           <p>
             <small>
-              { msg.timestamp } / <b>{ msg.from }</b>
-            </small>: { msg.body }
+              {msg.timestamp} / <b>{msg.from}</b>
+            </small>
+            : {msg.body}
           </p>
-        )) }
+        ))}
       </div>
     </>
   );
 };
 
 const app = document.getElementById("app");
-ReactDOM.render(<App/>, app);
+ReactDOM.render(<App />, app);
 ```
 
 If you now run `make dev` again, you should be able to open two tabs and send messages between the tabs. Try it out for yourself!

@@ -9,8 +9,8 @@
     "start": "next start",
     "export": "next export",
     "deploy": "gh-pages -d dist",
-    "format": "prettier --write \"{components,pages,posts,public,styles}/**/*.{ts,tsx,json,md}\" \"*.{js,json,md}\"",
-    "format:check": "prettier --check \"{components,pages,posts,public,styles}/**/*.{ts,tsx,json,md}\" \"*.{js,json,md}\"",
+    "format": "prettier --write \"{_assets,components,pages,posts,public,styles}/**/*.{ts,tsx,json,md}\" \"*.{js,json,md}\"",
+    "format:check": "prettier --check \"{_assets,components,pages,posts,public,styles}/**/*.{ts,tsx,json,md}\" \"*.{js,json,md}\"",
     "lint": "eslint --fix components lib pages",
     "lint:check": "echo 'checking eslint' && eslint components lib pages && echo 'eslint complete\nchecking tsc' && tsc --noEmit && echo 'tsc complete'"
   },
