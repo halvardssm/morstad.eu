@@ -1,6 +1,9 @@
 import { useEffect, useState } from "react";
 import { useTheme } from "next-themes";
-import { Monitor, Moon, Sun } from "react-feather";
+import Image from "next/image";
+import MonitorSun from "../public/icons/monitor_sun.svg";
+import MonitorMoon from "../public/icons/monitor_moon.svg";
+import MonitorSystem from "../public/icons/monitor_system.svg";
 
 type Theme = "system" | "dark" | "light";
 const themes: Theme[] = ["system", "dark", "light"];
@@ -11,6 +14,19 @@ export type ThemeToggleProps = {
 
 export function isTheme(theme: unknown): theme is Theme {
   return typeof theme === "string" && themes.includes(theme as Theme);
+}
+
+export function arrayLoopAround<T>(array: T[], index: number): T {
+  const arrayLength = array.length;
+
+  if (index < arrayLength && index >= 0) {
+    return array[index];
+  }
+
+  const adjustedArrayIndex =
+    index - Math.floor(index / arrayLength) * arrayLength;
+
+  return array[adjustedArrayIndex];
 }
 
 export default function ThemeToggle(props: ThemeToggleProps) {
@@ -30,29 +46,29 @@ export default function ThemeToggle(props: ThemeToggleProps) {
 
   if (!mounted) return null;
 
-  const iconProps = { className: "inline-block mr-2 mb-1", size: 18 };
-
+  const getThemeIcon = (theme: Theme) => {
+    const className = "";
+    switch (theme) {
+      case "light":
+        return <MonitorSun className={className} />;
+      case "dark":
+        return <MonitorMoon className={className} />;
+      default:
+        return <MonitorSystem className={className} />;
+    }
+  };
+  const icon = getThemeIcon(theme);
   return (
-    <div className={props.className}>
-      {theme === "light" ? (
-        <Sun {...iconProps} />
-      ) : theme === "dark" ? (
-        <Moon {...iconProps} />
-      ) : (
-        <Monitor {...iconProps} />
-      )}
-
-      <select
-        name="themes"
-        id="theme-select"
-        className="inline-block focus:ring-0 focus:outline-none"
-        value={theme}
-        onChange={(e) => setLocalTheme(e.target.value as Theme)}
-      >
-        {themes.map((el) => {
-          return <option value={el}>{el}</option>;
-        })}
-      </select>
+    <div
+      className={"cursor-pointer " + props.className}
+      onClick={() => {
+        const themeIndex = themes.indexOf(theme);
+        const newTheme = arrayLoopAround(themes, themeIndex + 1);
+        console.log(`Setting theme ${newTheme} index at ${themeIndex}`);
+        setLocalTheme(newTheme);
+      }}
+    >
+      {icon}
     </div>
   );
 }

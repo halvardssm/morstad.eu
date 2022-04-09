@@ -82,12 +82,10 @@ export default function PostPage({ post }: { post: PostT }) {
         title={post.title}
         description={(post.description as string) || ""}
       />
-      <Container wide>
-        <Header title={post.title} backUrl={"/posts"} />
-        <div className="my-8 mx-5 lg:max-w-5xl lg:mx-auto lg:px-5">
-          <CodeFolderLink />
-          <Markdown content={post.content} />
-        </div>
+      <Container>
+        <Header backUrl={"/posts"} showThemeSelector className="" />
+        <CodeFolderLink />
+        <Markdown content={post.content} />
       </Container>
       <Footer />
     </Layout>

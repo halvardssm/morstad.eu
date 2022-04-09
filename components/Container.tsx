@@ -13,7 +13,7 @@ export const Container: React.FC<ContainerProps> = ({
       className={`pt-5 ${
         footer ? "pb-20" : "pb-5"
       } flex flex-col grow justify-center max-w-5xl mx-5 lg:mx-auto${
-        wide ? " max-w-screen-2xl" : ""
+        wide ? " max-w-screen-2xl px-5" : ""
       } lg:w-full`}
     >
       {children}

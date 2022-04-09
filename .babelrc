@@ -11,6 +11,7 @@
     ]
   ],
   "plugins": [
+    "babel-plugin-inline-react-svg",
     "babel-plugin-transform-inline-environment-variables",
     "babel-plugin-twin",
     "babel-plugin-macros",

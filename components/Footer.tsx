@@ -53,7 +53,7 @@ export default function Footer() {
 
             <Popover.Panel className="absolute z-10 right-0 bottom-16 bg-white dark:bg-black w-40 flex flex-col p-2 py-3 rounded-sm border border-grey">
               <LanguageToggle className="mx-full min-h-full mb-3 text-2xl" />
-              <ThemeToggle className="mx-full min-h-full" />
+              <ThemeToggle className="mx-auto min-h-full " />
             </Popover.Panel>
           </Popover>
         </div>

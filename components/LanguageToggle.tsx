@@ -10,7 +10,7 @@ export default function LanguageToggle(props: LanguageToggleProps) {
   const router = useRouter();
 
   const languageMap: Record<string, string> = {
-    en: "🇮🇪",
+    en: "🇬🇧",
     de: "🇩🇪",
     no: "🇳🇴",
   };

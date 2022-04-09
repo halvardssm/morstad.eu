@@ -11,6 +11,7 @@ import { useMappedTags } from "../../lib/hooks/useMappedTags";
 import { Tags, TagT } from "../../components/Tags";
 import { TAGS } from "../../lib/contstants";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+import Footer from "../../components/Footer";
 
 export default function Posts({ posts }: { posts: PostT[] }) {
   const { t } = useTranslation();
@@ -96,11 +97,12 @@ export default function Posts({ posts }: { posts: PostT[] }) {
   return (
     <Layout>
       <Head title={t("posts_title")} description={t("posts_description")} />
-      <Container>
+      <Container footer>
         <Header title={t("posts")} />
         {renderTags()}
         {renderList()}
       </Container>
+      <Footer />
     </Layout>
   );
 }

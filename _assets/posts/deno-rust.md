@@ -9,7 +9,7 @@ codeFolderLink: https://github.com/halvardssm/blog-code/tree/main/code/deno_rust
 
 > This post is related to my course ['Build and Deploy a REST API with Deno' on Newline.co](https://www.newline.co/courses/build-and-deploy-a-rest-api-with-deno). Take a look if you are interested in learning more!
 
-You have probably heard about the new fuzz in the JavaScript (and TypeScript) ecosystem over the past year and a half. Deno has arisen as a runtime for JavaScript with built-in Typescript support, and not only does it follow the web standards to make code between browsers and servers compatible, but it also includes a powerful set of built-in tools like linter, formatter, bundler, and compiler. If you want to learn more, check out [this post](/posts/deno-introduction) where I introduce Deno.
+You have probably heard about the new runtime in the JavaScript (and TypeScript) ecosystem over the past year and a half. Deno has arisen as a runtime for JavaScript with built-in Typescript support, and not only does it follow the web standards to make code between browsers and servers compatible, but it also includes a powerful set of built-in tools like linter, formatter, bundler, and compiler. If you want to learn more, check out [this post](/posts/deno-introduction) where I introduce Deno.
 
 When writing your code, you might sometimes work with heavy computational methods which JS was never meant to tackle. There are a couple of ways to deal with this:
 
