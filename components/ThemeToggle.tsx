@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import { useTheme } from "next-themes";
-import Image from "next/image";
 import MonitorSun from "../public/icons/monitor_sun.svg";
 import MonitorMoon from "../public/icons/monitor_moon.svg";
 import MonitorSystem from "../public/icons/monitor_system.svg";
