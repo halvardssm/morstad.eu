@@ -22,26 +22,19 @@ export default function Footer() {
           <GitHub className="mx-auto" />
         </a>
         <a
-          href="https://twitter.com/halvardssm"
-          target="_blank"
-          className="flex-auto"
-        >
-          <Twitter className="mx-auto" />
-        </a>
-        <a
           href="https://www.linkedin.com/in/halvardm"
           target="_blank"
           className="flex-auto"
         >
           <Linkedin className="mx-auto" />
         </a>
-        <a
+        {/* <a
           href="https://calendly.com/halvardm/15min"
           target="_blank"
           className="flex-auto"
         >
           <Calendar className="mx-auto" />
-        </a>
+        </a> */}
         <a href="mailto:jobs@morstad.eu" target="_blank" className="flex-auto">
           <Send className="mx-auto" />
         </a>
