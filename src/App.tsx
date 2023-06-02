@@ -1,17 +1,14 @@
-import "../styles/globals.css";
-import type { AppProps } from "next/app";
-import { Fragment } from "react";
-import { ThemeProvider } from "next-themes";
-import { appWithTranslation } from "next-i18next";
+import { SWRConfig } from "swr";
+import { RouterProvider } from "react-router-dom";
+import { router } from "./router";
+import { fetcher } from "./lib/helpers/utils";
 
-function App({ Component, pageProps }: AppProps) {
+function App() {
   return (
-    <Fragment>
-      <ThemeProvider attribute="class">
-        <Component {...pageProps} />
-      </ThemeProvider>
-    </Fragment>
+    <SWRConfig value={{ fetcher }}>
+      <RouterProvider router={router} />
+    </SWRConfig>
   );
 }
 
-export default appWithTranslation(App);
+export default App;
