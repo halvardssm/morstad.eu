@@ -1,4 +1,4 @@
-import NextHead from "next/head";
+import { Helmet } from "react-helmet";
 
 export type HeadProps = {
   title: string;
@@ -7,11 +7,10 @@ export type HeadProps = {
 
 export const Head: React.FC<HeadProps> = ({ title, description }) => {
   return (
-    <NextHead>
+    <Helmet>
       <title>{title}</title>
       <meta name="description" content={description} />
-      <link rel="icon" href="/favicon.ico" />
-    </NextHead>
+    </Helmet>
   );
 };
 

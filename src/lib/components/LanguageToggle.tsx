@@ -1,25 +1,21 @@
-import { useRouter } from "next/router";
-import { i18n } from "../next-i18next.config.js";
 import Emoji from "./Emoji";
+import { FC } from "react";
+import { useTranslation } from "react-i18next";
+import { supportedLanguages } from "../../i18n/config";
 
 export type LanguageToggleProps = {
   className: string;
 };
 
-export default function LanguageToggle(props: LanguageToggleProps) {
-  const router = useRouter();
-
+const LanguageToggle: FC<LanguageToggleProps> = (props) => {
+  const { i18n } = useTranslation();
   const languageMap: Record<string, string> = {
     en: "🇬🇧",
     de: "🇩🇪",
     no: "🇳🇴",
   };
 
-  const changeLanguage = (language: string) => {
-    router.push(router.pathname, router.pathname, { locale: language });
-  };
-
-  const locales = i18n.locales || [];
+  const locales = supportedLanguages
 
   return (
     <div className={`flex flex-row justify-around ${props.className}`}>
@@ -28,7 +24,7 @@ export default function LanguageToggle(props: LanguageToggleProps) {
           <div
             className="m-auto cursor-pointer"
             key={lng}
-            onClick={() => changeLanguage(lng)}
+            onClick={() => i18n.changeLanguage(lng)}
           >
             <Emoji symbol={languageMap[lng]} />
           </div>
@@ -36,4 +32,6 @@ export default function LanguageToggle(props: LanguageToggleProps) {
       })}
     </div>
   );
-}
+};
+
+export default LanguageToggle;

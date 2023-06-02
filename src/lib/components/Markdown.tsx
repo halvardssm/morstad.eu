@@ -1,12 +1,23 @@
+import { useEffect } from "react";
+import { useRemark } from "react-remark";
+import frontmatter from "remark-frontmatter"
 export type MarkdownProps = {
-  content: string;
+  /**
+   * Markdown content
+   */
+  source: string;
 };
 
-export const Markdown: React.FC<MarkdownProps> = ({ content }) => {
+const Markdown = (props: MarkdownProps) => {
+  const [reactContent, setMarkdownSource] = useRemark({ remarkPlugins:[[frontmatter]]});
+
+  useEffect(() => {
+    setMarkdownSource(props.source);
+  }, [setMarkdownSource, props.source]);
+
   return (
-    <div
-      className={"prose dark:prose-invert max-w-full"}
-      dangerouslySetInnerHTML={{ __html: content }}
-    />
+    <div className="prose dark:prose-invert max-w-full">{reactContent}</div>
   );
 };
+
+export default Markdown;

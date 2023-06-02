@@ -1,9 +1,7 @@
 import {
-  Calendar,
   GitHub,
   Linkedin,
   Send,
-  Twitter,
   Umbrella,
 } from "react-feather";
 import { Popover } from "@headlessui/react";
@@ -12,7 +10,7 @@ import LanguageToggle from "./LanguageToggle";
 
 export default function Footer() {
   return (
-    <footer className="w-full text-center border-t border-grey p-4 pb-2 sticky bottom-0 bg-white dark:bg-black">
+    <footer className="w-full text-center border-t border-grey p-4 pb-2 sticky bottom-0 bg-white dark:bg-black dark:text-white">
       <div className="w-full max-w-4xl mx-auto flex content-center">
         <a
           href="https://github.com/halvardssm"
@@ -28,13 +26,6 @@ export default function Footer() {
         >
           <Linkedin className="mx-auto" />
         </a>
-        {/* <a
-          href="https://calendly.com/halvardm/15min"
-          target="_blank"
-          className="flex-auto"
-        >
-          <Calendar className="mx-auto" />
-        </a> */}
         <a href="mailto:jobs@morstad.eu" target="_blank" className="flex-auto">
           <Send className="mx-auto" />
         </a>

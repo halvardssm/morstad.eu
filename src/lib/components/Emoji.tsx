@@ -1,13 +1,13 @@
-import React from "react";
+import { FC } from "react";
 import twemoji from "twemoji";
 
-interface EmojiProps {
+export interface EmojiProps {
   label?: string;
   symbol: string;
   className?: string;
 }
 
-const Emoji: React.FC<EmojiProps> = (props) => (
+const Emoji: FC<EmojiProps> = (props) => (
   <span
     className={`emoji ${props.className}`}
     role="img"

@@ -1,7 +1,7 @@
-import Link from "next/link";
 import { Home, CornerRightUp } from "react-feather";
 import React from "react";
 import ThemeToggle from "./ThemeToggle";
+import { Link } from "react-router-dom";
 
 export const Header: React.FC<{
   title?: string;
@@ -12,17 +12,13 @@ export const Header: React.FC<{
 }> = ({ title, backUrl, useFlexColOnSm, showThemeSelector, className }) => {
   const links = (
     <>
-      <Link href="/">
-        <a className="mr-6">
+      <Link to="/" className="mr-6">
           <Home />
-        </a>
       </Link>
 
       {backUrl && (
-        <Link href={backUrl}>
-          <a className="mr-6">
+        <Link to={backUrl} className="mr-6">
             <CornerRightUp />
-          </a>
         </Link>
       )}
 

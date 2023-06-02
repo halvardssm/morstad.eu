@@ -1,9 +1,11 @@
+import { FCC } from "../../types";
+
 export type ContainerProps = {
   wide?: boolean;
   footer?: boolean;
 };
 
-export const Container: React.FC<ContainerProps> = ({
+export const Container: FCC<ContainerProps> = ({
   children,
   wide = false,
   footer = false,
