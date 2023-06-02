@@ -1,26 +1,16 @@
 import { Coffee } from "react-feather";
-import Link from "next/link";
-import Footer from "../components/Footer";
-import Head from "../components/Head";
-import { serverSideTranslations } from "next-i18next/serverSideTranslations";
-import { useTranslation } from "next-i18next";
-import { Layout } from "../components/Layout";
-import Container from "../components/Container";
-
-export const getStaticProps = async ({ locale }: { locale: string }) => {
-  const { _nextI18Next } = await serverSideTranslations(locale, ["common"]);
-  return {
-    props: {
-      _nextI18Next,
-    },
-  };
-};
+import Footer from "../lib/components/Footer";
+import Head from "../lib/components/Head";
+import { useTranslation, Trans } from "react-i18next";
+import Layout from "../lib/components/Layout";
+import Container from "../lib/components/Container";
+import { Link } from "react-router-dom";
 
 export default function Home() {
   const { t } = useTranslation();
 
   /**
-   * Calculates age based on birthdate
+   * Calculates age based on date
    *
    * @param birthDate in format yyyy-mm-dd
    * @returns
@@ -48,29 +38,33 @@ export default function Home() {
             <Coffee className="inline mr-2" />
             {t("coffee_text")}
             <br />
-            <Link href="/portfolio">
+            <Link to="/portfolio">
               <a className="no-underline hover:underline mx-2">
                 {t("coffee_text_portfolio")}
               </a>
             </Link>
             |
-            <Link href="/posts">
+            <Link to="/posts">
               <a className="no-underline hover:underline mx-2">
                 {t("coffee_text_blog")}
               </a>
             </Link>
           </code>
         </div>
-
         <div
+                  className="max-w-4xl mx-auto text-justify text-last-center"
+                  >
+        <Trans
           className="max-w-4xl mx-auto text-justify text-last-center"
-          dangerouslySetInnerHTML={{
-            __html: t("about_me", {
-              age: getAge("1996-08"),
-              years_of_development: getAge("2017"),
-            }),
+          t={t}
+          i18nKey="about_me"
+          shouldUnescape
+          values={{
+            age: getAge("1996-08"),
+            years_of_development: getAge("2017"),
           }}
         />
+        </div>
       </Container>
 
       <Footer />

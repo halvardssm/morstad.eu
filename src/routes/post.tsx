@@ -1,80 +1,54 @@
-import { getAllPosts, getPostBySlug, PostT } from "../../lib/api";
-import markdownToHtml from "../../lib/markdownToHtml";
-import { GetStaticPropsContext } from "next";
-import { Markdown } from "../../components/Markdown";
-import Container from "../../components/Container";
-import { Layout } from "../../components/Layout";
-import Head from "../../components/Head";
-import { Header } from "../../components/Header";
-import Link from "next/link";
+import Container from "../lib/components/Container";
+import Layout from "../lib/components/Layout";
+import Head from "../lib/components/Head";
+import { Header } from "../lib/components/Header";
+import { PostT } from "../types";
+import MarkdownRender from "../lib/components/MarkdownRender";
+import { Link, useParams } from "react-router-dom";
+import { parseContentData } from "../lib/helpers/utils";
 
-export async function getStaticProps({
-  params,
-}: GetStaticPropsContext<{ slug: string }>) {
-  const post = getPostBySlug(params!.slug);
-  const content = await markdownToHtml(post.content || "");
-
-  return {
-    props: {
-      post: {
-        ...post,
-        content,
-      } as PostT,
-    },
-  };
+function CodeFolderLink(props: { post: PostT }) {
+  if (!props.post.codeFolderLink) return null;
+  return (
+    <div className="p-2 mb-5 bg-gray-100 dark:bg-black">
+      This post has a connected code folder that you can find{" "}
+      <a
+        className="no-underline hover:underline font-semibold cursor-pointer"
+        href={props.post.codeFolderLink}
+      >
+        here
+      </a>
+      .
+    </div>
+  );
 }
 
-export async function getStaticPaths() {
-  const posts = getAllPosts(["slug"]);
-
-  return {
-    paths: posts.map((post) => {
-      return {
-        params: {
-          slug: post.slug,
-        },
-      };
-    }),
-    fallback: false,
-  };
-}
-
-export default function PostPage({ post }: { post: PostT }) {
-  function CodeFolderLink() {
-    if (!post.codeFolderLink) return null;
-    return (
-      <div className="p-2 mb-5 bg-gray-100 dark:bg-black">
-        This post has a connected code folder that you can find{" "}
+function Footer(props: { post: PostT }) {
+  return (
+    <footer className="w-full text-center border-t border-grey p-4 pb-2 bottom-0 bg-white dark:bg-black">
+      <div className="mx-auto">
+        © {props.post.date.split("-")[0]}
+        <Link to="/">
+          <a className="no-underline hover:underline mx-2">Halvard Mørstad</a>
+        </Link>
+        -
         <a
-          className="no-underline hover:underline font-semibold cursor-pointer"
-          href={post.codeFolderLink}
+          className="no-underline hover:underline mx-2"
+          href="https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode"
         >
-          here
+          Creative Commons 4.0 (NC-SA)
         </a>
-        .
       </div>
-    );
-  }
+    </footer>
+  );
+}
 
-  function Footer() {
-    return (
-      <footer className="w-full text-center border-t border-grey p-4 pb-2 bottom-0 bg-white dark:bg-black">
-        <div className="mx-auto">
-          © {post.date.split("-")[0]}
-          <Link href="/">
-            <a className="no-underline hover:underline mx-2">Halvard Mørstad</a>
-          </Link>
-          -
-          <a
-            className="no-underline hover:underline mx-2"
-            href="https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode"
-          >
-            Creative Commons 4.0 (NC-SA)
-          </a>
-        </div>
-      </footer>
-    );
-  }
+export default function PostPage() {
+  const { postId } = useParams() as { postId: string };
+
+  const post = parseContentData().posts.find((el) => el.slug === postId);
+
+  if (!post) return <div>404</div>;
 
   return (
     <Layout>
@@ -82,12 +56,12 @@ export default function PostPage({ post }: { post: PostT }) {
         title={post.title}
         description={(post.description as string) || ""}
       />
-      <Container>
+      <Container wide>
         <Header backUrl={"/posts"} showThemeSelector className="" />
-        <CodeFolderLink />
-        <Markdown content={post.content} />
+        <CodeFolderLink post={post} />
+        <MarkdownRender url={post.filePath} />
       </Container>
-      <Footer />
+      <Footer post={post} />
     </Layout>
   );
 }
