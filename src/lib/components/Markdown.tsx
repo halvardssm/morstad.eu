@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useRemark } from "react-remark";
-import frontmatter from "remark-frontmatter"
+import frontmatter from "remark-frontmatter";
 export type MarkdownProps = {
   /**
    * Markdown content
@@ -9,7 +9,11 @@ export type MarkdownProps = {
 };
 
 const Markdown = (props: MarkdownProps) => {
-  const [reactContent, setMarkdownSource] = useRemark({ remarkPlugins:[[frontmatter]]});
+  const [reactContent, setMarkdownSource] = useRemark({
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
+    remarkPlugins: [[frontmatter]],
+  });
 
   useEffect(() => {
     setMarkdownSource(props.source);

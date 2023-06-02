@@ -1,9 +1,4 @@
-import {
-  GitHub,
-  Linkedin,
-  Send,
-  Umbrella,
-} from "react-feather";
+import { GitHub, Linkedin, Send, Umbrella } from "react-feather";
 import { Popover } from "@headlessui/react";
 import ThemeToggle from "./ThemeToggle";
 import LanguageToggle from "./LanguageToggle";

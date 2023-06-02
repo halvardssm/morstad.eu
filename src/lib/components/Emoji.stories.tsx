@@ -1,6 +1,5 @@
-import React from "react";
 import type { Story } from "@ladle/react";
-import { Emoji, EmojiProps } from "./Emoji";
+import Emoji, { EmojiProps } from "./Emoji";
 
 const Template = (props: EmojiProps) => (
   <div className="m-auto">

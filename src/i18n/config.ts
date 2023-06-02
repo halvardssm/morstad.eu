@@ -4,7 +4,7 @@ import LanguageDetector from "i18next-browser-languagedetector";
 import HttpApi from "i18next-http-backend";
 import { IS_DEV } from "../variables";
 
-export const supportedLanguages = ["en","no","de"];
+export const supportedLanguages = ["en", "no", "de"];
 
 i18n
   .use(HttpApi)

@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { toggleThemeClass } from "../../theme/config";
-import {useLocalStorage} from "@rehooks/local-storage";
+import { useLocalStorage } from "@rehooks/local-storage";
 
 export const ThemeState = {
   Dark: "dark",
@@ -17,15 +17,16 @@ export function isTheme(theme: unknown): theme is ThemeState {
 }
 
 export const useTheme = (theme?: ThemeState) => {
-  const [storedTheme, setStoredTheme, deleteStoredTheme] = useLocalStorage<ThemeState>('theme', ThemeState.System);
+  const [storedTheme, setStoredTheme, deleteStoredTheme] =
+    useLocalStorage<ThemeState>("theme", ThemeState.System);
   const toggleTheme = (theme: ThemeState) => {
     if ([ThemeState.Dark, ThemeState.Light].includes(theme as any)) {
       setStoredTheme(theme);
     } else {
-      deleteStoredTheme()
+      deleteStoredTheme();
     }
     toggleThemeClass();
-  }
+  };
 
   useEffect(() => {
     if (theme) {
@@ -35,6 +36,6 @@ export const useTheme = (theme?: ThemeState) => {
 
   return {
     toggleTheme,
-    theme: storedTheme
+    theme: storedTheme,
   };
 };

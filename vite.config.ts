@@ -5,7 +5,7 @@ import { sentryVitePlugin } from "@sentry/vite-plugin";
 import { readdir, readFile } from "node:fs/promises";
 import { join } from "node:path";
 import matter from "gray-matter";
-import svgr from 'vite-plugin-svgr' 
+import svgr from "vite-plugin-svgr";
 
 const getContentData = async (
   publicFolderPath: string,
@@ -58,7 +58,7 @@ export default defineConfig(async ({ mode }) => {
       __APP_VERSION__: JSON.stringify(env.npm_package_version),
       __CONTENT_DATA__: JSON.stringify(contentData),
       global: {
-        window: {}
+        window: {},
       },
     },
     build: {

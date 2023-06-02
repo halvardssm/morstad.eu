@@ -1,4 +1,4 @@
-import { ContentFolder, PostT, ProjectT } from "../../types";
+import { PostT, ProjectT } from "../../types";
 
 export type ContentData = {
   posts: PostT[];

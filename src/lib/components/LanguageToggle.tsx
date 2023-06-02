@@ -15,7 +15,7 @@ const LanguageToggle: FC<LanguageToggleProps> = (props) => {
     no: "🇳🇴",
   };
 
-  const locales = supportedLanguages
+  const locales = supportedLanguages;
 
   return (
     <div className={`flex flex-row justify-around ${props.className}`}>

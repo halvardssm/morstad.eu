@@ -13,12 +13,12 @@ export const Header: React.FC<{
   const links = (
     <>
       <Link to="/" className="mr-6">
-          <Home />
+        <Home />
       </Link>
 
       {backUrl && (
         <Link to={backUrl} className="mr-6">
-            <CornerRightUp />
+          <CornerRightUp />
         </Link>
       )}
 

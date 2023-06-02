@@ -1,9 +1,8 @@
-import { useNavigate, useRouteError } from "react-router-dom";
+import { useRouteError } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 
 export default function ErrorPage() {
   const { t } = useTranslation();
-  const navigate = useNavigate();
   const error = useRouteError() as Error | any;
   console.error(error);
 

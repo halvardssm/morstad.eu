@@ -1,9 +1,9 @@
 import { FC } from "react";
 import { ThemeState, themes, useTheme } from "../hooks/useTheme";
 import { arrayLoopAround } from "../helpers/utils";
-import { ReactComponent as MonitorMoon } from "../../assets/icons/monitor_moon.svg"
-import { ReactComponent as MonitorSun } from "../../assets/icons/monitor_sun.svg"
-import { ReactComponent as MonitorSystem } from "../../assets/icons/monitor_system.svg"
+import { ReactComponent as MonitorMoon } from "../../assets/icons/monitor_moon.svg";
+import { ReactComponent as MonitorSun } from "../../assets/icons/monitor_sun.svg";
+import { ReactComponent as MonitorSystem } from "../../assets/icons/monitor_system.svg";
 
 export type ThemeToggleProps = {
   className: string;

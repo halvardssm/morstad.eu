@@ -51,19 +51,17 @@ export default function Home() {
             </Link>
           </code>
         </div>
-        <div
-                  className="max-w-4xl mx-auto text-justify text-last-center"
-                  >
-        <Trans
-          className="max-w-4xl mx-auto text-justify text-last-center"
-          t={t}
-          i18nKey="about_me"
-          shouldUnescape
-          values={{
-            age: getAge("1996-08"),
-            years_of_development: getAge("2017"),
-          }}
-        />
+        <div className="max-w-4xl mx-auto text-justify text-last-center">
+          <Trans
+            className="max-w-4xl mx-auto text-justify text-last-center"
+            t={t}
+            i18nKey="about_me"
+            shouldUnescape
+            values={{
+              age: getAge("1996-08"),
+              years_of_development: getAge("2017"),
+            }}
+          />
         </div>
       </Container>
 
