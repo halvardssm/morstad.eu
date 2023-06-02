@@ -1,6 +1,6 @@
 ---
 title: How to build a module for both Deno and Node
-date: "2022-06-02"
+date: "2023-06-02"
 tags: [deno, node]
 codeFolderLink: https://github.com/halvardssm/blog-code/tree/main/code/module_deno_node
 ---

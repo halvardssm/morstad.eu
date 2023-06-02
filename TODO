@@ -2,7 +2,6 @@ Posts:
 
 - deno cli
 - How to deploy lambdas made with Deno
-- How to build a module for both deno and node
 - How to make your Deno application ready for deployment with Docker
 - How to multithread your Deno application using WebWorkers
 - How to conduct tech interviews
