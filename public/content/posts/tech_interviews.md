@@ -89,6 +89,8 @@ After introductions are completed, it's generally good with an ice-breaker to re
 
 When starting the technical part of the interview, I always like to tell the candidate that they can ask me any question at any point during the interview, and that it is better to ask when they are stuck or do not know anything. I also tell them that this part will simulate how it is to be working together, and therefore they are allowed to look things up using search or whatever is their favorite AI.
 
+> Note that it never hurts to give them guidance, share things, or teach them as you are conducting the interview. This will also reflect back on you to show that you are someone who can help them grow as well.
+
 I also never share the code with the candidate, as I like to share my screen and tell them to guide me on what to do. This is good to see if the communication skills of the candidate is at a decent level, where we can solve problems together.
 
 #### Code understanding
@@ -118,7 +120,9 @@ This seems pretty simple at first glance, but trust me, you will have a fair sha
 
 ### Ending the interview
 
-When ending the interview, it is good to
+When ending the interview, it is good to summarize everything you did, and reflect together back on how it went. This is also the oportunity for the candidate to revisit previous parts if they want to, and to ask questions (it never hurts to ask if they have any questions). 
+
+Remember to thank the applicant for their time, and wish them a good day ✨
 
 ## Conclusion
 
