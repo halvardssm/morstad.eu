@@ -7,9 +7,9 @@ codeFolderLink:
 
 # How to conduct tech interviews
 
-> Disclaimer: This post is all from my personal experience with interviewing (both sides), and my personal belief of what is important when looking for new hires.
+> Disclaimer: This post is all from my personal experience with interviewing (both sides), and my personal belief of what is important when looking for new tech hires.
 
-In 2023, there is no real reason to do a whiteboard interview unless you are hiring for a very specific role that requires a lot of algorithmic knowledge. Generally:
+In 2023, there is no real reason to do a whiteboard interview unless you are hiring for a very specific role that requires a lot of algorithmic knowledge. Generally you sre mostly interested in the following:
 
 - As their manager or coworker, will you be able to work with them without major issues?
 - Are they able to sufficiently solve problems independently according to their level or role that you are hiring for?
@@ -79,15 +79,15 @@ Now, if i ask you to explain these functions to me, would you be able to? Your a
 
 As always when interviewing, don't forget that the candidate is evaluating you as much as you are evaluating them. Some might think that their company is the best one there is, and that anyone should want to work there. This however is a very big and inaccurate assumption, and is already the wrong mindset going into an interview.
 
-The purpose of an interview is to mutually figure out if you can accept each other in the workplace, and if either part does not pass the vibe-check, this is probably for the best on both ends.
+The purpose of an interview is to mutually figure out if the workplace and the candidate is a fit, and if either side fulfills expectations.
 
-Start the interview by greeting the candidate and introduce yourself with your preferred pronouns, and ask then for their preferred name and ask if they would mind sharing their pronouns. The next step is to introduce any fellow interviewees and the company.
+Start the interview by greeting the candidate and introduce yourself, and ask then for their introduction and how they would like to be called. The next step is to introduce any fellow interviewees and the company.
 
-After introductions are completed, it's generally good with an ice-breaker to relax the situation as candidates are generally nervous coming in. A good ice breaker would be something completely unrelated to the position, and is preferred to be something unexpected like: "If you could turn into a frog, which type of frog would you prefer?" or "What is the best stage of an avocados ripeness and why?". Spend a minute or so to get to know the candidate, and to have them relax, before you hit them with the actual interview.
+After introductions are completed, it's generally good with an ice-breaker to relax the situation, as candidates are generally nervous coming in. A good ice breaker would be something completely unrelated to the position, and is preferred to be something unexpected like: "If you could turn into a frog, which type of frog would you prefer?" or "What do you think is the best stage of an avocados ripeness and why?". Spend a minute or so to get to know the candidate, and to have them relax, before you hit them with the actual interview.
 
 ### Conducting the interview
 
-When starting the technical part of the interview, I always like to tell the candidate that they can ask me any question at any point during the interview, and that it is better to ask when they are stuck or do not know anything. I also tell them that this part will simulate how it is to be working together, and therefore they are allowed to look things up using search or whatever is their favorite AI.
+When starting the technical part of the interview, I always like to tell the candidate that they can ask any question at any point during the interview, and that it is better to ask when they are stuck or do not know something. I also tell them that this part will simulate how it is to be working together, and therefore they are allowed to look things up using search or whatever is their favorite AI.
 
 > Note that it never hurts to give them guidance, share things, or teach them as you are conducting the interview. This will also reflect back on you to show that you are someone who can help them grow as well.
 
@@ -95,17 +95,24 @@ I also never share the code with the candidate, as I like to share my screen and
 
 #### Code understanding
 
-First I will ask the candidate to pretend that I am a junior developer who barely touched JS before, and then explain me what is happening in the function `arrayLoopAround`. What I am usually looking for, is if they catch the types including the generic, and if they understand the flow. I then ask them to summarize what this function is doing, and to help me create the DocBlock to "save them from questions from future junior devs about the same function". By having the candidate tell you what to write in the DocBlock word-by-word gives you two things: You see if they really understood what the function does, and you see if they are able to explain things in simple terms.
+First I will ask the candidate to pretend that I am a junior developer who barely touched JS before, and then explain me what is happening in the function `arrayLoopAround`. What I am usually looking for, is if they catch the types including the generic, and if they understand the flow. I then ask them to summarize what this function is doing, and to help me create the DocBlock to "save them from questions from future junior devs about the same function". By having the candidate tell you what to write in the DocBlock word-by-word gives you two things: You see if they really understood what the function does, and you see if they are able to explain things in simple terms. 
+
+This might seem like a very easy task for a senior developer, but explaining your own knowledge and understanding is also a skill usefull if you intend to have them mentor juniors.
 
 #### Debugging
 
-The second question is more about debugging faulty code. You can use the example in the DocBlock of `rangeGenerator` to run an example of it not working (hint, you have to use `yield` instead of return), and for test the candidates steps along the way. Another finicky detail about this function is that it is a generator function, which is not very common to use outside of some very specific cases. The duration for this question, might be the shortest or the longest, because if the candidate is familiar with generators (trust me, not many are), they will see the issue right away. Otherwise, if they have never used generators before, they will need to look up the documentation about generators and learn it on the spot.
+The second question is more about debugging faulty code. You can use the example in the DocBlock of `rangeGenerator` to show the candidate that the code is not working (hint, you have to use `yield` instead of return). Another finicky detail about this function is that it is a generator function, which is not very common to use outside of some very specific cases. Generators is something I enjoy including in an interview because of two things:
 
-All of this will indicate to you, the candidates ability to problem solve and communicate with you, which they would have to do as your coworker. What I sometimes also do if the candidate cant find good documentation, is to send them the MDN page on [itterators and generators](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Iterators_and_Generators).
+1. If the candidate knows and can use generators, that is a testament to that they have at least a general understanding of obscure parts of JavaScript.
+2. If the candidate does not know what a generator is, you can see how proficent the candidate is at looking up information and understand new topics.
+
+All of this will indicate to you, the candidates ability to problem solve and communicate with you, which they would have to do as your coworker. 
+
+> What I sometimes do if the candidate is not able to find information about a topic, is to direct them to the corresponding [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript) page.
 
 #### Implementation
 
-The third and last question is about their implementation skills. The `sleep` is one of the easiest and first functions you come across when dealing with promises, but most people will just search up how to implement it rather than knowing it by heart. The issue with this is that there are some overcomplicated ways of implementing it, and this question is to evaluate if the candidate is able to weed out the good examples from the bad ones. A good candidate in my eyes will search up "js sleep function", and pick a solution giving this implementation:
+The third and last question is about their implementation skills. The `sleep` is one of the easiest and first functions you come across when dealing with promises, but most people will just search up how to implement it rather than knowing it by heart. The issue with this is that there are some legacy ways of implementing it, and this question is to evaluate if the candidate is able to weed out the good examples from the bad ones. A good candidate in my eyes will search up "js sleep function", and pick a solution giving something like this implementation:
 
 ```ts
 /**
@@ -116,7 +123,7 @@ export function sleep(ms?: number): Promise<void> {
 }
 ```
 
-This seems pretty simple at first glance, but trust me, you will have a fair share of interesting solutions here. Of course, my solution might not be the best, but as long as the candidate can explain why they chose the solution over the other ones (and it makes sense), that is good enough for me.
+This seems pretty simple at first glance, but trust me, you will have a fair share of interesting solutions here. Of course, my solution might not be the only right solution, so as long as the candidate can explain why they chose their solution over the other ones (and it makes sense), that is good enough for me.
 
 ### Ending the interview
 
@@ -126,11 +133,4 @@ Remember to thank the applicant for their time, and wish them a good day ✨
 
 ## Conclusion
 
-- candidate is stressed or uncomfortable
-- candidate is not able to communicate
-- candidate is not able to code
-- candidate is not able to code to the level you expect
-- candidate is not able to code in the language you expect
-- you have to go through a lot of code
-- you have to prepare before the interview
-- 10 minutes are usually enough to know if you will take the candidate or not
+To conclude this post, you are interested in learning if the candidate is able to be your coworker, and if they are able to fulfill the role that you want to hire for. A whiteboard interview, leetcode, or take home assignment, does not give you enough insight into their communication and problemsolving skills, and also not how they would work with you on a day-to-day basis.
