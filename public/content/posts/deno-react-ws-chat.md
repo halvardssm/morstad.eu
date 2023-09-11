@@ -1,6 +1,6 @@
 ---
 title: Realtime chat application with Deno and React
-date: "2022-03-29"
+date: "2023-09-11"
 tags: [deno, react, ws]
 codeFolderLink: https://github.com/halvardssm/blog-code/tree/main/code/deno_rtc
 ---
@@ -29,24 +29,21 @@ Now that we have a shared interface ready, we can move on to the backend.
 
 ## The Server (part 1)
 
-As we know from the Deno manual, the simplest way of creating a server is by using the [provided one from the standard library](https://deno.land/std/http/server.ts). Create a `server.ts` file and add this to it.
+As we know from the Deno manual, the simplest way of creating a server is by
+using the higher-level helper that is built in. Create a `server.ts` file and
+add this to it.
 
 ```ts
-import { serve } from "https://deno.land/std/http/server.ts";
-
-serve((req) => {}, { port: 8000 });
+Deno.serve({ port: 8000 }, (req) => {});
 ```
 
 Now that the server is ready, we can add the WebSocket server integration. To do this, we use the built-in [upgradeWebSocket](https://doc.deno.land/deno/stable/~/Deno.upgradeWebSocket) to initiate the socket and create a response. Change the server to the following.
 
 ```ts
-serve(
-  (req) => {
-    const { socket, response } = Deno.upgradeWebSocket(req);
-    return response;
-  },
-  { port: 8000 }
-);
+Deno.serve({ port: 8000 }, (req) => {
+  const { socket, response } = Deno.upgradeWebSocket(req);
+  return response;
+});
 ```
 
 Voilà! The WebSocket server is initiated! Ok, but we won't be able to do much with only this. For the socket connection to be properly configured, we need to handle a couple of different events (you can see details for the events [here](https://developer.mozilla.org/docs/Web/API/WebSocket#events)):
@@ -61,45 +58,41 @@ Voilà! The WebSocket server is initiated! Ok, but we won't be able to do much w
 In addition, to add the event handlers, we also need to track the participants and messages. For this purpose, we can either use an `Array` or a `Map`. I prefer a `Map` for participants and `Array` for the messages, so alter our `server.ts` file as follows.
 
 ```ts
-import { serve } from "https://deno.land/std/http/server.ts";
 import { Message } from "./shared.ts";
 
 const messages: Message[] = [];
 const participants = new Map<number, WebSocket>();
 let participantId = 1;
 
-serve(
-  (req) => {
-    const { socket, response } = Deno.upgradeWebSocket(req);
-    const socketId = participantId++;
+Deno.serve({ port: 8000 }, (req) => {
+  const { socket, response } = Deno.upgradeWebSocket(req);
+  const socketId = participantId++;
 
-    socket.onopen = () => {
-      participants.set(socketId, socket);
-      console.log(
-        `Participant ${socketId} has entered. Current participants: ${participants.size}`
-      );
-    };
+  socket.onopen = () => {
+    participants.set(socketId, socket);
+    console.log(
+      `Participant ${socketId} has entered. Current participants: ${participants.size}`
+    );
+  };
 
-    socket.onmessage = (e) => {
-      console.log(`Message received from participant ${socketId}:`, e.data);
-    };
+  socket.onmessage = (e) => {
+    console.log(`Message received from participant ${socketId}:`, e.data);
+  };
 
-    socket.onclose = () => {
-      participants.delete(socketId);
-      console.log(
-        `Participant ${socketId} has left. Current participants: ${participants.size}`
-      );
-    };
+  socket.onclose = () => {
+    participants.delete(socketId);
+    console.log(
+      `Participant ${socketId} has left. Current participants: ${participants.size}`
+    );
+  };
 
-    socket.onerror = (e) => {
-      participants.delete(socketId);
-      console.error("WebSocket error:", e);
-    };
+  socket.onerror = (e) => {
+    participants.delete(socketId);
+    console.error("WebSocket error:", e);
+  };
 
-    return response;
-  },
-  { port: 8000 }
-);
+  return response;
+});
 ```
 
 ## The Client (part 1)
