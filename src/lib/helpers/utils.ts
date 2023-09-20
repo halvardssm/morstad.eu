@@ -25,3 +25,18 @@ export function arrayLoopAround<T>(array: T[], index: number): T {
 
   return array[adjustedArrayIndex];
 }
+
+/**
+ * Calculates age in years based on date
+ *
+ * @param dateString in format yyyy-mm-dd
+ * @returns
+ */
+export function getAgeInYears(dateString: string) {
+  const date = new Date(dateString);
+  const cur = new Date();
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  // @ts-ignore works
+  const diff = cur - date;
+  return Math.round(diff / 31536000000);
+}

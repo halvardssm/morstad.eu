@@ -5,24 +5,10 @@ import { useTranslation, Trans } from "react-i18next";
 import Layout from "../lib/components/Layout";
 import Container from "../lib/components/Container";
 import { Link } from "react-router-dom";
+import { getAgeInYears } from "../lib/helpers/utils";
 
 export default function Home() {
   const { t } = useTranslation();
-
-  /**
-   * Calculates age based on date
-   *
-   * @param birthDate in format yyyy-mm-dd
-   * @returns
-   */
-  function getAge(birthDate: string) {
-    const birthdate = new Date(birthDate);
-    const cur = new Date();
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-    // @ts-ignore works
-    const diff = cur - birthdate;
-    return Math.floor(diff / 31536000000);
-  }
 
   return (
     <Layout>
@@ -58,13 +44,12 @@ export default function Home() {
             i18nKey="about_me"
             shouldUnescape
             values={{
-              age: getAge("1996-08"),
-              years_of_development: getAge("2017"),
+              age: getAgeInYears("1996-08"),
+              years_of_development: getAgeInYears("2017"),
             }}
           />
         </div>
       </Container>
-
       <Footer />
     </Layout>
   );
