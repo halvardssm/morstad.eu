@@ -44,7 +44,6 @@ export default function Home() {
             i18nKey="about_me"
             shouldUnescape
             values={{
-              age: getAgeInYears("1996-08"),
               years_of_development: getAgeInYears("2017"),
             }}
           />
