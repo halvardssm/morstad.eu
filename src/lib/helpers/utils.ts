@@ -38,5 +38,5 @@ export function getAgeInYears(dateString: string) {
   // eslint-disable-next-line @typescript-eslint/ban-ts-comment
   // @ts-ignore works
   const diff = cur - date;
-  return Math.round(diff / 31536000000);
+  return Math.ceil(diff / 31536000000);
 }

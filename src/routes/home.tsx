@@ -47,6 +47,19 @@ export default function Home() {
               years_of_development: getAgeInYears("2017"),
             }}
           />
+          <br />
+          <p className="max-w-4xl mx-auto text-justify text-last-left">
+            <Trans
+              className="max-w-4xl mx-auto text-justify text-last-left"
+              t={t}
+              i18nKey="skills_list"
+              shouldUnescape
+            />
+          </p>
+          <br />
+          <p className="max-w-4xl mx-auto text-justify text-last-center">
+            {t("outro")}
+          </p>
         </div>
       </Container>
       <Footer />
