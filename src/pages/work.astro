@@ -4,10 +4,22 @@ import ProjectCard from '../components/ProjectCard.astro';
 import PageHeader from '../components/PageHeader.astro';
 import { getCollection } from 'astro:content';
 import { TAGS, TAG_COLORS } from '../data/tags';
+import { getGitHubStars } from '../utils/github';
 
 const projects = await getCollection('work');
 const featured = projects.filter(p => p.data.featured);
 const allProjects = projects.filter(p => !p.data.featured);
+
+// Fetch GitHub stars for projects that have it enabled
+const starsMap = new Map<string, number | null>();
+await Promise.all(
+  projects
+    .filter(p => p.data.githubStars && p.data.url)
+    .map(async p => {
+      const stars = await getGitHubStars(p.data.url!);
+      starsMap.set(p.id, stars);
+    })
+);
 
 // Collect all unique tags from non-featured projects for the filter row
 const allTags = [...new Set(allProjects.flatMap(p => p.data.tags))];
@@ -19,7 +31,7 @@ const allTags = [...new Set(allProjects.flatMap(p => p.data.tags))];
   <!-- Featured -->
   <p class="m-0 mb-2.5 text-dim" style="font-size: 12px;">// featured</p>
   <div class="grid gap-2.5 mb-8" style="grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));">
-    {featured.map(project => <ProjectCard project={project} />)}
+    {featured.map(project => <ProjectCard project={project} stars={starsMap.get(project.id) ?? null} />)}
   </div>
 
   <!-- All projects -->
@@ -51,7 +63,7 @@ const allTags = [...new Set(allProjects.flatMap(p => p.data.tags))];
     <div class="masonry" id="project-list">
       {allProjects.map(project => (
         <div data-tags={project.data.tags.join(',')}>
-          <ProjectCard project={project} compact />
+          <ProjectCard project={project} compact stars={starsMap.get(project.id) ?? null} />
         </div>
       ))}
     </div>

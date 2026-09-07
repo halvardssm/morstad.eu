@@ -24,6 +24,7 @@ const work = defineCollection({
     iconColor: z.string(),
     featured: z.boolean().default(false),
     selected: z.boolean().default(false),
+    githubStars: z.boolean().default(false),
   }),
 });
 

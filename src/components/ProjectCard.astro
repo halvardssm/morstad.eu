@@ -6,9 +6,10 @@ import type { CollectionEntry } from 'astro:content';
 interface Props {
   project: CollectionEntry<'work'>;
   compact?: boolean;
+  stars?: number | null;
 }
 
-const { project, compact = false } = Astro.props;
+const { project, compact = false, stars = null } = Astro.props;
 const { title, tags, description, icon, iconColor } = project.data;
 const titleSize = compact ? '13px' : '14px';
 ---
@@ -17,7 +18,13 @@ const titleSize = compact ? '13px' : '14px';
   <div class="card" style="padding: 1rem;">
     <div class="flex items-center gap-2 mb-2">
       <Icon name={icon} size={16} color={iconColor} />
-      <p class="font-medium m-0 text-heading" style={`font-size: ${titleSize};`}>{title}</p>
+      <p class="font-medium m-0 text-heading flex-1" style={`font-size: ${titleSize};`}>{title}</p>
+      {stars !== null && (
+        <span class="flex items-center gap-1 text-dim" style="font-size: 11px;">
+          <Icon name="star" size={12} color="var(--color-dim)" />
+          {stars}
+        </span>
+      )}
     </div>
     <TagList tags={tags} class="mb-2.5" />
     <p class="m-0 text-muted" style="font-size: 12px; line-height: 1.6;">{description}</p>
