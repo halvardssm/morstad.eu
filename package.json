@@ -1,18 +1,22 @@
 {
   "name": "",
-  "type": "module",
   "version": "0.0.1",
-  "engines": {
-    "node": ">=22.12.0"
-  },
+  "type": "module",
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "fmt": "oxfmt",
+    "fmt:check": "oxfmt --check",
+    "lint": "oxlint",
+    "lint:fix": "oxlint --fix",
+    "check": "pnpm run fmt:check && pnpm run lint",
+    "fix": "pnpm run fmt && pnpm run lint:fix"
   },
   "dependencies": {
     "@astrojs/react": "^6.0.5",
+    "@tabler/icons-react": "^3.46.0",
     "@tailwindcss/vite": "^4.3.3",
     "@types/react": "^19.2.18",
     "@types/react-dom": "^19.2.7",
@@ -20,6 +24,13 @@
     "react": "^19.2.8",
     "react-dom": "^19.2.8",
     "tailwindcss": "^4.3.3"
+  },
+  "devDependencies": {
+    "oxfmt": "^0.66.0",
+    "oxlint": "^1.81.0"
+  },
+  "engines": {
+    "node": ">=22.12.0"
   },
   "allowScripts": {
     "esbuild": true

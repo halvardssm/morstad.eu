@@ -70,9 +70,7 @@ Deno.serve({ port: 8000 }, (req) => {
 
   socket.onopen = () => {
     participants.set(socketId, socket);
-    console.log(
-      `Participant ${socketId} has entered. Current participants: ${participants.size}`
-    );
+    console.log(`Participant ${socketId} has entered. Current participants: ${participants.size}`);
   };
 
   socket.onmessage = (e) => {
@@ -81,9 +79,7 @@ Deno.serve({ port: 8000 }, (req) => {
 
   socket.onclose = () => {
     participants.delete(socketId);
-    console.log(
-      `Participant ${socketId} has left. Current participants: ${participants.size}`
-    );
+    console.log(`Participant ${socketId} has left. Current participants: ${participants.size}`);
   };
 
   socket.onerror = (e) => {
@@ -216,9 +212,7 @@ The `open` handler should send a message to the client with the chat history.
 ```ts
 socket.onopen = () => {
   participants.set(socketId, socket);
-  console.log(
-    `Participant ${socketId} has entered. Current participants: ${participants.size}`
-  );
+  console.log(`Participant ${socketId} has entered. Current participants: ${participants.size}`);
   socket.send(JSON.stringify(<WsMessage>{ type: "backlog", messages }));
 };
 ```
@@ -297,12 +291,7 @@ socket.current.onmessage = (m) => {
 Lastly, we need to update the HTML to allow for input. We need a name field, a message field, and finally also a chat log list. For this post, we won't focus on the visuals, but feel free to go on a UI rampage. In the end, your `client.tsx` file should look like this.
 
 ```tsx
-import React, {
-  useState,
-  useEffect,
-  useRef,
-  FC,
-} from "https://esm.sh/react@17";
+import React, { useState, useEffect, useRef, FC } from "https://esm.sh/react@17";
 import ReactDOM from "https://esm.sh/react-dom@17";
 import { Message, WsMessage } from "./shared.ts";
 
@@ -365,10 +354,7 @@ const App: FC = () => {
       <p>Name</p>
       <input value={name} onChange={(e) => setName(e.target.value)} />
       <hr />
-      <input
-        value={newMessage}
-        onChange={(e) => setNewMessage(e.target.value)}
-      />
+      <input value={newMessage} onChange={(e) => setNewMessage(e.target.value)} />
       <button onClick={() => sendMessage()}>Send</button>
       <div>
         {messages.map((msg) => (
