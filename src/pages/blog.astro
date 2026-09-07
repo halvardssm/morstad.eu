@@ -1,7 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import Icon from '../components/Icon.tsx';
 import PostCard from '../components/PostCard.astro';
+import PageHeader from '../components/PageHeader.astro';
 import { POSTS } from '../data/posts';
 import { TAGS } from '../data/tags';
 
@@ -9,11 +9,8 @@ import { TAGS } from '../data/tags';
 const allTags = [...new Set(POSTS.flatMap(p => p.tags))];
 ---
 
-<Layout title="Blog" max="640px">
-  <a href="/" class="inline-flex items-center gap-2 mb-5" style="text-decoration: none;">
-    <Icon name="home" size={18} color="var(--color-muted)" />
-    <span class="font-medium text-heading" style="font-size: 20px;">Blog</span>
-  </a>
+<Layout title="Blog">
+  <PageHeader current="blog" />
 
   <!-- Tag filter row (static for Phase 1) -->
   <div class="flex flex-wrap gap-1.5 mb-5">
