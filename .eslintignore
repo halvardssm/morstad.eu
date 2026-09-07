@@ -1,6 +1,0 @@
-node_modules
-dist
-.yarn
-public/build
-.pnp*
-vitest.config.ts
