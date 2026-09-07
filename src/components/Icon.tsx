@@ -6,7 +6,7 @@ import {
   IconSword, IconTerminal2, IconChessKnight,
   IconLock, IconFolders, IconWorld, IconCloudRain, IconTag, IconArchive,
   IconDeviceGamepad2, IconChecklist, IconDatabase, IconBook, IconPackage,
-  IconLanguage, IconRobot, IconFolder, IconVirus,
+  IconLanguage, IconRobot, IconFolder, IconVirus, IconPointer, IconClick,
 } from '@tabler/icons-react';
 
 const ICONS: Record<string, FC<{ size?: number; color?: string; stroke?: number }>> = {
@@ -44,6 +44,8 @@ const ICONS: Record<string, FC<{ size?: number; color?: string; stroke?: number 
   robot: IconRobot,
   folder: IconFolder,
   virus: IconVirus,
+  pointer: IconPointer,
+  click: IconClick,
 };
 
 type IconProps = {

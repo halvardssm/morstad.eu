@@ -141,3 +141,10 @@ body {
 .prose a {
   color: var(--color-link);
 }
+
+/* ── Homepage view toggle ── */
+.home-view { display: none; }
+.home-container[data-view="technical"] .home-technical { display: block; }
+.home-container[data-view="non-technical"] .home-non-technical { display: block; }
+.home-container[data-view="technical"] .home-toggle-technical { display: none; }
+.home-container[data-view="non-technical"] .home-toggle-non-technical { display: none; }

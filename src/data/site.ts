@@ -38,3 +38,40 @@ export const SITE = {
   about: 'Background in full-stack development, now focused on cloud and infrastructure engineering. Comfortable leading teams, mentoring engineers, and working independently on ambiguous problems.',
   copyright: '© halvard mørstad',
 };
+
+export const SITE_NON_TECHNICAL = {
+  name: 'Halvard Mørstad',
+  email: 'halvard@morstad.eu',
+  social: {
+    github: 'https://github.com/halvardssm',
+    linkedin: 'https://www.linkedin.com/in/halvard-mørstad-4b8b13144/',
+  },
+  bio: 'Cloud and infrastructure engineer with a full-stack background. Ten years of experience across a wide range of technologies, with a track record of picking up new tools quickly. Today, that includes leading the teams who build alongside me.',
+  stats: [
+    { value: '~10', label: 'years experience' },
+    { value: '8', label: 'people led' },
+    { value: '25+', label: 'projects delivered' },
+  ],
+  waysToWork: [
+    {
+      icon: 'code',
+      iconColor: '#85b7eb',
+      title: 'Hands-on engineering',
+      description: 'Reliable cloud, infrastructure, and full-stack delivery you can trust end to end.',
+    },
+    {
+      icon: 'bulb',
+      iconColor: '#f0997b',
+      title: 'Advisory and new projects',
+      description: 'Choosing the right approach, validating before you commit budget, or diagnosing what is not working.',
+    },
+    {
+      icon: 'users',
+      iconColor: '#97c459',
+      title: 'Fractional leadership',
+      description: 'Interim technical leadership, building teams, and setting technical direction.',
+    },
+  ],
+  about: 'My background is in full-stack development, now focused on cloud and infrastructure. I am comfortable leading teams, mentoring colleagues, and working independently on open-ended problems.',
+  copyright: '© Halvard Mørstad',
+};
