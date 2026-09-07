@@ -1,7 +1,7 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import Icon from '../components/Icon.tsx';
-import PageHeader from '../components/PageHeader.astro';
+import Layout from "../layouts/Layout.astro";
+import Icon from "../components/Icon.tsx";
+import PageHeader from "../components/PageHeader.astro";
 ---
 
 <Layout title="About — Halvard Mørstad">
@@ -10,12 +10,24 @@ import PageHeader from '../components/PageHeader.astro';
   <!-- Hero -->
   <div class="mb-6" style="padding-right: 40px;">
     <div class="flex flex-wrap items-center gap-x-4 gap-y-2 mb-2">
-      <h1 class="font-medium m-0 text-heading" style="font-size: 1.25rem;">Halvard Mørstad</h1>
+      <h1 class="font-medium m-0 text-heading" style="font-size: 1.25rem;">
+        Halvard Mørstad
+      </h1>
       <div class="flex items-center gap-3">
-        <a href="https://github.com/halvardssm" target="_blank" rel="noopener" aria-label="GitHub">
+        <a
+          href="https://github.com/halvardssm"
+          target="_blank"
+          rel="noopener"
+          aria-label="GitHub"
+        >
           <Icon name="brand-github" size={16} color="var(--color-dim)" />
         </a>
-        <a href="https://www.linkedin.com/in/halvard-mørstad-4b8b13144/" target="_blank" rel="noopener" aria-label="LinkedIn">
+        <a
+          href="https://www.linkedin.com/in/halvard-mørstad-4b8b13144/"
+          target="_blank"
+          rel="noopener"
+          aria-label="LinkedIn"
+        >
           <Icon name="brand-linkedin" size={16} color="var(--color-dim)" />
         </a>
         <a href="mailto:halvard@morstad.eu" aria-label="Email">
@@ -31,54 +43,83 @@ import PageHeader from '../components/PageHeader.astro';
 
   <!-- CTA buttons -->
   <div class="flex flex-wrap gap-2.5 mb-8">
-    <a href="mailto:halvard@morstad.eu" class="btn-primary" style="padding: 0.5rem 1rem; font-size: 0.8125rem; display: inline-flex; align-items: center;">
+    <a
+      href="mailto:halvard@morstad.eu"
+      class="btn-primary"
+      style="padding: 0.5rem 1rem; font-size: 0.8125rem; display: inline-flex; align-items: center;"
+    >
       Get in touch
     </a>
-    <a href="/work" class="btn-outline" style="padding: 0.5rem 0.875rem; font-size: 0.8125rem; display: inline-flex; align-items: center;">
+    <a
+      href="/work"
+      class="btn-outline"
+      style="padding: 0.5rem 0.875rem; font-size: 0.8125rem; display: inline-flex; align-items: center;"
+    >
       View my work
     </a>
   </div>
 
   <!-- Link back to technical version -->
-  <a href="/" class="btn-outline" style="padding: 0.625rem 1.125rem; font-size: 0.8125rem; display: inline-flex; align-items: center; gap: 0.625rem; margin-bottom: 2rem; text-decoration: none;">
+  <a
+    href="/"
+    class="btn-outline"
+    style="padding: 0.625rem 1.125rem; font-size: 0.8125rem; display: inline-flex; align-items: center; gap: 0.625rem; margin-bottom: 2rem; text-decoration: none;"
+  >
     <Icon name="click" size={20} color="var(--color-link)" />
     <span>Are you a developer? See the technical version here</span>
   </a>
 
   <!-- The problem -->
   <section class="mb-8">
-    <h2 class="m-0 mb-2 text-dim" style="font-size: 0.75rem;">The problem I solve</h2>
+    <h2 class="m-0 mb-2 text-dim" style="font-size: 0.75rem;">
+      The problem I solve
+    </h2>
     <p class="m-0 text-muted" style="font-size: 0.875rem; line-height: 1.8;">
       You have a vision, a market, maybe even early customers. What you need is
       someone who can build the product, make the right technical decisions, and
-      eventually hand it off to a team. Hiring a full engineering team on day one
-      is expensive and risky. You need someone who can take you from "this is what
-      we want to build" to "this is how we build it."
+      eventually hand it off to a team. Hiring a full engineering team on day
+      one is expensive and risky. You need someone who can take you from "this
+      is what we want to build" to "this is how we build it."
     </p>
   </section>
 
   <!-- How I can help -->
-  <section class="mb-8" style="border-top: 1px solid var(--color-border); padding-top: 1.25rem;">
-    <h2 class="m-0 mb-2.5 text-dim" style="font-size: 0.75rem;">How I can help</h2>
+  <section
+    class="mb-8"
+    style="border-top: 1px solid var(--color-border); padding-top: 1.25rem;"
+  >
+    <h2 class="m-0 mb-2.5 text-dim" style="font-size: 0.75rem;">
+      How I can help
+    </h2>
     <div class="flex flex-col gap-3">
       <article class="card" style="padding: 1rem;">
         <div class="flex items-center gap-2 mb-1.5">
           <Icon name="code" size={16} color="#85b7eb" />
-          <h3 class="font-medium m-0 text-heading" style="font-size: 0.875rem;">Your technical co-founder</h3>
+          <h3 class="font-medium m-0 text-heading" style="font-size: 0.875rem;">
+            Your technical co-founder
+          </h3>
         </div>
-        <p class="m-0 text-muted" style="font-size: 0.8125rem; line-height: 1.7;">
-          I build the first version of your product myself, frontend, backend, and
-          everything in between. You get a working product to show investors and
-          customers without hiring a team first. When the time comes to scale, I
-          help you hire and onboard your first engineers.
+        <p
+          class="m-0 text-muted"
+          style="font-size: 0.8125rem; line-height: 1.7;"
+        >
+          I build the first version of your product myself, frontend, backend,
+          and everything in between. You get a working product to show investors
+          and customers without hiring a team first. When the time comes to
+          scale, I help you hire and onboard your first engineers.
         </p>
       </article>
       <article class="card" style="padding: 1rem;">
         <div class="flex items-center gap-2 mb-1.5">
           <Icon name="bulb" size={16} color="#f0997b" />
-          <h3 class="font-medium m-0 text-heading" style="font-size: 0.875rem;">Your interim CTO</h3>
+          <h3 class="font-medium m-0 text-heading" style="font-size: 0.875rem;">
+            Your interim CTO
+          </h3>
         </div>
-        <p class="m-0 text-muted" style="font-size: 0.8125rem; line-height: 1.7;">
+        <p
+          class="m-0 text-muted"
+          style="font-size: 0.8125rem; line-height: 1.7;"
+        >
           If you already have a team but no technical leader, I step in to set
           direction, establish processes, and make sure the engineering is on
           track. I stay until you've found the right permanent hire, then I hand
@@ -88,9 +129,14 @@ import PageHeader from '../components/PageHeader.astro';
       <article class="card" style="padding: 1rem;">
         <div class="flex items-center gap-2 mb-1.5">
           <Icon name="users" size={16} color="#97c459" />
-          <h3 class="font-medium m-0 text-heading" style="font-size: 0.875rem;">Your technical advisor</h3>
+          <h3 class="font-medium m-0 text-heading" style="font-size: 0.875rem;">
+            Your technical advisor
+          </h3>
         </div>
-        <p class="m-0 text-muted" style="font-size: 0.8125rem; line-height: 1.7;">
+        <p
+          class="m-0 text-muted"
+          style="font-size: 0.8125rem; line-height: 1.7;"
+        >
           Sometimes you just need a second opinion. I help you evaluate whether
           your current setup makes sense, what to build next, and whether you're
           spending money on the right things. No commitment, no retainer, just
@@ -101,24 +147,33 @@ import PageHeader from '../components/PageHeader.astro';
   </section>
 
   <!-- Stats -->
-  <dl class="flex gap-6 py-4 m-0" style="border-top: 1px solid var(--color-border); border-bottom: 1px solid var(--color-border);">
+  <dl
+    class="flex gap-6 py-4 m-0"
+    style="border-top: 1px solid var(--color-border); border-bottom: 1px solid var(--color-border);"
+  >
     <div>
       <dt class="text-heading font-medium" style="font-size: 1.25rem;">~10</dt>
-      <dd class="m-0 text-dim" style="font-size: 0.6875rem;">years experience</dd>
+      <dd class="m-0 text-dim" style="font-size: 0.6875rem;">
+        years experience
+      </dd>
     </div>
     <div>
-      <dt class="text-heading font-medium" style="font-size: 1.25rem;">8</dt>
+      <dt class="text-heading font-medium" style="font-size: 1.25rem;">12</dt>
       <dd class="m-0 text-dim" style="font-size: 0.6875rem;">people led</dd>
     </div>
     <div>
       <dt class="text-heading font-medium" style="font-size: 1.25rem;">25+</dt>
-      <dd class="m-0 text-dim" style="font-size: 0.6875rem;">projects delivered</dd>
+      <dd class="m-0 text-dim" style="font-size: 0.6875rem;">
+        projects delivered
+      </dd>
     </div>
   </dl>
 
   <!-- What it's like to work with me -->
   <section class="mt-8 mb-8">
-    <h2 class="m-0 mb-3 text-dim" style="font-size: 0.75rem;">What it's like to work with me</h2>
+    <h2 class="m-0 mb-3 text-dim" style="font-size: 0.75rem;">
+      What it's like to work with me
+    </h2>
     <div class="flex flex-col gap-2">
       <p class="m-0 text-muted" style="font-size: 0.8125rem; line-height: 1.7;">
         <span class="text-dim">I speak human, not jargon. </span>You'll always
@@ -143,7 +198,10 @@ import PageHeader from '../components/PageHeader.astro';
   </section>
 
   <!-- On AI -->
-  <section class="mb-8" style="border-top: 1px solid var(--color-border); padding-top: 1.25rem;">
+  <section
+    class="mb-8"
+    style="border-top: 1px solid var(--color-border); padding-top: 1.25rem;"
+  >
     <h2 class="m-0 mb-2 text-dim" style="font-size: 0.75rem;">On AI</h2>
     <p class="m-0 text-muted" style="font-size: 0.875rem; line-height: 1.8;">
       AI won't replace your engineers, but it changes what they spend time on.
@@ -153,7 +211,10 @@ import PageHeader from '../components/PageHeader.astro';
       judgment. Done right, it accelerates your timeline. Done badly, it creates
       a mess that costs more to fix than it saved.
     </p>
-    <p class="m-0 text-muted mt-3" style="font-size: 0.875rem; line-height: 1.8;">
+    <p
+      class="m-0 text-muted mt-3"
+      style="font-size: 0.875rem; line-height: 1.8;"
+    >
       I help teams adopt AI where it actually pays off. That means integrating
       it into their workflows, setting guardrails so output is reviewed rather
       than trusted blindly, and making sure the time saved actually matters
@@ -162,24 +223,46 @@ import PageHeader from '../components/PageHeader.astro';
   </section>
 
   <!-- Track record -->
-  <section class="mb-8" style="border-top: 1px solid var(--color-border); padding-top: 1.25rem;">
-    <h2 class="m-0 mb-2.5 text-dim" style="font-size: 0.75rem;">Track record</h2>
+  <section
+    class="mb-8"
+    style="border-top: 1px solid var(--color-border); padding-top: 1.25rem;"
+  >
+    <h2 class="m-0 mb-2.5 text-dim" style="font-size: 0.75rem;">
+      Track record
+    </h2>
     <dl class="flex flex-col gap-3 m-0">
       <div class="flex items-center gap-4">
-        <dt class="text-heading font-medium" style="font-size: 1.25rem; min-width: 3.75rem;">60%</dt>
-        <dd class="m-0 text-muted" style="font-size: 0.8125rem; line-height: 1.6;">deploy time reduction for a client infra migration, from hours to minutes.</dd>
+        <dt
+          class="text-heading font-medium"
+          style="font-size: 1.25rem; min-width: 3.75rem;"
+        >
+          60%
+        </dt>
+        <dd
+          class="m-0 text-muted"
+          style="font-size: 0.8125rem; line-height: 1.6;"
+        >
+          deploy time reduction for a client infra migration, from hours to
+          minutes.
+        </dd>
       </div>
-      <div class="flex items-center gap-4" style="border-top: 1px solid var(--color-border); padding-top: 0.75rem;">
-        <dt class="text-heading font-medium" style="font-size: 1.25rem; min-width: 3.75rem;">0 → 8</dt>
-        <dd class="m-0 text-muted" style="font-size: 0.8125rem; line-height: 1.6;">engineers hired and mentored to build out a team from scratch.</dd>
-      </div>
-      <div class="flex items-center gap-4" style="border-top: 1px solid var(--color-border); padding-top: 0.75rem;">
-        <dt class="text-heading font-medium" style="font-size: 1.25rem; min-width: 3.75rem;">6 mo</dt>
-        <dd class="m-0 text-muted" style="font-size: 0.8125rem; line-height: 1.6;">typical time from idea to a product you can show investors and customers.</dd>
-      </div>
-      <div class="flex items-center gap-4" style="border-top: 1px solid var(--color-border); padding-top: 0.75rem;">
-        <dt class="text-heading font-medium" style="font-size: 1.25rem; min-width: 3.75rem;">~10</dt>
-        <dd class="m-0 text-muted" style="font-size: 0.8125rem; line-height: 1.6;">years across startups and enterprise, from prototype to production at scale.</dd>
+      <div
+        class="flex items-center gap-4"
+        style="border-top: 1px solid var(--color-border); padding-top: 0.75rem;"
+      >
+        <dt
+          class="text-heading font-medium"
+          style="font-size: 1.25rem; min-width: 3.75rem;"
+        >
+          ~10
+        </dt>
+        <dd
+          class="m-0 text-muted"
+          style="font-size: 0.8125rem; line-height: 1.6;"
+        >
+          years across startups and enterprise, from prototype to production at
+          scale.
+        </dd>
       </div>
     </dl>
   </section>
@@ -189,10 +272,10 @@ import PageHeader from '../components/PageHeader.astro';
     <h2 class="m-0 mb-2 text-dim" style="font-size: 0.75rem;">About me</h2>
     <p class="m-0 text-muted" style="font-size: 0.8125rem; line-height: 1.8;">
       I've spent the last ten years building software across startups and
-      enterprise, from early prototypes to production systems serving real users.
-      I've led teams, mentored engineers, and worked independently with clients
-      who needed someone they could trust with the technical side of their
-      business. I also mentor junior engineers and previously taught
+      enterprise, from early prototypes to production systems serving real
+      users. I've led teams, mentored engineers, and worked independently with
+      clients who needed someone they could trust with the technical side of
+      their business. I also mentor junior engineers and previously taught
       programming, because I think more people should be able to do this work.
     </p>
   </section>
