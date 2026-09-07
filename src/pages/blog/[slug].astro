@@ -3,68 +3,46 @@ import Layout from '../../layouts/Layout.astro';
 import Icon from '../../components/Icon.tsx';
 import TagList from '../../components/TagList.astro';
 import PageHeader from '../../components/PageHeader.astro';
-import { POSTS } from '../../data/posts';
+import { getCollection, render } from 'astro:content';
 
-export function getStaticPaths() {
-  return POSTS.map(post => ({
-    params: { slug: post.slug },
+export async function getStaticPaths() {
+  const posts = await getCollection('blog');
+  return posts.map(post => ({
+    params: { slug: post.id },
   }));
 }
 
 const { slug } = Astro.params;
-const post = POSTS.find(p => p.slug === slug);
+const posts = await getCollection('blog');
+const post = posts.find(p => p.id === slug);
 
 if (!post) {
   return Astro.redirect('/blog');
 }
+
+const { Content } = await render(post);
+const { title, date, tags, codeFolderLink } = post.data;
 ---
 
-<Layout title={post.title}>
-  <PageHeader current="blog" postTitle={post.title} />
+<Layout title={title}>
+  <PageHeader current="blog" postTitle={title} />
 
   <!-- Post header -->
-  <p class="font-medium m-0 mb-2 text-heading" style="font-size: 20px;">{post.title}</p>
-  <p class="m-0 mb-2.5 text-dim" style="font-size: 12px;">{post.date}</p>
-  <TagList tags={post.tags} class="mb-3.5" />
+  <p class="font-medium m-0 mb-2 text-heading" style="font-size: 20px;">{title}</p>
+  <p class="m-0 mb-2.5 text-dim" style="font-size: 12px;">{date}</p>
+  <TagList tags={tags} class="mb-3.5" />
 
   {/* Code folder callout */}
-  {post.codeFolderLink && (
+  {codeFolderLink && (
     <div class="flex items-center gap-2 text-muted card" style="padding: 8px 12px; font-size: 12px; margin-bottom: 24px;">
       <Icon name="folder" size={14} color="var(--color-dim)" />
       <span>code_folder:</span>
-      <a href={post.codeFolderLink} target="_blank" rel="noopener" class="text-link">view repository</a>
+      <a href={codeFolderLink} target="_blank" rel="noopener" class="text-link">view repository</a>
     </div>
   )}
 
-  <!-- Post content (hardcoded for Phase 1) -->
-  {post.slug === 'deno-react-ws-chat' && (
-    <div class="prose">
-      <p>In this post, we take a look at how to build a chat application using Deno as the tool for frontend and backend. We use the same setup with React as before, while the backend runs on vanilla Deno.</p>
-      <p>For the chat functionality, we use WebSockets and store the chat on the server for a historical log. To keep things simple, we skip login, validation, and sanitization of messages.</p>
-      <h2>Shared types (part 1)</h2>
-      <p>To make it easier down the line, we want shared interfaces between frontend and backend. Create a <code>shared.ts</code> file and add the following.</p>
-      <pre><code>{`export type Message = {
-  from: string;
-  body: string;
-  timestamp: string;
-};`}</code></pre>
-      <p>Now that we have a shared interface ready, we can move on to the backend.</p>
-    </div>
-  )}
-
-  {post.slug !== 'deno-react-ws-chat' && (
-    <div class="prose">
-      <p>{post.summary}</p>
-      <p style="color: var(--color-dim); font-size: 12px;">Full content will be available when dynamic content is implemented in Phase 2.</p>
-    </div>
-  )}
-
-  <!-- Footer note -->
-  {post.slug === 'deno-react-ws-chat' && (
-    <div class="pt-3.5 mt-8" style="border-top: 1px solid var(--color-border);">
-      <p class="m-0 text-dim" style="font-size: 11px;">
-        This post is related to my course <a href="https://www.newline.co/courses/build-and-deploy-a-rest-api-with-deno" class="text-link">"Build and deploy a REST API with Deno"</a> on Newline.co.
-      </p>
-    </div>
-  )}
+  <!-- Post content -->
+  <div class="prose">
+    <Content />
+  </div>
 </Layout>

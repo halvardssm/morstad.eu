@@ -1,22 +1,25 @@
 ---
 import Icon from './Icon.tsx';
 import TagList from './TagList.astro';
-import type { Project } from '../data/projects';
+import type { CollectionEntry } from 'astro:content';
 
 interface Props {
-  project: Project;
+  project: CollectionEntry<'work'>;
   compact?: boolean;
 }
 
 const { project, compact = false } = Astro.props;
+const { title, tags, description, icon, iconColor } = project.data;
 const titleSize = compact ? '13px' : '14px';
 ---
 
-<div class="card" style="padding: 1rem;">
-  <div class="flex items-center gap-2 mb-2">
-    <Icon name={project.icon} size={16} color={project.iconColor} />
-    <p class="font-medium m-0 text-heading" style={`font-size: ${titleSize};`}>{project.title}</p>
+<a href={`/work/${project.id}`} class="block no-underline">
+  <div class="card" style="padding: 1rem;">
+    <div class="flex items-center gap-2 mb-2">
+      <Icon name={icon} size={16} color={iconColor} />
+      <p class="font-medium m-0 text-heading" style={`font-size: ${titleSize};`}>{title}</p>
+    </div>
+    <TagList tags={tags} class="mb-2.5" />
+    <p class="m-0 text-muted" style="font-size: 12px; line-height: 1.6;">{description}</p>
   </div>
-  <TagList tags={project.tags} class="mb-2.5" />
-  <p class="m-0 text-muted" style="font-size: 12px; line-height: 1.6;">{project.description}</p>
-</div>
+</a>

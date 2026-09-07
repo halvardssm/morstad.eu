@@ -1,0 +1,50 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Icon from '../../components/Icon.tsx';
+import TagList from '../../components/TagList.astro';
+import PageHeader from '../../components/PageHeader.astro';
+import { getCollection, render } from 'astro:content';
+
+export async function getStaticPaths() {
+  const projects = await getCollection('work');
+  return projects.map(project => ({
+    params: { slug: project.id },
+  }));
+}
+
+const { slug } = Astro.params;
+const projects = await getCollection('work');
+const project = projects.find(p => p.id === slug);
+
+if (!project) {
+  return Astro.redirect('/work');
+}
+
+const { Content } = await render(project);
+const { title, tags, description, icon, iconColor, url } = project.data;
+---
+
+<Layout title={title}>
+  <PageHeader current="work" postTitle={title} />
+
+  <!-- Project header -->
+  <div class="flex items-center gap-2 mb-3">
+    <Icon name={icon} size={20} color={iconColor} />
+    <p class="font-medium m-0 text-heading" style="font-size: 20px;">{title}</p>
+  </div>
+  <TagList tags={tags} class="mb-4" />
+
+  <p class="m-0 text-muted mb-4" style="font-size: 14px; line-height: 1.7;">{description}</p>
+
+  {url && (
+    <a href={url} target="_blank" rel="noopener" class="btn-outline" style="padding: 8px 14px; font-size: 13px; display: inline-flex; align-items: center; margin-bottom: 2rem;">
+      View repository &gt;
+    </a>
+  )}
+
+  {project.body && (
+    <div class="prose">
+      <Content />
+    </div>
+  )}
+</Layout>

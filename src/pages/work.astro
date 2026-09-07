@@ -2,14 +2,15 @@
 import Layout from '../layouts/Layout.astro';
 import ProjectCard from '../components/ProjectCard.astro';
 import PageHeader from '../components/PageHeader.astro';
-import { PROJECTS } from '../data/projects';
+import { getCollection } from 'astro:content';
 import { TAGS } from '../data/tags';
 
-const featured = PROJECTS.filter(p => p.featured);
-const allProjects = PROJECTS.filter(p => !p.featured);
+const projects = await getCollection('work');
+const featured = projects.filter(p => p.data.featured);
+const allProjects = projects.filter(p => !p.data.featured);
 
 // Collect all unique tags from non-featured projects for the filter row
-const allTags = [...new Set(allProjects.flatMap(p => p.tags))];
+const allTags = [...new Set(allProjects.flatMap(p => p.data.tags))];
 const visibleTags = allTags.slice(0, 3);
 const remainingCount = allTags.length - visibleTags.length;
 ---

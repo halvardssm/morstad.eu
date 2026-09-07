@@ -2,9 +2,9 @@
 import Layout from '../layouts/Layout.astro';
 import Icon from '../components/Icon.tsx';
 import { SITE, SITE_NON_TECHNICAL } from '../data/site';
-import { PROJECTS } from '../data/projects';
+import { getCollection } from 'astro:content';
 
-const selectedWork = PROJECTS.filter(p => p.selected);
+const selectedWork = (await getCollection('work')).filter(p => p.data.selected);
 ---
 
 <Layout>
@@ -83,8 +83,8 @@ const selectedWork = PROJECTS.filter(p => p.selected);
       <div class="grid gap-2.5 mb-8" style="grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));">
         {selectedWork.map(project => (
           <div class="card" style="padding: 1rem;">
-            <p class="font-medium m-0 mb-1.5 text-heading" style="font-size: 14px;">{project.title}</p>
-            <p class="m-0 text-muted mb-2.5" style="font-size: 12px; line-height: 1.6;">{project.description}</p>
+            <p class="font-medium m-0 mb-1.5 text-heading" style="font-size: 14px;">{project.data.title}</p>
+            <p class="m-0 text-muted mb-2.5" style="font-size: 12px; line-height: 1.6;">{project.data.description}</p>
             <a href="/work" class="text-link" style="font-size: 12px;">view_case_study &gt;</a>
           </div>
         ))}
@@ -170,8 +170,8 @@ const selectedWork = PROJECTS.filter(p => p.selected);
       <div class="grid gap-2.5 mb-8" style="grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));">
         {selectedWork.map(project => (
           <div class="card" style="padding: 1rem;">
-            <p class="font-medium m-0 mb-1.5 text-heading" style="font-size: 14px;">{project.title}</p>
-            <p class="m-0 text-muted mb-2.5" style="font-size: 12px; line-height: 1.6;">{project.description}</p>
+            <p class="font-medium m-0 mb-1.5 text-heading" style="font-size: 14px;">{project.data.title}</p>
+            <p class="m-0 text-muted mb-2.5" style="font-size: 12px; line-height: 1.6;">{project.data.description}</p>
             <a href="/work" class="text-link" style="font-size: 12px;">Read more &gt;</a>
           </div>
         ))}

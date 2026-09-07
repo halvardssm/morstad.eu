@@ -2,11 +2,15 @@
 import Layout from '../layouts/Layout.astro';
 import PostCard from '../components/PostCard.astro';
 import PageHeader from '../components/PageHeader.astro';
-import { POSTS } from '../data/posts';
+import { getCollection } from 'astro:content';
 import { TAGS } from '../data/tags';
 
+const posts = (await getCollection('blog')).sort((a, b) =>
+  new Date(b.data.date).getTime() - new Date(a.data.date).getTime()
+);
+
 // Collect all unique tags for the filter row
-const allTags = [...new Set(POSTS.flatMap(p => p.tags))];
+const allTags = [...new Set(posts.flatMap(p => p.data.tags))];
 ---
 
 <Layout title="Blog">
@@ -27,6 +31,6 @@ const allTags = [...new Set(POSTS.flatMap(p => p.tags))];
 
   <!-- Post list -->
   <div class="flex flex-col gap-2.5">
-    {POSTS.map(post => <PostCard post={post} />)}
+    {posts.map(post => <PostCard post={post} />)}
   </div>
 </Layout>
