@@ -41,6 +41,11 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+  font-weight: 500;
+}
+
 /* ── Utility classes ── */
 .card {
   background-color: var(--color-bg-card);
@@ -119,8 +124,8 @@ body {
   background-color: var(--color-bg-card);
   border: 1px solid var(--color-border);
   border-radius: 4px;
-  padding: 14px 16px;
-  font-size: 12px;
+  padding: 0.875rem 1rem;
+  font-size: 0.75rem;
   overflow-x: auto;
   line-height: 1.6;
   color: var(--color-text);
@@ -129,30 +134,30 @@ body {
   background-color: var(--color-bg-card);
   padding: 1px 5px;
   border-radius: 3px;
-  font-size: 13px;
+  font-size: 0.8125rem;
   color: #97c459;
 }
 .prose h2 {
-  font-size: 15px;
+  font-size: 0.9375rem;
   font-weight: 500;
   color: var(--color-heading);
-  margin: 20px 0 10px;
+  margin: 1.25rem 0 0.625rem;
 }
 .prose p {
-  font-size: 14px;
+  font-size: 0.875rem;
   line-height: 1.8;
-  margin-bottom: 20px;
+  margin-bottom: 1.25rem;
   color: #c4c4bd;
 }
 :root[data-theme="light"] .prose p {
   color: #4a4a46;
 }
 .prose blockquote {
-  font-size: 12px;
+  font-size: 0.75rem;
   color: var(--color-dim);
   border-left: 2px solid var(--color-border);
-  padding-left: 12px;
-  margin-bottom: 20px;
+  padding-left: 0.75rem;
+  margin-bottom: 1.25rem;
 }
 .prose a {
   color: var(--color-link);

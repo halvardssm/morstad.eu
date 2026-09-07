@@ -33,9 +33,9 @@ const stars = githubStars && url ? await getGitHubStars(url) : null;
   <!-- Project header -->
   <div class="flex items-center gap-2 mb-3">
     <Icon name={icon} size={20} color={iconColor} />
-    <p class="font-medium m-0 text-heading" style="font-size: 20px;">{title}</p>
+    <h1 class="font-medium m-0 text-heading" style="font-size: 1.25rem;">{title}</h1>
     {stars !== null && (
-      <span class="flex items-center gap-1 text-dim ml-2" style="font-size: 13px;">
+      <span class="flex items-center gap-1 text-dim ml-2" style="font-size: 0.8125rem;">
         <Icon name="star" size={14} color="var(--color-dim)" />
         {stars}
       </span>
@@ -43,17 +43,17 @@ const stars = githubStars && url ? await getGitHubStars(url) : null;
   </div>
   <TagList tags={tags} class="mb-4" />
 
-  <p class="m-0 text-muted mb-4" style="font-size: 14px; line-height: 1.7;">{description}</p>
+  <p class="m-0 text-muted mb-4" style="font-size: 0.875rem; line-height: 1.7;">{description}</p>
 
   {url && (
-    <a href={url} target="_blank" rel="noopener" class="btn-outline" style="padding: 8px 14px; font-size: 13px; display: inline-flex; align-items: center; margin-bottom: 2rem;">
+    <a href={url} target="_blank" rel="noopener" class="btn-outline" style="padding: 0.5rem 0.875rem; font-size: 0.8125rem; display: inline-flex; align-items: center; margin-bottom: 2rem;">
       View repository &gt;
     </a>
   )}
 
   {project.body && (
-    <div class="prose">
+    <article class="prose">
       <Content />
-    </div>
+    </article>
   )}
 </Layout>

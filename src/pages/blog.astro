@@ -29,7 +29,7 @@ const allTags = [...new Set(posts.flatMap(p => p.data.tags))];
           data-text={colors.text}
           data-border={colors.border}
           class="blog-tag"
-          style={`font-size: 10px; padding: 3px 9px; border-radius: 3px; border: 1px solid ${colors.border}; color: ${colors.text}; cursor: pointer; transition: all 0.15s;`}
+          style={`font-size: 0.625rem; padding: 3px 9px; border-radius: 3px; border: 1px solid ${colors.border}; color: ${colors.text}; cursor: pointer; transition: all 0.15s;`}
         >
           {tag.name}
         </button>
@@ -38,13 +38,13 @@ const allTags = [...new Set(posts.flatMap(p => p.data.tags))];
   </div>
 
   <!-- Post list -->
-  <div class="flex flex-col gap-2.5" id="post-list">
+  <section class="flex flex-col gap-2.5" id="post-list">
     {posts.map(post => (
       <div data-tags={post.data.tags.join(',')}>
         <PostCard post={post} />
       </div>
     ))}
-  </div>
+  </section>
 
   <script>
     const filters = document.querySelectorAll<HTMLButtonElement>('.blog-tag');

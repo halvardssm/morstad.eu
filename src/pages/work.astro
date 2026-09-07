@@ -32,14 +32,14 @@ const featuredCols = featured.length <= 1 ? 1 : featured.length <= 4 ? 2 : featu
   <PageHeader current="work" />
 
   <!-- Featured -->
-  <p class="m-0 mb-2.5 text-dim" style="font-size: 12px;">// featured</p>
-  <div class="featured-grid grid gap-2.5 mb-8" style={`--cols: ${featuredCols};`}>
+  <h2 class="m-0 mb-2.5 text-dim" style="font-size: 0.75rem;">// featured</h2>
+  <section class="featured-grid grid gap-2.5 mb-8" style={`--cols: ${featuredCols};`}>
     {featured.map(project => <ProjectCard project={project} stars={starsMap.get(project.id) ?? null} />)}
-  </div>
+  </section>
 
   <!-- All projects -->
-  <div class="pt-5" style="border-top: 1px solid var(--color-border);">
-    <p class="m-0 mb-3 text-dim" style="font-size: 12px;">// all projects</p>
+  <section class="pt-5" style="border-top: 1px solid var(--color-border);">
+    <h2 class="m-0 mb-3 text-dim" style="font-size: 0.75rem;">// all projects</h2>
 
     <!-- Tag filter row -->
     <div class="flex flex-wrap gap-1.5 mb-4" id="tag-filters">
@@ -54,7 +54,7 @@ const featuredCols = featured.length <= 1 ? 1 : featured.length <= 4 ? 2 : featu
             data-text={colors.text}
             data-border={colors.border}
             class="work-tag"
-            style={`font-size: 10px; padding: 3px 9px; border-radius: 3px; border: 1px solid ${colors.border}; color: ${colors.text}; cursor: pointer; transition: all 0.15s;`}
+            style={`font-size: 0.625rem; padding: 3px 9px; border-radius: 3px; border: 1px solid ${colors.border}; color: ${colors.text}; cursor: pointer; transition: all 0.15s;`}
           >
             {tag.name}
           </button>
@@ -70,7 +70,7 @@ const featuredCols = featured.length <= 1 ? 1 : featured.length <= 4 ? 2 : featu
         </div>
       ))}
     </div>
-  </div>
+  </section>
 
   <script>
     const filters = document.querySelectorAll<HTMLButtonElement>('.work-tag');

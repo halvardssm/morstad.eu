@@ -34,7 +34,7 @@ const { title = 'halvard_mørstad', max } = Astro.props;
     </script>
   </head>
   <body>
-    <div
+    <main
       class="px-8 py-8 mx-auto relative"
       style={`max-width: ${max ?? '860px'};`}
     >
@@ -42,6 +42,6 @@ const { title = 'halvard_mørstad', max } = Astro.props;
         <ThemeToggle client:load />
       </div>
       <slot />
-    </div>
+    </main>
   </body>
 </html>

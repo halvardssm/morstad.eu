@@ -9,15 +9,18 @@ interface Props {
 const { current, postTitle } = Astro.props;
 
 const pages = [
+  { key: "about", label: "About", href: "/about" },
   { key: "work", label: "Work", href: "/work" },
   { key: "blog", label: "Blog", href: "/blog" },
-  { key: "about", label: "About", href: "/about" },
 ];
 ---
 
-<div class="mb-5">
-  <!-- Breadcrumb -->
-  <div class="flex items-center gap-1.5 text-dim mb-3" style="font-size: 12px;">
+<header class="mb-5">
+  <nav
+    aria-label="Breadcrumb"
+    class="flex items-center gap-1.5 text-dim mb-3"
+    style="font-size: 0.75rem;"
+  >
     <a href="/" style="text-decoration: none; color: var(--color-dim);">~</a>
     <span>/</span>
     {
@@ -45,18 +48,19 @@ const pages = [
         </>
       )
     }
-  </div>
+  </nav>
 
-  <!-- Title + sub-page nav -->
   <div class="flex items-center gap-4">
     <a href="/" aria-label="Home" style="text-decoration: none;">
       <Icon name="home" size={18} color="var(--color-muted)" />
     </a>
-    <span
+    <h1
       class="font-medium text-heading"
-      style="font-size: 20px; text-transform: capitalize;">{current}</span
+      style="font-size: 1.25rem; text-transform: capitalize;"
     >
-    <div class="flex gap-3" style="font-size: 13px;">
+      {current}
+    </h1>
+    <nav class="flex gap-3" style="font-size: 0.8125rem;">
       {
         pages.map((page) => (
           <a
@@ -67,6 +71,6 @@ const pages = [
           </a>
         ))
       }
-    </div>
+    </nav>
   </div>
-</div>
+</header>

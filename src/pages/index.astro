@@ -5,11 +5,11 @@ import Icon from "../components/Icon.tsx";
 
 <Layout>
   <!-- Hero -->
-  <div class="mb-12" style="padding-right: 40px;">
-    <div class="flex flex-wrap items-center gap-x-4 gap-y-2 mb-12">
-      <p class="font-medium m-0 text-heading" style="font-size: 20px;">
+  <div class="mb-6" style="padding-right: 40px;">
+    <div class="flex flex-wrap items-center gap-x-4 gap-y-2 mb-2">
+      <h1 class="font-medium m-0 text-heading" style="font-size: 1.25rem;">
         &gt; halvard_mørstad
-      </p>
+      </h1>
       <div class="flex items-center gap-3">
         <a
           href="https://github.com/halvardssm"
@@ -32,12 +32,11 @@ import Icon from "../components/Icon.tsx";
         </a>
       </div>
     </div>
-    <p class="m-0 text-muted" style="font-size: 14px; line-height: 1.7;">
+    <p class="m-0 text-muted" style="font-size: 0.875rem; line-height: 1.7;">
       // Cloud and infrastructure engineer, occasionally full-stack.<br />
       // Ten years in, still enjoy picking up a stack I've never touched.<br />
-      // These days that extends to leading the people who build alongside me.<br
-      />
-      // Comfortable down to the metal — Rust, Go, and the occasional x86 detour.
+      // These days that extends to leading the people who build alongside me.<br />
+      // Comfortable down to the metal, Rust, Go, and the occasional x86 detour.
     </p>
   </div>
 
@@ -46,21 +45,21 @@ import Icon from "../components/Icon.tsx";
     <a
       href="mailto:halvard@morstad.eu"
       class="btn-primary"
-      style="padding: 8px 16px; font-size: 13px; display: inline-flex; align-items: center;"
+      style="padding: 0.5rem 1rem; font-size: 0.8125rem; display: inline-flex; align-items: center;"
     >
       $ lets_talk()
     </a>
     <a
       href="/work"
       class="btn-outline"
-      style="padding: 8px 14px; font-size: 13px; display: inline-flex; align-items: center;"
+      style="padding: 0.5rem 0.875rem; font-size: 0.8125rem; display: inline-flex; align-items: center;"
     >
       cd ./work
     </a>
     <a
       href="/blog"
       class="btn-outline"
-      style="padding: 8px 14px; font-size: 13px; display: inline-flex; align-items: center;"
+      style="padding: 0.5rem 0.875rem; font-size: 0.8125rem; display: inline-flex; align-items: center;"
     >
       cd ./blog
     </a>
@@ -70,138 +69,135 @@ import Icon from "../components/Icon.tsx";
   <a
     href="/about"
     class="btn-outline"
-    style="padding: 20px 24px; font-size: 13px; display: inline-flex; align-items: center; gap: 28px; margin-bottom: 2rem; text-decoration: none;"
+    style="padding: 1.25rem 1.5rem; font-size: 0.8125rem; display: inline-flex; align-items: center; gap: 1.75rem; margin-bottom: 2rem; text-decoration: none;"
   >
     <Icon name="click" size={28} color="var(--color-link)" />
     <span
-      >I can also present to your&nbsp;<br />non-technical stakeholders&nbsp;<br
-      />— see that view here</span
+      >I can also present to your&nbsp;<br />non-technical
+      stakeholders&nbsp;<br />see that view here</span
     >
   </a>
 
   <!-- Ways to work with me -->
-  <p class="m-0 mb-2.5 text-dim" style="font-size: 12px;">
+  <h2 class="m-0 mb-2.5 text-dim" style="font-size: 0.75rem;">
     // ways to work with me
-  </p>
-  <div
+  </h2>
+  <section
     class="grid gap-2.5 mb-8"
     style="grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));"
   >
     <div class="card" style="padding: 1rem;">
       <Icon name="code" size={16} color="#85b7eb" />
-      <p
+      <h3
         class="font-medium m-0 mt-2.5 mb-1 text-heading"
-        style="font-size: 14px;"
+        style="font-size: 0.875rem;"
       >
         Hands-on engineering
-      </p>
-      <p class="m-0 text-muted" style="font-size: 12px; line-height: 1.6;">
+      </h3>
+      <p class="m-0 text-muted" style="font-size: 0.75rem; line-height: 1.6;">
         Cloud, infra, and full-stack builds you can hand off with confidence.
       </p>
     </div>
     <div class="card" style="padding: 1rem;">
       <Icon name="bulb" size={16} color="#f0997b" />
-      <p
+      <h3
         class="font-medium m-0 mt-2.5 mb-1 text-heading"
-        style="font-size: 14px;"
+        style="font-size: 0.875rem;"
       >
         Advisory and greenfield builds
-      </p>
-      <p class="m-0 text-muted" style="font-size: 12px; line-height: 1.6;">
+      </h3>
+      <p class="m-0 text-muted" style="font-size: 0.75rem; line-height: 1.6;">
         Pick the right stack, validate before committing budget, or find what's
         broken.
       </p>
     </div>
     <div class="card" style="padding: 1rem;">
       <Icon name="users" size={16} color="#97c459" />
-      <p
+      <h3
         class="font-medium m-0 mt-2.5 mb-1 text-heading"
-        style="font-size: 14px;"
+        style="font-size: 0.875rem;"
       >
         Fractional leadership
-      </p>
-      <p class="m-0 text-muted" style="font-size: 12px; line-height: 1.6;">
+      </h3>
+      <p class="m-0 text-muted" style="font-size: 0.75rem; line-height: 1.6;">
         Interim CTO work, team building, and technical strategy.
       </p>
     </div>
-  </div>
+  </section>
 
   <!-- About -->
   <div class="pb-5 mt-8">
-    <p class="m-0 mb-2 text-dim" style="font-size: 12px;">// about</p>
-    <p class="m-0 text-muted mb-3" style="font-size: 13px; line-height: 1.8;">
+    <h2 class="m-0 mb-2 text-dim" style="font-size: 0.75rem;">// about</h2>
+    <p
+      class="m-0 text-muted mb-3"
+      style="font-size: 0.8125rem; line-height: 1.8;"
+    >
       I'm a cloud and infrastructure engineer with a full-stack background. Ten
       years across startups and enterprise, now splitting my time between
       hands-on engineering, technical leadership, and freelance work.
     </p>
-    <p class="m-0 mb-1.5 text-muted" style="font-size: 13px; line-height: 1.7;">
+    <p class="m-0 mb-1.5 text-muted" style="font-size: 0.8125rem; line-height: 1.7;">
       <span class="text-dim">// leadership</span>
       <span>
-        — I've led teams of up to 8 engineers, set technical direction, and
+        I've led teams of up to 8 engineers, set technical direction, and
         mentored juniors. I'm comfortable as interim CTO or embedding into an
         existing team.</span
       >
     </p>
-    <p class="m-0 mb-1.5 text-muted" style="font-size: 13px; line-height: 1.7;">
+    <p class="m-0 mb-1.5 text-muted" style="font-size: 0.8125rem; line-height: 1.7;">
       <span class="text-dim">// adaptability</span>
       <span>
-        — I pick up unfamiliar stacks quickly — comfortable across the stack
-        from frontend to infrastructure to low-level systems. I've evaluated and
-        adopted technologies for proof-of-concepts and greenfield projects.</span
+        I pick up unfamiliar stacks quickly. I'm comfortable across the stack
+        from frontend to infrastructure to low-level systems, and I've evaluated
+        and adopted technologies for proof-of-concepts and greenfield projects.</span
       >
     </p>
-    <p class="m-0 mb-1.5 text-muted" style="font-size: 13px; line-height: 1.7;">
+    <p class="m-0 mb-1.5 text-muted" style="font-size: 0.8125rem; line-height: 1.7;">
       <span class="text-dim">// mentoring</span>
       <span>
-        — I mentor junior engineers and previously taught programming. I also
+        I mentor junior engineers and previously taught programming. I also
         write technical content, including a course on Newline.co.</span
       >
     </p>
-    <p class="m-0 mb-1.5 text-muted" style="font-size: 13px; line-height: 1.7;">
+    <p class="m-0 mb-1.5 text-muted" style="font-size: 0.8125rem; line-height: 1.7;">
       <span class="text-dim">// on ai</span>
       <span>
-        — AI is a tool, not a replacement. I use it to accelerate workflows —
-        scaffolding, test generation, code review — but the engineer's job
-        shifts from writing code to evaluating it. Used well, it cuts cost and
-        cycle time. Used poorly, it generates more rework than it saves.</span
+        AI is a tool, not a replacement. I use it to speed up scaffolding, test
+        generation, and code review, but the engineer's job shifts from writing
+        code to evaluating it. Get it right and you cut cost and cycle time. Get
+        it wrong and you generate more rework than you saved.</span
       >
     </p>
   </div>
 
   <!-- Stats -->
-  <div
-    class="flex gap-6 py-4 mb-5"
+  <dl
+    class="flex gap-6 py-4 mb-5 m-0"
     style="border-top: 1px solid var(--color-border); border-bottom: 1px solid var(--color-border);"
   >
     <div>
-      <span class="text-heading font-medium" style="font-size: 20px;">~10</span>
-      <span class="block text-dim" style="font-size: 11px;"
-        >years experience</span
-      >
+      <dt class="text-heading font-medium" style="font-size: 1.25rem;">~10</dt>
+      <dd class="m-0 text-dim" style="font-size: 0.6875rem;">years experience</dd>
     </div>
     <div>
-      <span class="text-heading font-medium" style="font-size: 20px;">8</span>
-      <span class="block text-dim" style="font-size: 11px;">engineers led</span>
+      <dt class="text-heading font-medium" style="font-size: 1.25rem;">8</dt>
+      <dd class="m-0 text-dim" style="font-size: 0.6875rem;">engineers led</dd>
     </div>
     <div>
-      <span class="text-heading font-medium" style="font-size: 20px;">25+</span>
-      <span class="block text-dim" style="font-size: 11px;"
-        >projects shipped</span
-      >
+      <dt class="text-heading font-medium" style="font-size: 1.25rem;">25+</dt>
+      <dd class="m-0 text-dim" style="font-size: 0.6875rem;">projects shipped</dd>
     </div>
-  </div>
+  </dl>
 
   <!-- Use cases -->
-  <p class="m-0 mb-3 text-dim" style="font-size: 12px;">
+  <h2 class="m-0 mb-3 text-dim" style="font-size: 0.75rem;">
     // what I can do for you
-  </p>
+  </h2>
   <div class="mb-8">
     <div class="flex flex-col gap-1 py-3">
-      <p class="m-0 text-dim" style="font-size: 12px;">
-        // migrate to the cloud
-      </p>
-      <p class="m-0 text-muted" style="font-size: 13px; line-height: 1.7;">
-        Lift a legacy setup into containerized infra — I handle the migration,
+      <h3 class="m-0 text-dim" style="font-size: 0.75rem;">// migrate to the cloud</h3>
+      <p class="m-0 text-muted" style="font-size: 0.8125rem; line-height: 1.7;">
+        Lift a legacy setup into containerized infra. I handle the migration,
         CI/CD, and cutover with minimal downtime.
       </p>
     </div>
@@ -209,11 +205,11 @@ import Icon from "../components/Icon.tsx";
       class="flex flex-col gap-1 py-3"
       style="border-top: 1px solid var(--color-border);"
     >
-      <p class="m-0 text-dim" style="font-size: 12px;">
+      <h3 class="m-0 text-dim" style="font-size: 0.75rem;">
         // ship a full-stack app
-      </p>
-      <p class="m-0 text-muted" style="font-size: 13px; line-height: 1.7;">
-        From a blank repo to a deployed product — I build the frontend, API, and
+      </h3>
+      <p class="m-0 text-muted" style="font-size: 0.8125rem; line-height: 1.7;">
+        From a blank repo to a deployed product. I build the frontend, API, and
         database layer.
       </p>
     </div>
@@ -221,23 +217,23 @@ import Icon from "../components/Icon.tsx";
       class="flex flex-col gap-1 py-3"
       style="border-top: 1px solid var(--color-border);"
     >
-      <p class="m-0 text-dim" style="font-size: 12px;">
+      <h3 class="m-0 text-dim" style="font-size: 0.75rem;">
         // harden your infrastructure
-      </p>
-      <p class="m-0 text-muted" style="font-size: 13px; line-height: 1.7;">
-        I audit your current setup, find what's fragile, and make it reliable —
-        observability, autoscaling, and disaster recovery.
+      </h3>
+      <p class="m-0 text-muted" style="font-size: 0.8125rem; line-height: 1.7;">
+        I audit your current setup, find what's fragile, and make it reliable.
+        Observability, autoscaling, and disaster recovery.
       </p>
     </div>
     <div
       class="flex flex-col gap-1 py-3"
       style="border-top: 1px solid var(--color-border);"
     >
-      <p class="m-0 text-dim" style="font-size: 12px;">
+      <h3 class="m-0 text-dim" style="font-size: 0.75rem;">
         // build a greenfield service
-      </p>
-      <p class="m-0 text-muted" style="font-size: 13px; line-height: 1.7;">
-        When you need to validate an idea fast — I pick the stack, build a PoC,
+      </h3>
+      <p class="m-0 text-muted" style="font-size: 0.8125rem; line-height: 1.7;">
+        When you need to validate an idea fast. I pick the stack, build a PoC,
         and hand it off with docs.
       </p>
     </div>
@@ -245,11 +241,11 @@ import Icon from "../components/Icon.tsx";
       class="flex flex-col gap-1 py-3"
       style="border-top: 1px solid var(--color-border);"
     >
-      <p class="m-0 text-dim" style="font-size: 12px;">
+      <h3 class="m-0 text-dim" style="font-size: 0.75rem;">
         // lead your engineering team
-      </p>
-      <p class="m-0 text-muted" style="font-size: 13px; line-height: 1.7;">
-        Interim or fractional — I set technical direction, mentor your juniors,
+      </h3>
+      <p class="m-0 text-muted" style="font-size: 0.8125rem; line-height: 1.7;">
+        Interim or fractional. I set technical direction, mentor your juniors,
         and keep delivery moving.
       </p>
     </div>
@@ -257,18 +253,18 @@ import Icon from "../components/Icon.tsx";
       class="flex flex-col gap-1 py-3"
       style="border-top: 1px solid var(--color-border);"
     >
-      <p class="m-0 text-dim" style="font-size: 12px;">
+      <h3 class="m-0 text-dim" style="font-size: 0.75rem;">
         // evaluate a new stack
-      </p>
-      <p class="m-0 text-muted" style="font-size: 13px; line-height: 1.7;">
-        Before you commit budget, I prototype with the candidate technologies
-        and give you a grounded recommendation.
+      </h3>
+      <p class="m-0 text-muted" style="font-size: 0.8125rem; line-height: 1.7;">
+        Before you commit budget, I prototype with the candidate technologies and
+        give you a grounded recommendation.
       </p>
     </div>
   </div>
 
   <!-- Footer -->
-  <div class="pt-3.5" style="border-top: 1px solid var(--color-border);">
-    <p class="m-0 text-dim" style="font-size: 11px;">© halvard mørstad</p>
-  </div>
+  <footer class="pt-3.5" style="border-top: 1px solid var(--color-border);">
+    <p class="m-0 text-dim" style="font-size: 0.6875rem;">© halvard mørstad</p>
+  </footer>
 </Layout>

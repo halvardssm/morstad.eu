@@ -28,13 +28,13 @@ const { title, date, tags, codeFolderLink } = post.data;
   <PageHeader current="blog" postTitle={title} />
 
   <!-- Post header -->
-  <p class="font-medium m-0 mb-2 text-heading" style="font-size: 20px;">{title}</p>
-  <p class="m-0 mb-2.5 text-dim" style="font-size: 12px;">{date}</p>
+  <h1 class="font-medium m-0 mb-2 text-heading" style="font-size: 1.25rem;">{title}</h1>
+  <time datetime={date} class="block mb-2.5 text-dim" style="font-size: 0.75rem;">{date}</time>
   <TagList tags={tags} class="mb-3.5" />
 
   {/* Code folder callout */}
   {codeFolderLink && (
-    <div class="flex items-center gap-2 text-muted card" style="padding: 8px 12px; font-size: 12px; margin-bottom: 24px;">
+    <div class="flex items-center gap-2 text-muted card" style="padding: 0.5rem 0.75rem; font-size: 0.75rem; margin-bottom: 1.5rem;">
       <Icon name="folder" size={14} color="var(--color-dim)" />
       <span>code_folder:</span>
       <a href={codeFolderLink} target="_blank" rel="noopener" class="text-link">view repository</a>
@@ -42,7 +42,7 @@ const { title, date, tags, codeFolderLink } = post.data;
   )}
 
   <!-- Post content -->
-  <div class="prose">
+  <article class="prose">
     <Content />
-  </div>
+  </article>
 </Layout>
