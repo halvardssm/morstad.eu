@@ -1,16 +1,17 @@
 ---
-import Icon from './Icon.tsx';
+import Icon from "./Icon.tsx";
 
 interface Props {
-  current: 'work' | 'blog';
+  current: "work" | "blog" | "about";
   postTitle?: string;
 }
 
 const { current, postTitle } = Astro.props;
 
 const pages = [
-  { key: 'work', label: 'Work', href: '/work' },
-  { key: 'blog', label: 'Blog', href: '/blog' },
+  { key: "work", label: "Work", href: "/work" },
+  { key: "blog", label: "Blog", href: "/blog" },
+  { key: "about", label: "About", href: "/about" },
 ];
 ---
 
@@ -19,17 +20,31 @@ const pages = [
   <div class="flex items-center gap-1.5 text-dim mb-3" style="font-size: 12px;">
     <a href="/" style="text-decoration: none; color: var(--color-dim);">~</a>
     <span>/</span>
-    {postTitle ? (
-      <a href={`/${current}`} style="text-decoration: none; color: var(--color-dim);">{current}</a>
-    ) : (
-      <span class="text-muted">{current}</span>
-    )}
-    {postTitle && (
-      <>
-        <span>/</span>
-        <span class="text-muted" style="max-width: 300px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">{postTitle}</span>
-      </>
-    )}
+    {
+      postTitle ? (
+        <a
+          href={`/${current}`}
+          style="text-decoration: none; color: var(--color-dim);"
+        >
+          {current}
+        </a>
+      ) : (
+        <span class="text-muted">{current}</span>
+      )
+    }
+    {
+      postTitle && (
+        <>
+          <span>/</span>
+          <span
+            class="text-muted"
+            style="max-width: 300px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;"
+          >
+            {postTitle}
+          </span>
+        </>
+      )
+    }
   </div>
 
   <!-- Title + sub-page nav -->
@@ -37,16 +52,21 @@ const pages = [
     <a href="/" aria-label="Home" style="text-decoration: none;">
       <Icon name="home" size={18} color="var(--color-muted)" />
     </a>
-    <span class="font-medium text-heading" style="font-size: 20px; text-transform: capitalize;">{current}</span>
+    <span
+      class="font-medium text-heading"
+      style="font-size: 20px; text-transform: capitalize;">{current}</span
+    >
     <div class="flex gap-3" style="font-size: 13px;">
-      {pages.map(page => (
-        <a
-          href={page.href}
-          style={`text-decoration: none; ${page.key === current ? 'color: var(--color-muted); pointer-events: none;' : 'color: var(--color-text);'}`}
-        >
-          {page.label}
-        </a>
-      ))}
+      {
+        pages.map((page) => (
+          <a
+            href={page.href}
+            style={`text-decoration: none; ${page.key === current ? "color: var(--color-muted); pointer-events: none;" : "color: var(--color-text);"}`}
+          >
+            {page.label}
+          </a>
+        ))
+      }
     </div>
   </div>
 </div>

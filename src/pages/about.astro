@@ -1,0 +1,206 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Icon from '../components/Icon.tsx';
+import PageHeader from '../components/PageHeader.astro';
+---
+
+<Layout title="About — Halvard Mørstad">
+  <PageHeader current="about" />
+
+  <!-- Hero -->
+  <div class="mb-6" style="padding-right: 40px;">
+    <div class="flex flex-wrap items-center gap-x-4 gap-y-2 mb-2">
+      <p class="font-medium m-0 text-heading" style="font-size: 20px;">Halvard Mørstad</p>
+      <div class="flex items-center gap-3">
+        <a href="https://github.com/halvardssm" target="_blank" rel="noopener" aria-label="GitHub">
+          <Icon name="brand-github" size={16} color="var(--color-dim)" />
+        </a>
+        <a href="https://www.linkedin.com/in/halvard-mørstad-4b8b13144/" target="_blank" rel="noopener" aria-label="LinkedIn">
+          <Icon name="brand-linkedin" size={16} color="var(--color-dim)" />
+        </a>
+        <a href="mailto:halvard@morstad.eu" aria-label="Email">
+          <Icon name="mail" size={16} color="var(--color-dim)" />
+        </a>
+      </div>
+    </div>
+    <p class="m-0 text-muted" style="font-size: 14px; line-height: 1.7;">
+      I help founders and business leaders turn ideas into working software —
+      without needing a technical team in place yet.
+    </p>
+  </div>
+
+  <!-- CTA buttons -->
+  <div class="flex flex-wrap gap-2.5 mb-8">
+    <a href="mailto:halvard@morstad.eu" class="btn-primary" style="padding: 8px 16px; font-size: 13px; display: inline-flex; align-items: center;">
+      Get in touch
+    </a>
+    <a href="/work" class="btn-outline" style="padding: 8px 14px; font-size: 13px; display: inline-flex; align-items: center;">
+      View my work
+    </a>
+  </div>
+
+  <!-- Link back to technical version -->
+  <a href="/" class="btn-outline" style="padding: 10px 18px; font-size: 13px; display: inline-flex; align-items: center; gap: 10px; margin-bottom: 2rem; text-decoration: none;">
+    <Icon name="click" size={20} color="var(--color-link)" />
+    <span>Are you a developer? See the technical version here</span>
+  </a>
+
+  <!-- The problem -->
+  <div class="mb-8">
+    <p class="m-0 mb-2 text-dim" style="font-size: 12px;">The problem I solve</p>
+    <p class="m-0 text-muted" style="font-size: 14px; line-height: 1.8;">
+      You have a vision, a market, maybe even early customers — but you need
+      someone who can build the product, make the right technical decisions, and
+      eventually hand it off to a team. Hiring a full engineering team on day one
+      is expensive and risky. You need someone who can bridge the gap between
+      "this is what we want to build" and "this is how we build it."
+    </p>
+  </div>
+
+  <!-- How I can help -->
+  <div class="mb-8" style="border-top: 1px solid var(--color-border); padding-top: 1.25rem;">
+    <p class="m-0 mb-2.5 text-dim" style="font-size: 12px;">How I can help</p>
+    <div class="flex flex-col gap-3">
+      <div class="card" style="padding: 1rem;">
+        <div class="flex items-center gap-2 mb-1.5">
+          <Icon name="code" size={16} color="#85b7eb" />
+          <p class="font-medium m-0 text-heading" style="font-size: 14px;">Your technical co-founder</p>
+        </div>
+        <p class="m-0 text-muted" style="font-size: 13px; line-height: 1.7;">
+          I build the first version of your product myself — frontend, backend,
+          and everything in between. You get a working product to show investors
+          and customers without hiring a team first. When the time comes to scale,
+          I help you hire and onboard your first engineers.
+        </p>
+      </div>
+      <div class="card" style="padding: 1rem;">
+        <div class="flex items-center gap-2 mb-1.5">
+          <Icon name="bulb" size={16} color="#f0997b" />
+          <p class="font-medium m-0 text-heading" style="font-size: 14px;">Your interim CTO</p>
+        </div>
+        <p class="m-0 text-muted" style="font-size: 13px; line-height: 1.7;">
+          If you already have a team but no technical leader, I step in to set
+          direction, establish processes, and make sure the engineering is on
+          track. I stay until you've found the right permanent hire — then I hand
+          over cleanly.
+        </p>
+      </div>
+      <div class="card" style="padding: 1rem;">
+        <div class="flex items-center gap-2 mb-1.5">
+          <Icon name="users" size={16} color="#97c459" />
+          <p class="font-medium m-0 text-heading" style="font-size: 14px;">Your technical advisor</p>
+        </div>
+        <p class="m-0 text-muted" style="font-size: 13px; line-height: 1.7;">
+          Sometimes you just need a second opinion. I help you evaluate whether
+          your current setup makes sense, what to build next, and whether you're
+          spending money on the right things. No commitment, no retainer — just
+          straight answers.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Stats -->
+  <div class="flex gap-6 py-4" style="border-top: 1px solid var(--color-border); border-bottom: 1px solid var(--color-border);">
+    <div>
+      <span class="text-heading font-medium" style="font-size: 20px;">~10</span>
+      <span class="block text-dim" style="font-size: 11px;">years experience</span>
+    </div>
+    <div>
+      <span class="text-heading font-medium" style="font-size: 20px;">8</span>
+      <span class="block text-dim" style="font-size: 11px;">people led</span>
+    </div>
+    <div>
+      <span class="text-heading font-medium" style="font-size: 20px;">25+</span>
+      <span class="block text-dim" style="font-size: 11px;">projects delivered</span>
+    </div>
+  </div>
+
+  <!-- What it's like to work with me -->
+  <div class="mt-8 mb-8">
+    <p class="m-0 mb-3 text-dim" style="font-size: 12px;">What it's like to work with me</p>
+    <div class="flex flex-col gap-2">
+      <p class="m-0 text-muted" style="font-size: 13px; line-height: 1.7;">
+        <span class="text-dim">— </span>I speak human, not jargon. You'll always
+        know what we're building, why, and what it costs — no surprise bills or
+        mysterious technical debt.
+      </p>
+      <p class="m-0 text-muted" style="font-size: 13px; line-height: 1.7;">
+        <span class="text-dim">— </span>I build things that last. The product I
+        hand you isn't a prototype held together with tape — it's something your
+        future team can understand, maintain, and build on.
+      </p>
+      <p class="m-0 text-muted" style="font-size: 13px; line-height: 1.7;">
+        <span class="text-dim">— </span>I'm honest about what you need and what
+        you don't. If something isn't worth building, I'll tell you before you pay
+        for it.
+      </p>
+      <p class="m-0 text-muted" style="font-size: 13px; line-height: 1.7;">
+        <span class="text-dim">— </span>I mentor the people I work with. If you
+        have junior developers, I'll grow them. If you don't have a team yet, I'll
+          help you hire one.
+      </p>
+    </div>
+  </div>
+
+  <!-- On AI -->
+  <div class="mb-8" style="border-top: 1px solid var(--color-border); padding-top: 1.25rem;">
+    <p class="m-0 mb-2 text-dim" style="font-size: 12px;">On AI</p>
+    <p class="m-0 text-muted" style="font-size: 14px; line-height: 1.8;">
+      AI won't replace your engineers — but it changes what they spend time on.
+      Instead of writing every line from scratch, they evaluate, guide, and
+      verify what the tools produce. I use AI to speed up delivery and reduce
+      cost where it makes sense, but I won't pretend it's a substitute for
+      judgment. Applied well, it accelerates your timeline. Applied blindly, it
+      creates a mess that costs more to fix than it saved.
+    </p>
+    <p class="m-0 text-muted mt-3" style="font-size: 14px; line-height: 1.8;">
+      I help teams adopt AI where it actually pays off — integrating it into
+      their workflows, setting guardrails so output is reviewed rather than
+      trusted blindly, and making sure the time saved shows up on the bottom line
+      rather than in a pile of technical debt.
+    </p>
+  </div>
+
+  <!-- Metrics -->
+  <div class="mb-8" style="border-top: 1px solid var(--color-border); padding-top: 1.25rem;">
+    <p class="m-0 mb-2.5 text-dim" style="font-size: 12px;">Track record</p>
+    <div class="flex flex-col gap-3">
+      <div class="flex items-center gap-4">
+        <span class="text-heading font-medium" style="font-size: 20px; min-width: 60px;">60%</span>
+        <span class="text-muted" style="font-size: 13px; line-height: 1.6;">deploy time reduction for a client infra migration — from hours to minutes.</span>
+      </div>
+      <div class="flex items-center gap-4" style="border-top: 1px solid var(--color-border); padding-top: 0.75rem;">
+        <span class="text-heading font-medium" style="font-size: 20px; min-width: 60px;">0 → 8</span>
+        <span class="text-muted" style="font-size: 13px; line-height: 1.6;">engineers hired and mentored to build out a team from scratch.</span>
+      </div>
+      <div class="flex items-center gap-4" style="border-top: 1px solid var(--color-border); padding-top: 0.75rem;">
+        <span class="text-heading font-medium" style="font-size: 20px; min-width: 60px;">6 mo</span>
+        <span class="text-muted" style="font-size: 13px; line-height: 1.6;">typical time from idea to a product you can show investors and customers.</span>
+      </div>
+      <div class="flex items-center gap-4" style="border-top: 1px solid var(--color-border); padding-top: 0.75rem;">
+        <span class="text-heading font-medium" style="font-size: 20px; min-width: 60px;">~10</span>
+        <span class="text-muted" style="font-size: 13px; line-height: 1.6;">years across startups and enterprise, from prototype to production at scale.</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- About -->
+  <div class="pt-5 mb-6" style="border-top: 1px solid var(--color-border);">
+    <p class="m-0 mb-2 text-dim" style="font-size: 12px;">About me</p>
+    <p class="m-0 text-muted" style="font-size: 13px; line-height: 1.8;">
+      I've spent the last ten years building software across startups and
+      enterprise — from early prototypes to production systems serving real users.
+      I've led teams, mentored engineers, and worked independently with clients
+      who needed someone they could trust with the technical side of their
+      business. I also mentor junior engineers and previously taught
+      programming, because I believe good engineering should be accessible to
+      more people.
+    </p>
+  </div>
+
+  <!-- Footer -->
+  <div class="pt-3.5" style="border-top: 1px solid var(--color-border);">
+    <p class="m-0 text-dim" style="font-size: 11px;">© Halvard Mørstad</p>
+  </div>
+</Layout>
