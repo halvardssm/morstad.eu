@@ -6,6 +6,6 @@ url: https://github.com/halvardssm/deno-nessie
 description: A modular Deno library for PostgreSQL, MySQL, MariaDB and SQLite migrations.
 icon: "database"
 iconColor: "#97c459"
-featured: false
+featured: true
 selected: false
 ---
