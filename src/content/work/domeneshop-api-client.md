@@ -8,4 +8,5 @@ icon: "world"
 iconColor: "#85b7eb"
 featured: false
 selected: false
+disabled: false
 ---

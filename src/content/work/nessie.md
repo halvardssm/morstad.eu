@@ -9,4 +9,5 @@ iconColor: "#97c459"
 featured: true
 selected: false
 githubStars: true
+disabled: false
 ---

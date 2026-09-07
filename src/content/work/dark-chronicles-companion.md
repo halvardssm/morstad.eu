@@ -1,0 +1,13 @@
+---
+symbol: 🎲
+title: Dark Chronicles Companion
+tags: [ts, react, feApp]
+url: https://github.com/halvardssm/dark-chronicles-companion
+description: A companion app for the Dark Chronicles board game, helping players track game state and manage campaigns.
+icon: "device-gamepad-2"
+iconColor: "#f0997b"
+featured: false
+selected: false
+githubStars: false
+disabled: true
+---

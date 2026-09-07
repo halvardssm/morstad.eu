@@ -6,7 +6,7 @@ import { getCollection } from 'astro:content';
 import { TAGS, TAG_COLORS } from '../data/tags';
 import { getGitHubStars } from '../utils/github';
 
-const projects = await getCollection('work');
+const projects = (await getCollection('work')).filter(p => !p.data.disabled);
 const featured = projects.filter(p => p.data.featured);
 const allProjects = projects.filter(p => !p.data.featured);
 

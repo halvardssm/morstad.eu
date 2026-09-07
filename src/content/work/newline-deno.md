@@ -8,4 +8,5 @@ icon: "book"
 iconColor: "#f0997b"
 featured: false
 selected: false
+disabled: false
 ---

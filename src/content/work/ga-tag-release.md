@@ -8,4 +8,5 @@ icon: "tag"
 iconColor: "#97c459"
 featured: false
 selected: false
+disabled: false
 ---

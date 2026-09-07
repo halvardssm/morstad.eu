@@ -1,0 +1,13 @@
+---
+symbol: 📚
+title: ComicInfo JS
+tags: [js, ts, lib]
+url: https://github.com/halvardssm/comicinfo-js
+description: A JavaScript and TypeScript library for parsing and creating ComicInfo XML metadata for comic archives.
+icon: "book"
+iconColor: "#85b7eb"
+featured: false
+selected: false
+githubStars: false
+disabled: false
+---
