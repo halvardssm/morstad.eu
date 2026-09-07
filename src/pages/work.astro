@@ -23,6 +23,9 @@ await Promise.all(
 
 // Collect all unique tags from non-featured projects for the filter row
 const allTags = [...new Set(allProjects.flatMap(p => p.data.tags))];
+
+// Determine featured grid columns based on count
+const featuredCols = featured.length <= 1 ? 1 : featured.length <= 4 ? 2 : featured.length <= 6 ? 3 : 4;
 ---
 
 <Layout title="Work">
@@ -30,7 +33,7 @@ const allTags = [...new Set(allProjects.flatMap(p => p.data.tags))];
 
   <!-- Featured -->
   <p class="m-0 mb-2.5 text-dim" style="font-size: 12px;">// featured</p>
-  <div class="grid gap-2.5 mb-8" style="grid-template-columns: repeat(3, 1fr); align-items: stretch;">
+  <div class="featured-grid grid gap-2.5 mb-8" style={`--cols: ${featuredCols};`}>
     {featured.map(project => <ProjectCard project={project} stars={starsMap.get(project.id) ?? null} />)}
   </div>
 

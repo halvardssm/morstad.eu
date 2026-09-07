@@ -84,6 +84,22 @@ body {
 .masonry {
   column-gap: 10px;
 }
+
+/* ── Featured grid ── */
+.featured-grid {
+  grid-template-columns: 1fr;
+  align-items: stretch;
+}
+@media (min-width: 640px) {
+  .featured-grid {
+    grid-template-columns: repeat(min(var(--cols, 2), 2), 1fr);
+  }
+}
+@media (min-width: 1024px) {
+  .featured-grid {
+    grid-template-columns: repeat(var(--cols, 2), 1fr);
+  }
+}
 .masonry > * {
   break-inside: avoid;
   margin-bottom: 10px;
