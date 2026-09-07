@@ -29,7 +29,7 @@ const allTags = [...new Set(posts.flatMap(p => p.data.tags))];
           data-text={colors.text}
           data-border={colors.border}
           class="blog-tag"
-          style="font-size: 10px; padding: 3px 9px; border-radius: 3px; border: 1px solid var(--color-border); color: var(--color-text); cursor: pointer; transition: all 0.15s;"
+          style={`font-size: 10px; padding: 3px 9px; border-radius: 3px; border: 1px solid ${colors.border}; color: ${colors.text}; cursor: pointer; transition: all 0.15s;`}
         >
           {tag.name}
         </button>
@@ -61,8 +61,8 @@ const allTags = [...new Set(posts.flatMap(p => p.data.tags))];
           btn.style.borderColor = btn.dataset.border!;
         } else {
           btn.style.background = '';
-          btn.style.color = 'var(--color-text)';
-          btn.style.borderColor = 'var(--color-border)';
+          btn.style.color = btn.dataset.text!;
+          btn.style.borderColor = btn.dataset.border!;
         }
       });
 

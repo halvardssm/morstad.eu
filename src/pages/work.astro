@@ -30,7 +30,7 @@ const allTags = [...new Set(allProjects.flatMap(p => p.data.tags))];
 
   <!-- Featured -->
   <p class="m-0 mb-2.5 text-dim" style="font-size: 12px;">// featured</p>
-  <div class="grid gap-2.5 mb-8" style="grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));">
+  <div class="grid gap-2.5 mb-8" style="grid-template-columns: repeat(3, 1fr); align-items: stretch;">
     {featured.map(project => <ProjectCard project={project} stars={starsMap.get(project.id) ?? null} />)}
   </div>
 
@@ -51,7 +51,7 @@ const allTags = [...new Set(allProjects.flatMap(p => p.data.tags))];
             data-text={colors.text}
             data-border={colors.border}
             class="work-tag"
-            style="font-size: 10px; padding: 3px 9px; border-radius: 3px; border: 1px solid var(--color-border); color: var(--color-muted); cursor: pointer; transition: all 0.15s;"
+            style={`font-size: 10px; padding: 3px 9px; border-radius: 3px; border: 1px solid ${colors.border}; color: ${colors.text}; cursor: pointer; transition: all 0.15s;`}
           >
             {tag.name}
           </button>
@@ -83,8 +83,8 @@ const allTags = [...new Set(allProjects.flatMap(p => p.data.tags))];
           btn.style.borderColor = btn.dataset.border!;
         } else {
           btn.style.background = '';
-          btn.style.color = 'var(--color-muted)';
-          btn.style.borderColor = 'var(--color-border)';
+          btn.style.color = btn.dataset.text!;
+          btn.style.borderColor = btn.dataset.border!;
         }
       });
 

@@ -14,8 +14,8 @@ const { title, tags, description, icon, iconColor } = project.data;
 const titleSize = compact ? '13px' : '14px';
 ---
 
-<a href={`/work/${project.id}`} class="block no-underline">
-  <div class="card" style="padding: 1rem;">
+<a href={`/work/${project.id}`} class="block no-underline" style="height: 100%;">
+  <div class="card flex flex-col" style="padding: 1rem; height: 100%;">
     <div class="flex items-center gap-2 mb-2">
       <Icon name={icon} size={16} color={iconColor} />
       <p class="font-medium m-0 text-heading flex-1" style={`font-size: ${titleSize};`}>{title}</p>
