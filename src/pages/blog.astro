@@ -1,0 +1,35 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Icon from '../components/Icon.tsx';
+import PostCard from '../components/PostCard.astro';
+import { POSTS } from '../data/posts';
+import { TAGS } from '../data/tags';
+
+// Collect all unique tags for the filter row
+const allTags = [...new Set(POSTS.flatMap(p => p.tags))];
+---
+
+<Layout title="Blog" max="640px">
+  <a href="/" class="inline-flex items-center gap-2 mb-5" style="text-decoration: none;">
+    <Icon name="home" size={18} color="var(--color-muted)" />
+    <span class="font-medium text-heading" style="font-size: 20px;">Blog</span>
+  </a>
+
+  <!-- Tag filter row (static for Phase 1) -->
+  <div class="flex flex-wrap gap-1.5 mb-5">
+    {allTags.map(code => {
+      const tag = TAGS[code];
+      if (!tag) return null;
+      return (
+        <span style="font-size: 10px; padding: 3px 9px; border-radius: 3px; border: 1px solid var(--color-border); color: var(--color-text);">
+          {tag.name}
+        </span>
+      );
+    })}
+  </div>
+
+  <!-- Post list -->
+  <div class="flex flex-col gap-2.5">
+    {POSTS.map(post => <PostCard post={post} />)}
+  </div>
+</Layout>

@@ -1,17 +1,89 @@
 ---
+import Layout from '../layouts/Layout.astro';
+import Icon from '../components/Icon.tsx';
+import { SITE } from '../data/site';
+import { PROJECTS } from '../data/projects';
 
+const selectedWork = PROJECTS.filter(p => p.selected);
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<Layout>
+  <!-- Hero -->
+  <div class="mb-6" style="padding-right: 40px;">
+    <div class="flex flex-wrap items-center gap-x-4 gap-y-2 mb-2">
+      <p class="font-medium m-0 text-heading" style="font-size: 20px;">&gt; {SITE.name}</p>
+      <div class="flex items-center gap-3">
+        <a href={SITE.social.github} target="_blank" rel="noopener" aria-label="GitHub">
+          <Icon name="brand-github" size={16} color="var(--color-dim)" />
+        </a>
+        <a href={SITE.social.linkedin} target="_blank" rel="noopener" aria-label="LinkedIn">
+          <Icon name="brand-linkedin" size={16} color="var(--color-dim)" />
+        </a>
+        <a href={`mailto:${SITE.email}`} aria-label="Email">
+          <Icon name="mail" size={16} color="var(--color-dim)" />
+        </a>
+      </div>
+    </div>
+    <p class="m-0 text-muted" style="font-size: 14px; line-height: 1.7; max-width: 520px;">
+      {SITE.bio.map(line => <>{line}<br /></>)}
+    </p>
+  </div>
+
+  <!-- CTA buttons -->
+  <div class="flex gap-2.5 mb-8">
+    <a href={`mailto:${SITE.email}`} class="btn-primary" style="padding: 8px 16px; font-size: 13px; display: inline-flex; align-items: center;">
+      $ lets_talk()
+    </a>
+    <a href="/work" class="btn-outline" style="padding: 8px 14px; font-size: 13px; display: inline-flex; align-items: center;">
+      cd ./work
+    </a>
+    <a href="/blog" class="btn-outline" style="padding: 8px 14px; font-size: 13px; display: inline-flex; align-items: center;">
+      cd ./blog
+    </a>
+  </div>
+
+  <!-- Ways to work with me -->
+  <p class="m-0 mb-2.5 text-dim" style="font-size: 12px;">// ways to work with me</p>
+  <div class="grid gap-2.5 mb-8" style="grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));">
+    {SITE.waysToWork.map(item => (
+      <div class="card" style="padding: 1rem;">
+        <Icon name={item.icon} size={16} color={item.iconColor} />
+        <p class="font-medium m-0 mt-2.5 mb-1 text-heading" style="font-size: 14px;">{item.title}</p>
+        <p class="m-0 text-muted" style="font-size: 12px; line-height: 1.6;">{item.description}</p>
+      </div>
+    ))}
+  </div>
+
+  <!-- Stats -->
+  <div class="flex gap-6 py-4" style="border-top: 1px solid var(--color-border); border-bottom: 1px solid var(--color-border);">
+    {SITE.stats.map(stat => (
+      <div>
+        <span class="text-heading font-medium" style="font-size: 20px;">{stat.value}</span>
+        <span class="block text-dim" style="font-size: 11px;">{stat.label}</span>
+      </div>
+    ))}
+  </div>
+
+  <!-- Selected work -->
+  <p class="mt-8 mb-2.5 text-dim" style="font-size: 12px;">// selected work</p>
+  <div class="grid gap-2.5 mb-8" style="grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));">
+    {selectedWork.map(project => (
+      <div class="card" style="padding: 1rem;">
+        <p class="font-medium m-0 mb-1.5 text-heading" style="font-size: 14px;">{project.title}</p>
+        <p class="m-0 text-muted mb-2.5" style="font-size: 12px; line-height: 1.6;">{project.description}</p>
+        <a href="/work" class="text-link" style="font-size: 12px;">view_case_study &gt;</a>
+      </div>
+    ))}
+  </div>
+
+  <!-- About -->
+  <div class="pt-5 mb-6" style="border-top: 1px solid var(--color-border);">
+    <p class="m-0 mb-2 text-dim" style="font-size: 12px;">// about</p>
+    <p class="m-0 text-muted" style="font-size: 13px; line-height: 1.8;">{SITE.about}</p>
+  </div>
+
+  <!-- Footer -->
+  <div class="pt-3.5" style="border-top: 1px solid var(--color-border);">
+    <p class="m-0 text-dim" style="font-size: 11px;">{SITE.copyright}</p>
+  </div>
+</Layout>

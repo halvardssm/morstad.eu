@@ -1,0 +1,15 @@
+---
+import Tag from './Tag.astro';
+
+interface Props {
+  tags: string[];
+  size?: 'sm' | 'md';
+  class?: string;
+}
+
+const { tags, size = 'sm', class: className } = Astro.props;
+---
+
+<div class={`flex flex-wrap gap-1.5 ${className ?? ''}`}>
+  {tags.map((code) => <Tag code={code} size={size} />)}
+</div>

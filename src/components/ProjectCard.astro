@@ -1,0 +1,22 @@
+---
+import Icon from './Icon.tsx';
+import TagList from './TagList.astro';
+import type { Project } from '../data/projects';
+
+interface Props {
+  project: Project;
+  compact?: boolean;
+}
+
+const { project, compact = false } = Astro.props;
+const titleSize = compact ? '13px' : '14px';
+---
+
+<div class="card" style="padding: 1rem;">
+  <div class="flex items-center gap-2 mb-2">
+    <Icon name={project.icon} size={16} color={project.iconColor} />
+    <p class="font-medium m-0 text-heading" style={`font-size: ${titleSize};`}>{project.title}</p>
+  </div>
+  <TagList tags={project.tags} class="mb-2.5" />
+  <p class="m-0 text-muted" style="font-size: 12px; line-height: 1.6;">{project.description}</p>
+</div>

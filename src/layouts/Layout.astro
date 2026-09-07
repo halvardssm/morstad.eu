@@ -1,0 +1,47 @@
+---
+import '../styles/global.css';
+import ThemeToggle from '../components/ThemeToggle.tsx';
+
+interface Props {
+  title?: string;
+  max?: string;
+}
+
+const { title = 'halvard_mørstad', max } = Astro.props;
+---
+
+<html lang="en" data-theme="dark">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" href="/favicon.ico" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+    <!-- Fonts: active = IBM Plex Mono. To switch, replace the href with Space Mono or Fira Mono -->
+    <!-- <link rel="preconnect" href="https://fonts.googleapis.com" /> -->
+    <!-- <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin /> -->
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+    <!-- <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" /> -->
+    <!-- <link href="https://fonts.googleapis.com/css2?family=Fira+Mono:wght@400;500;700&display=swap" rel="stylesheet" /> -->
+    <script is:inline>
+      const theme = (() => {
+        try { return localStorage.getItem('theme'); } catch { return null; }
+      })();
+      if (theme === 'light' || theme === 'dark') {
+        document.documentElement.setAttribute('data-theme', theme);
+      }
+    </script>
+  </head>
+  <body>
+    <div
+      class="px-8 py-8 mx-auto relative"
+      style={`max-width: ${max ?? '860px'};`}
+    >
+      <div style="position: absolute; top: 2rem; right: 2rem; z-index: 10;">
+        <ThemeToggle client:load />
+      </div>
+      <slot />
+    </div>
+  </body>
+</html>

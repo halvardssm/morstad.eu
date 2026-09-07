@@ -1,0 +1,55 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Icon from '../components/Icon.tsx';
+import ProjectCard from '../components/ProjectCard.astro';
+import { PROJECTS } from '../data/projects';
+import { TAGS } from '../data/tags';
+
+const featured = PROJECTS.filter(p => p.featured);
+const allProjects = PROJECTS.filter(p => !p.featured);
+
+// Collect all unique tags from non-featured projects for the filter row
+const allTags = [...new Set(allProjects.flatMap(p => p.tags))];
+const visibleTags = allTags.slice(0, 3);
+const remainingCount = allTags.length - visibleTags.length;
+---
+
+<Layout title="Work">
+  <a href="/" class="inline-flex items-center gap-2 mb-5" style="text-decoration: none;">
+    <Icon name="home" size={18} color="var(--color-muted)" />
+    <span class="font-medium text-heading" style="font-size: 20px;">Work</span>
+  </a>
+
+  <!-- Featured -->
+  <p class="m-0 mb-2.5 text-dim" style="font-size: 12px;">// featured</p>
+  <div class="grid gap-2.5 mb-8" style="grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));">
+    {featured.map(project => <ProjectCard project={project} />)}
+  </div>
+
+  <!-- All projects -->
+  <div class="pt-5" style="border-top: 1px solid var(--color-border);">
+    <p class="m-0 mb-3 text-dim" style="font-size: 12px;">// all projects</p>
+
+    <!-- Tag filter row (static for Phase 1) -->
+    <div class="flex flex-wrap gap-1.5 mb-4">
+      {visibleTags.map(code => {
+        const tag = TAGS[code];
+        return (
+          <span style="font-size: 10px; padding: 3px 9px; border-radius: 3px; border: 1px solid var(--color-border); color: var(--color-muted);">
+            {tag ? tag.name : code}
+          </span>
+        );
+      })}
+      {remainingCount > 0 && (
+        <span style="font-size: 10px; padding: 3px 9px; border-radius: 3px; border: 1px solid var(--color-border); color: var(--color-muted);">
+          +{remainingCount} more
+        </span>
+      )}
+    </div>
+
+    <!-- Masonry layout -->
+    <div class="masonry">
+      {allProjects.map(project => <ProjectCard project={project} compact />)}
+    </div>
+  </div>
+</Layout>
