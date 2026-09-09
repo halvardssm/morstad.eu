@@ -10,7 +10,8 @@ import sitemap from "@astrojs/sitemap";
 // https://astro.build/config
 export default defineConfig({
   integrations: [react(), mdx(), sitemap()],
-
+  site: "https://morstad.eu",
+  trailingSlash: "never",
   vite: {
     plugins: [tailwindcss()],
   },

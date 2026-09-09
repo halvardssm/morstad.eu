@@ -37,6 +37,7 @@ import {
   IconPointer,
   IconClick,
   IconStar,
+  IconRss,
 } from "@tabler/icons-react";
 
 const ICONS: Record<string, FC<{ size?: number; color?: string; stroke?: number }>> = {
@@ -77,6 +78,7 @@ const ICONS: Record<string, FC<{ size?: number; color?: string; stroke?: number 
   pointer: IconPointer,
   click: IconClick,
   star: IconStar,
+  rss: IconRss,
 };
 
 type IconProps = {
