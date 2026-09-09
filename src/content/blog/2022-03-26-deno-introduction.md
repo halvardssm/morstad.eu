@@ -13,13 +13,13 @@ In preparation for the launch of my new course (and to get you all a bit hyped),
 
 ## History of Deno
 
-The story begins in 2009 when Ryan Dahl presented NodeJS as an alternative server-side runtime of JavaScript to the then existing Netscape's LiveWire Pro Web. Over the next decade, Dahl continued to work on the JS ecosystem and announced in 2018 the Deno project.
+The story begins in 2009 when Ryan Dahl presented Node.js as an alternative server-side runtime of JavaScript to the then existing Netscape's LiveWire Pro Web. Over the next decade, Dahl continued to work on the JS ecosystem and announced in 2018 the Deno project.
 
-The intention of Deno was to solve a lot of the design issues with NodeJS, some of them, you can listen to in Dahl's talk, [10 Things I Regret About Node.js](https://www.youtube.com/watch?v=M3BM9TB-8yA). One of the major goals was to make Deno a JS server-side runtime with full web-standard compatibility, meaning [Streams API](https://developer.mozilla.org/en-US/docs/Web/API/Streams_API) instead of [Node Streams](https://nodejs.org/api/stream.html), and standardized [Fetch API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API) instead of the [Node HTTP](https://nodejs.org/api/http.html) module.
+The intention of Deno was to solve a lot of the design issues with Node.js, some of them, you can listen to in Dahl's talk, [10 Things I Regret About Node.js](https://www.youtube.com/watch?v=M3BM9TB-8yA). One of the major goals was to make Deno a JS server-side runtime with full web-standard compatibility, meaning [Streams API](https://developer.mozilla.org/en-US/docs/Web/API/Streams_API) instead of [Node Streams](https://nodejs.org/api/stream.html), and standardized [Fetch API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API) instead of the [Node HTTP](https://nodejs.org/api/http.html) module.
 
-In May 2020, Deno 1.0 was released, and even though it was not a drop-in replacement for NodeJS, it gained some traction in certain parts of the JS community. Not long after, hundreds of libraries were flourishing, and npm modules were ported to allow for Deno compatibility - the most popular ones being REST frameworks. As time went by, and versions were released with new features, Deno got more traction and was adopted by companies like Slack for projects needing better web standard compatibility.
+In May 2020, Deno 1.0 was released, and even though it was not a drop-in replacement for Node.js, it gained some traction in certain parts of the JS community. Not long after, hundreds of libraries were flourishing, and npm modules were ported to allow for Deno compatibility - the most popular ones being REST frameworks. As time went by, and versions were released with new features, Deno got more traction and was adopted by companies like Slack for projects needing better web standard compatibility.
 
-The year after, 2021, a lot of changes and announcements were made regarding Deno's future. The Deno Company ([Deno Land Inc.](https://deno.com/company)) was created, [Deno Deploy](https://deno.com/deploy) was released, and not long afterward, Deno was [added to the compatibility tables on MDN](https://deno.com/blog/deno-on-mdn). Other major additions to the Deno ecosystem were the introduction of [Foreign Function Interfaces](https://deno.land/manual/runtime/ffi_api) and better [NodeJS Compatibility](https://deno.land/manual/npm_nodejs/compatibility_mode).
+The year after, 2021, a lot of changes and announcements were made regarding Deno's future. The Deno Company ([Deno Land Inc.](https://deno.com/company)) was created, [Deno Deploy](https://deno.com/deploy) was released, and not long afterward, Deno was [added to the compatibility tables on MDN](https://deno.com/blog/deno-on-mdn). Other major additions to the Deno ecosystem were the introduction of [Foreign Function Interfaces](https://deno.land/manual/runtime/ffi_api) and better [Node.js Compatibility](https://deno.land/manual/npm_nodejs/compatibility_mode).
 
 ## What is Deno and how does it compare to Node
 
@@ -81,7 +81,7 @@ If you have ever worked with JS and made any kind of module, website, or script,
 
 What is good to know is that Deno only supports bundling to a single file, and also is only able to output the code in ESM format.
 
-[Read more here](https://deno.land/manual/tools/bundler.md)
+[Read more here](https://docs.deno.com/runtime/reference/bundling/)
 
 #### `deno compile`
 
@@ -90,31 +90,31 @@ Well, I have for certain, and the solution to this is `deno compile`. This nice 
 
 Currently, supported OSes are `Windows x64`, `macOS x64`, `macOS ARM`, and `Linux x64`.
 
-[Read more here](https://deno.land/manual/tools/compiler.md)
+[Read more here](https://docs.deno.com/runtime/reference/cli/compile/)
 
 #### `deno fmt`
 
-The formatter is probably been used more than a hundred times while writing this post. It is a native and opinionated replacement of tools like [Prettier](https://prettier.io/). Not much more to say really, it works brilliantly, and it's your best friend.
+The formatter has probably been used more than a hundred times while writing this post. It is a native and opinionated replacement of tools like [Prettier](https://prettier.io/). Not much more to say really, it works brilliantly, and it's your best friend.
 
 Supported file formats are JavaScript (`.js`), TypeScript (`.ts`), JSX (`.jsx`), TSX (`.tsx`), Markdown (`.md`|`.markdown`), JSON (`.json`), and JSONC (`.jsonc`).
 
 If you have any kind of shared codebase, you will most likely also want to make sure that the code is properly formatted before merging to the main branch. By running `deno fmt --check` in any pipeline, you can get a notification if one of your colleagues (or yourself) tries to propose any incorrectly formatted files.
 
-[Read more here](https://deno.land/manual/tools/formatter.md)
+[Read more here](https://docs.deno.com/runtime/reference/cli/fmt/)
 
 #### `deno lint`
 
-Your other best friend, at least you CI's, is the linter. This grand feature will let you know if you wrote anything wrong, your types are incorrect, or it just blatantly doesn't like you. This command is often the second thing you add to any kind of pipeline and will save you more often than you would want to acknowledge.
+Your other best friend, at least your CI, is the linter. This grand feature will let you know if you wrote anything wrong, your types are incorrect, or it just blatantly doesn't like you. This command is often the second thing you add to any kind of pipeline and will save you more often than you would want to acknowledge.
 
-Some personal configuration is possible, but I would largely recommend having it yell at you if you so much as thinking of placing a comma too much.
+Some personal configuration is possible, but I would largely recommend having it yell at you if you so much as thinking of adding an extra comma.
 
-[Read more here](https://deno.land/manual/tools/linter.md)
+[Read more here](https://docs.deno.com/runtime/reference/cli/lint/)
 
 #### `deno repl`
 
 Are you one of the people using REPLs rather than the calculator to add 21 and 21? Well, I will be surprised if you will use anything else after getting familiar with the Deno REPL. Not much to really say about this except that it is brilliant to test out short snippets without having to create a file and run it. Just try it out, and then figure out what works best for you, not much can go wrong.
 
-[Read more here](https://deno.land/manual/tools/linter.md)
+[Read more here](https://docs.deno.com/runtime/reference/cli/repl/)
 
 #### `deno run`
 
@@ -140,11 +140,11 @@ Permissions which you have to give when running a script are access to:
 
 Lastly, for `deno run` I should mention the `--watch` option which reloads the changed module on save. This is very useful for local development, but should not be used in production.
 
-[Read more here](https://deno.land/manual/getting_started/permissions)
+[Read more here](https://docs.deno.com/runtime/reference/permissions/)
 
 #### `deno test`
 
-Every programmer will at some point have experienced that even though the linter and formatter pass, the code does not work as you intended. [Jest](https://jestjs.io/), [Mocha](https://mochajs.org/), and a flora of other Node test runners solve this for Node, but once again Deno delivers this built-in.
+Every programmer will at some point have experienced that even though the linter and formatter pass, the code does not work as you intended. [Jest](https://jestjs.io/), [Mocha](https://mochajs.org/), and a plethora of other Node test runners solve this for Node, but once again Deno delivers this built-in.
 
 Testing in Deno is currently developing to allow for subtests and possibly execution hooks, but these features are not yet ready. As an example, a simple test file can look as simple as this, and be run using `deno test`.
 
@@ -156,8 +156,12 @@ Deno.test("adding 21 and 21", () => {
 });
 ```
 
-[Read more here](https://deno.land/manual/testing.md)
+[Read more here](https://docs.deno.com/runtime/test/)
 
 #### `deno upgrade`
 
 Now the last command we will be discussing is the one for upgrading Deno to a new version whenever one is available. No more magic than that, just run `deno upgrade` whenever a new version is released and check for breaking changes.
+
+## Conclusion
+
+That covers the basics of Deno, from its history to the CLI commands you will use day to day. If you are coming from Node.js, the built-in tooling and web-standard APIs should feel like a welcome change. In the next part of this series, we will look at how to offload heavy computation from JavaScript to Rust using Deno's FFI.
