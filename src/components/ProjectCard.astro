@@ -27,17 +27,6 @@ const titleSize = compact ? "0.8125rem" : "0.875rem";
   </div>
   <div class="flex items-center gap-2 mb-2">
     {
-      stars !== null && (
-        <span
-          class="flex items-center gap-1 text-dim"
-          style="font-size: 0.6875rem;"
-        >
-          <Icon name="star" size={12} color="var(--color-dim)" />
-          {stars}
-        </span>
-      )
-    }
-    {
       url && (
         <a
           href={url}
@@ -49,6 +38,17 @@ const titleSize = compact ? "0.8125rem" : "0.875rem";
         >
           <Icon name="external-link" size={12} color="var(--color-dim)" />
         </a>
+      )
+    }
+    {
+      stars !== null && (
+        <span
+          class="flex items-center gap-1 text-dim"
+          style="font-size: 0.6875rem;"
+        >
+          <Icon name="star" size={12} color="var(--color-dim)" />
+          {stars}
+        </span>
       )
     }
   </div>

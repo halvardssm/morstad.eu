@@ -3,13 +3,14 @@ import { getCollection } from "astro:content";
 
 export async function GET(ctx) {
   const blog = await getCollection("blog");
+  const enabledPosts = blog.filter((post) => !post.data.disabled);
 
   return rss({
     title: "Halvard's Blog",
     description: "A variety of content I fancy writing about",
     site: ctx.site,
     trailingSlash: false,
-    items: blog.map((post) => ({
+    items: enabledPosts.map((post) => ({
       title: post.data.title,
       pubDate: post.data.date,
       description: post.data.summary,
