@@ -1,15 +1,15 @@
 ---
-import { TAG_COLORS, getTag } from '../data/tags';
+import { TAG_COLORS, getTag } from "../utils/tags";
 
 interface Props {
   code: string;
-  size?: 'sm' | 'md';
+  size?: "sm" | "md";
 }
 
-const { code, size = 'sm' } = Astro.props;
+const { code, size = "sm" } = Astro.props;
 const tag = getTag(code);
 const colors = TAG_COLORS[tag.color];
-const padding = size === 'sm' ? '2px 7px' : '3px 9px';
+const padding = size === "sm" ? "2px 7px" : "3px 9px";
 ---
 
 <span

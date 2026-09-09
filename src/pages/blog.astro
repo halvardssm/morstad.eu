@@ -1,17 +1,19 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import PostCard from '../components/PostCard.astro';
-import PageHeader from '../components/PageHeader.astro';
-import Icon from '../components/Icon.tsx';
-import { getCollection } from 'astro:content';
-import { TAGS, TAG_COLORS } from '../data/tags';
+import Layout from "../layouts/Layout.astro";
+import PostCard from "../components/PostCard.astro";
+import PageHeader from "../components/PageHeader.astro";
+import Icon from "../components/Icon.tsx";
+import { getCollection } from "astro:content";
+import { TAGS, TAG_COLORS } from "../utils/tags.ts";
 
-const posts = (await getCollection('blog')).filter(p => !p.data.disabled).sort((a, b) =>
-  new Date(b.data.date).getTime() - new Date(a.data.date).getTime()
-);
+const posts = (await getCollection("blog"))
+  .filter((p) => !p.data.disabled)
+  .sort(
+    (a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime(),
+  );
 
 // Collect all unique tags for the filter row
-const allTags = [...new Set(posts.flatMap(p => p.data.tags))];
+const allTags = [...new Set(posts.flatMap((p) => p.data.tags))];
 ---
 
 <Layout title="Blog">
@@ -29,64 +31,70 @@ const allTags = [...new Set(posts.flatMap(p => p.data.tags))];
 
   <!-- Tag filter row -->
   <div class="flex flex-wrap gap-1.5 mb-5" id="tag-filters">
-    {allTags.map(code => {
-      const tag = TAGS[code];
-      if (!tag) return null;
-      const colors = TAG_COLORS[tag.color];
-      return (
-        <button
-          data-tag={code}
-          data-bg={colors.bg}
-          data-text={colors.text}
-          data-border={colors.border}
-          class="blog-tag"
-          style={`font-size: 0.625rem; padding: 3px 9px; border-radius: 3px; border: 1px solid ${colors.border}; color: ${colors.text}; cursor: pointer; transition: all 0.15s;`}
-        >
-          {tag.name}
-        </button>
-      );
-    })}
+    {
+      allTags.map((code) => {
+        const tag = TAGS[code];
+        if (!tag) return null;
+        const colors = TAG_COLORS[tag.color];
+        return (
+          <button
+            data-tag={code}
+            data-bg={colors.bg}
+            data-text={colors.text}
+            data-border={colors.border}
+            class="blog-tag"
+            style={`font-size: 0.625rem; padding: 3px 9px; border-radius: 3px; border: 1px solid ${colors.border}; color: ${colors.text}; cursor: pointer; transition: all 0.15s;`}
+          >
+            {tag.name}
+          </button>
+        );
+      })
+    }
   </div>
 
   <!-- Post list -->
   <section class="flex flex-col gap-2.5" id="post-list">
-    {posts.map(post => (
-      <div data-tags={post.data.tags.join(',')}>
-        <PostCard post={post} />
-      </div>
-    ))}
+    {
+      posts.map((post) => (
+        <div data-tags={post.data.tags.join(",")}>
+          <PostCard post={post} />
+        </div>
+      ))
+    }
   </section>
 
   <script>
-    const filters = document.querySelectorAll<HTMLButtonElement>('.blog-tag');
-    const postItems = document.querySelectorAll<HTMLDivElement>('#post-list > div');
+    const filters = document.querySelectorAll<HTMLButtonElement>(".blog-tag");
+    const postItems =
+      document.querySelectorAll<HTMLDivElement>("#post-list > div");
     const selected = new Set<string>();
 
     function update() {
       // Update tag button styles
-      filters.forEach(btn => {
+      filters.forEach((btn) => {
         const code = btn.dataset.tag!;
         if (selected.has(code)) {
           btn.style.background = btn.dataset.bg!;
           btn.style.color = btn.dataset.text!;
           btn.style.borderColor = btn.dataset.border!;
         } else {
-          btn.style.background = '';
+          btn.style.background = "";
           btn.style.color = btn.dataset.text!;
           btn.style.borderColor = btn.dataset.border!;
         }
       });
 
       // Filter posts (AND: must have all selected tags)
-      postItems.forEach(item => {
-        const tags = (item.dataset.tags ?? '').split(',').filter(Boolean);
-        const visible = selected.size === 0 || [...selected].every(t => tags.includes(t));
-        item.style.display = visible ? '' : 'none';
+      postItems.forEach((item) => {
+        const tags = (item.dataset.tags ?? "").split(",").filter(Boolean);
+        const visible =
+          selected.size === 0 || [...selected].every((t) => tags.includes(t));
+        item.style.display = visible ? "" : "none";
       });
     }
 
-    filters.forEach(btn => {
-      btn.addEventListener('click', () => {
+    filters.forEach((btn) => {
+      btn.addEventListener("click", () => {
         const code = btn.dataset.tag!;
         if (selected.has(code)) {
           selected.delete(code);
