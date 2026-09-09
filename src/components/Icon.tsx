@@ -38,6 +38,7 @@ import {
   IconClick,
   IconStar,
   IconRss,
+  IconExternalLink,
 } from "@tabler/icons-react";
 
 const ICONS: Record<string, FC<{ size?: number; color?: string; stroke?: number }>> = {
@@ -79,6 +80,7 @@ const ICONS: Record<string, FC<{ size?: number; color?: string; stroke?: number 
   click: IconClick,
   star: IconStar,
   rss: IconRss,
+  "external-link": IconExternalLink,
 };
 
 type IconProps = {

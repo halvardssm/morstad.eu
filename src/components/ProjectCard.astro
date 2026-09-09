@@ -7,38 +7,53 @@ interface Props {
   project: CollectionEntry<"work">;
   compact?: boolean;
   stars?: number | null;
+  url?: string;
 }
 
 const { project, compact = false, stars = null } = Astro.props;
-const { title, tags, description, icon, iconColor } = project.data;
+const { title, tags, description, icon, iconColor, url } = project.data;
 const titleSize = compact ? "0.8125rem" : "0.875rem";
 ---
 
-<a class="block no-underline" style="height: 100%;">
-  <article class="card flex flex-col" style="padding: 1rem; height: 100%;">
-    <div class="flex items-center gap-2 mb-2">
-      <Icon name={icon} size={16} color={iconColor} />
-      <h3
-        class="font-medium m-0 text-heading flex-1"
-        style={`font-size: ${titleSize};`}
-      >
-        {title}
-      </h3>
-      {
-        stars !== null && (
-          <span
-            class="flex items-center gap-1 text-dim"
-            style="font-size: 0.6875rem;"
-          >
-            <Icon name="star" size={12} color="var(--color-dim)" />
-            {stars}
-          </span>
-        )
-      }
-    </div>
-    <TagList tags={tags} class="mb-2.5" />
-    <p class="m-0 text-muted" style="font-size: 0.75rem; line-height: 1.6;">
-      {description}
-    </p>
-  </article>
-</a>
+<article class="card flex flex-col" style="padding: 1rem; height: 100%;">
+  <div class="flex items-center gap-2 mb-1">
+    <Icon name={icon} size={16} color={iconColor} />
+    <h3
+      class="font-medium m-0 text-heading flex-1"
+      style={`font-size: ${titleSize};`}
+    >
+      {title}
+    </h3>
+  </div>
+  <div class="flex items-center gap-2 mb-2">
+    {
+      stars !== null && (
+        <span
+          class="flex items-center gap-1 text-dim"
+          style="font-size: 0.6875rem;"
+        >
+          <Icon name="star" size={12} color="var(--color-dim)" />
+          {stars}
+        </span>
+      )
+    }
+    {
+      url && (
+        <a
+          href={url}
+          target="_blank"
+          rel="noopener"
+          aria-label="Open project URL"
+          class="text-dim"
+          style="display: inline-flex; align-items: center;"
+        >
+          <Icon name="external-link" size={12} color="var(--color-dim)" />
+        </a>
+      )
+    }
+  </div>
+  <TagList tags={tags} class="mb-2.5" />
+  <p class="m-0 text-muted" style="font-size: 0.75rem; line-height: 1.6;">
+    {description}
+  </p>
+</article>
