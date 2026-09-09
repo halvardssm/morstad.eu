@@ -22,7 +22,7 @@ To get closer to a solution, we need to first assess the changes in the landscap
 
 ### Applications
 
-There has been a massive increase in what I call "spam" applications. With this I mean that a bot, most likely powered by AI, is sending out applications in bulk where the applicant is hoping to beat the numbers game without having evaluated if their profile actually fits the position and if they are even interested. The resumes in these applications are usually filled with invisible keywords that is optimized for a resume checker also powered by AI. This only results in inboxes being flooded, and more time needed to shovel through the applications.
+There has been a massive increase in what I call "spam" applications. With this I mean that a bot, most likely powered by AI, is sending out applications in bulk where the applicant is hoping to beat the numbers game without having evaluated if their profile actually fits the position and if they are even interested. The resumes in these applications are usually filled with invisible keywords that are optimized for a resume checker also powered by AI. This only results in inboxes being flooded, and more time needed to shovel through the applications.
 
 ### Coding Tests
 
