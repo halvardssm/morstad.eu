@@ -1,23 +1,26 @@
 ---
-import Layout from '../../layouts/Layout.astro';
-import Icon from '../../components/Icon.tsx';
-import TagList from '../../components/TagList.astro';
-import PageHeader from '../../components/PageHeader.astro';
-import { getCollection, render } from 'astro:content';
+import Layout from "../../layouts/Layout.astro";
+import Icon from "../../components/Icon.tsx";
+import TagList from "../../components/TagList.astro";
+import PageHeader from "../../components/PageHeader.astro";
+import { getCollection, render } from "astro:content";
+import Prose from "../../components/Prose.astro";
 
 export async function getStaticPaths() {
-  const posts = await getCollection('blog');
-  return posts.filter(p => !p.data.disabled).map(post => ({
-    params: { slug: post.id },
-  }));
+  const posts = await getCollection("blog");
+  return posts
+    .filter((p) => !p.data.disabled)
+    .map((post) => ({
+      params: { slug: post.id },
+    }));
 }
 
 const { slug } = Astro.params;
-const posts = await getCollection('blog');
-const post = posts.find(p => p.id === slug);
+const posts = await getCollection("blog");
+const post = posts.find((p) => p.id === slug);
 
 if (!post) {
-  return Astro.redirect('/blog');
+  return Astro.redirect("/blog");
 }
 
 const { Content } = await render(post);
@@ -28,21 +31,39 @@ const { title, date, tags, codeFolderLink } = post.data;
   <PageHeader current="blog" postTitle={title} />
 
   <!-- Post header -->
-  <h1 class="font-medium m-0 mb-2 text-heading" style="font-size: 1.25rem;">{title}</h1>
-  <time datetime={date} class="block mb-2.5 text-dim" style="font-size: 0.75rem;">{date}</time>
+  <h1 class="font-medium m-0 mb-2 text-heading" style="font-size: 1.25rem;">
+    {title}
+  </h1>
+  <time
+    datetime={date}
+    class="block mb-2.5 text-dim"
+    style="font-size: 0.75rem;">{date}</time
+  >
   <TagList tags={tags} class="mb-3.5" />
 
   {/* Code folder callout */}
-  {codeFolderLink && (
-    <div class="flex items-center gap-2 text-muted card" style="padding: 0.5rem 0.75rem; font-size: 0.75rem; margin-bottom: 1.5rem;">
-      <Icon name="folder" size={14} color="var(--color-dim)" />
-      <span>code_folder:</span>
-      <a href={codeFolderLink} target="_blank" rel="noopener" class="text-link">view repository</a>
-    </div>
-  )}
+  {
+    codeFolderLink && (
+      <div
+        class="flex items-center gap-2 text-muted card"
+        style="padding: 0.5rem 0.75rem; font-size: 0.75rem; margin-bottom: 1.5rem;"
+      >
+        <Icon name="folder" size={14} color="var(--color-dim)" />
+        <span>code_folder:</span>
+        <a
+          href={codeFolderLink}
+          target="_blank"
+          rel="noopener"
+          class="text-link"
+        >
+          view repository
+        </a>
+      </div>
+    )
+  }
 
   <!-- Post content -->
-  <article class="prose">
+  <Prose>
     <Content />
-  </article>
+  </Prose>
 </Layout>

@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@plugin "@tailwindcss/typography";
 
 /* ── Fonts: loaded via <link> in Layout.astro head ── */
 /* Active: IBM Plex Mono | Alternates: Space Mono, Fira Mono */
@@ -148,37 +149,123 @@ h6 {
 
 /* ── Code blocks (blog post) ── */
 .prose pre {
-  background-color: var(--color-bg-card);
-  border: 1px solid var(--color-border);
+  background-color: var(--color-bg-card) !important;
+  border: 1px solid var(--color-border) !important;
   border-radius: 4px;
   padding: 0.875rem 1rem;
   font-size: 0.75rem;
   overflow-x: auto;
   line-height: 1.6;
-  color: var(--color-text);
+  color: #000000 !important;
+}
+article .prose pre code {
+  color: #000000 !important;
+  background: transparent !important;
+}
+.prose pre code {
+  color: #000000 !important;
+  background: transparent !important;
+}
+
+/* Prose text colors - light mode defaults */
+/* .prose {
+  color: var(--color-text) !important;
+}
+.prose h1,
+.prose h2,
+.prose h3,
+.prose h4,
+.prose h5,
+.prose h6 {
+  color: var(--color-heading) !important;
+}
+.prose li {
+  color: var(--color-text) !important;
+}
+.prose li strong,
+.prose li b,
+.prose strong,
+.prose b {
+  color: var(--color-text) !important;
 }
 .prose code {
-  background-color: var(--color-bg-card);
-  padding: 1px 5px;
-  border-radius: 3px;
-  font-size: 0.8125rem;
-  color: #97c459;
+  color: #000000 !important;
 }
-.prose h2 {
-  font-size: 0.9375rem;
-  font-weight: 500;
-  color: var(--color-heading);
-  margin: 1.25rem 0 0.625rem;
+.prose :where(ul > li::marker):first-child {
+  color: var(--color-dim);
 }
-.prose p {
-  font-size: 0.875rem;
-  line-height: 1.8;
-  margin-bottom: 1.25rem;
-  color: #c4c4bd;
+.prose :where(ol > li::marker):first-child {
+  color: var(--color-dim);
+} */
+
+/* Prose text colors - light mode specific */
+/* :root[data-theme="light"] .prose {
+  color: var(--color-text) !important;
 }
-:root[data-theme="light"] .prose p {
-  color: #4a4a46;
+:root[data-theme="light"] .prose li {
+  color: var(--color-text) !important;
 }
+:root[data-theme="light"] .prose li strong,
+:root[data-theme="light"] .prose li b,
+:root[data-theme="light"] .prose strong,
+:root[data-theme="light"] .prose b {
+  color: var(--color-text) !important;
+}
+:root[data-theme="light"] article .prose pre code {
+  color: #000000 !important;
+  background: transparent !important;
+}
+:root[data-theme="light"] .prose pre code {
+  color: #000000 !important;
+  background: transparent !important;
+}
+:root[data-theme="light"] .prose code {
+  color: #000000 !important;
+  background: rgba(0, 0, 0, 0.05) !important;
+  padding: 0.125rem 0.25rem;
+  border-radius: 0.25rem;
+} */
+
+/* Prose text colors - dark mode overrides */
+/* :root[data-theme="dark"] .prose {
+  color: var(--color-text) !important;
+}
+:root[data-theme="dark"] .prose h1,
+:root[data-theme="dark"] .prose h2,
+:root[data-theme="dark"] .prose h3,
+:root[data-theme="dark"] .prose h4,
+:root[data-theme="dark"] .prose h5,
+:root[data-theme="dark"] .prose h6 {
+  color: var(--color-heading) !important;
+}
+:root[data-theme="dark"] .prose li {
+  color: var(--color-text) !important;
+}
+:root[data-theme="dark"] .prose strong,
+:root[data-theme="dark"] .prose b {
+  color: var(--color-text) !important;
+}
+:root[data-theme="dark"] .prose pre {
+  background-color: var(--color-bg-card) !important;
+  border-color: var(--color-border) !important;
+}
+:root[data-theme="dark"] .prose pre code {
+  color: #d1d5db !important;
+  background: transparent !important;
+}
+:root[data-theme="dark"] .prose code {
+  color: #d1d5db !important;
+  background: var(--color-bg-card) !important;
+  padding: 0.125rem 0.25rem;
+  border-radius: 0.25rem;
+}
+:root[data-theme="dark"] .prose :where(ul > li::marker):first-child {
+  color: var(--color-muted);
+}
+:root[data-theme="dark"] .prose :where(ol > li::marker):first-child {
+  color: var(--color-muted);
+}
+
 .prose blockquote {
   font-size: 0.75rem;
   color: var(--color-dim);
@@ -188,4 +275,4 @@ h6 {
 }
 .prose a {
   color: var(--color-link);
-}
+} */
