@@ -12,6 +12,14 @@ export default defineConfig({
   integrations: [react(), mdx(), sitemap()],
   site: "https://morstad.eu",
   trailingSlash: "never",
+  markdown: {
+    shikiConfig: {
+      themes: {
+        light: "github-light",
+        dark: "github-dark",
+      },
+    },
+  },
   vite: {
     plugins: [tailwindcss()],
   },
