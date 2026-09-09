@@ -1,16 +1,16 @@
 ---
 title: How to build a module for both Deno and Node
 date: "2023-06-02"
-tags: [Deno, NodeJS]
+tags: [Deno, Node.js]
 codeFolderLink: https://github.com/halvardssm/blog-code/tree/main/code/module_deno_node
 summary: "A shared build setup so one codebase ships as a package for both runtimes."
 ---
 
 # How to build a module for both Deno and Node
 
-If you have been developing for Deno and Node, you might have noticed slight issues with creating code that can easily be shared between the two runtimes.
+If you have been developing for Deno and Node.js, you might have noticed slight issues with creating code that can easily be shared between the two runtimes.
 
-In this post I will show you how to create a module that can be used in both Deno and Node, with minimal friction.
+In this post I will show you how to create a module that can be used in both Deno and Node.js, with minimal friction.
 
 ## Setup the project
 
@@ -22,7 +22,7 @@ cd module_deno_node
 deno init
 ```
 
-A couple of files should have been created in your folder, but let's rename `main` to `mod` and move them arount a bit. Rename and move the files around so that the folder structure looks like this:
+A couple of files should have been created in your folder, but let's rename `main` to `mod` and move them around a bit. Rename and move the files around so that the folder structure looks like this:
 
 ```
 module_deno_node
@@ -33,7 +33,7 @@ module_deno_node
     └── mod_bench.ts
 ```
 
-> The reason we rename `main` to `mod` is because this is the convension in file naming for Deno modules. `main` is usually used for applications to indicate the entry point.
+> The reason we rename `main` to `mod` is because this is the convention in file naming for Deno modules. `main` is usually used for applications to indicate the entry point.
 
 Also make sure that the mod.ts file only contains the following:
 
@@ -55,7 +55,7 @@ touch scripts/build_npm.ts
 We will be using a library called [Deno to Node Transform (DNT)](https://github.com/denoland/dnt) to help us with the transformation and build process. In your newly created file, add the following:
 
 ```ts
-import { build, emptyDir } from "https://deno.land/x/dnt/mod.ts";
+import { build, emptyDir } from "jsr:@deno/dnt/mod";
 
 // Empties the output folder
 await emptyDir("./npm");
@@ -77,7 +77,7 @@ await build({
   package: {
     name: "module_deno_node",
     version: Deno.args[0],
-    description: "Shared module for Deno and Node",
+    description: "Shared module for Deno and Node.js",
     license: "MIT",
     type: "module",
     repository: {
@@ -101,14 +101,14 @@ You can now try to run it:
 deno run -A scripts/build_npm.ts
 ```
 
-You should now have a new folder called `npm` with a generated package inside. If you have setup your local git config corectly, you should be able to publish it to GitHub Packages:
+You should now have a new folder called `npm` with a generated package inside. If you have set up your local git config correctly, you should be able to publish it to GitHub Packages:
 
 ```bash
 cd npm
 npm publish
 ```
 
-Its as easy as that! You now have your code available as for Deno using the repo url, and also for Node using the generated package.
+It's as easy as that! You now have your code available as for Deno using the repo url, and also for Node.js using the generated package.
 
 ## Finishing touches
 
@@ -145,4 +145,4 @@ entryPoints: [
 
 Here you would have one shared entrypoint that is used both on the client and server side, and also two separate entrypoints for client and server code.
 
-Now you know how to create a shared library for both Deno and Node (and even include different entrypoints for browser and system)! Hope you enjoyed this, and I'll see you around!
+Now you know how to create a shared library for both Deno and Node.js (and even include different entrypoints for browser and system)! Hope you enjoyed this, and I'll see you around!
