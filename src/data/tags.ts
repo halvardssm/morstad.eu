@@ -8,6 +8,13 @@ export const TAG_COLORS: Record<TagColor, { text: string; bg: string; border: st
   pink: { text: "#ed93b1", bg: "rgba(237,147,177,0.15)", border: "rgba(237,147,177,0.3)" },
 };
 
+// [blue] type: app,api,lib,game,course
+// [orange] language: js,ts,rust,go,java,kotlin,c,c#,c++,tf,sql
+// [green] runtime: deno,node,android,mysql,pgsql,sqlite,gql,docker
+// [purple] tools: react,redux,saga,observables,next,tw,bootstap,ws,spring,unity,aws
+
+export const M_TAGS = {};
+
 export const TAGS: Record<string, { name: string; color: TagColor }> = {
   js: { name: "JavaScript", color: "blue" },
   ts: { name: "TypeScript", color: "blue" },
