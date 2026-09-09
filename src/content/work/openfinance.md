@@ -1,7 +1,7 @@
 ---
 symbol: 📦
 title: OpenFinance
-tags: [rust, app]
+tags: [Rust, App]
 url: https://codeberg.org/hmxrd/openfinance
 description: A self hosted lightweight budgetting app
 icon: "package"

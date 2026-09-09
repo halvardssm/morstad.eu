@@ -11,5 +11,5 @@ const { tags, size = 'sm', class: className } = Astro.props;
 ---
 
 <div class={`flex flex-wrap gap-1.5 ${className ?? ''}`}>
-  {tags.map((code) => <Tag code={code} size={size} />)}
+  {tags.map((name) => <Tag name={name} size={size} />)}
 </div>

@@ -1,7 +1,7 @@
 ---
 title: React CSR with Deno
 date: "2022-03-28"
-tags: [deno, react]
+tags: [Deno, React]
 codeFolderLink: https://github.com/halvardssm/blog-code/tree/main/code/deno_react
 summary: "Serving a client-rendered React app straight from a vanilla Deno server."
 ---

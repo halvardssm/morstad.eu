@@ -1,7 +1,7 @@
 ---
 symbol: 📦
 title: Invoice Lite
-tags: [rust, app, ts, react, astro]
+tags: [Rust, App, TypeScript, React]
 url: https://github.com/halvardssm/invoice-lite
 description: A self hosted lightweight invoicing app
 icon: "package"

@@ -1,7 +1,7 @@
 ---
 symbol: ☂️
 title: Domeneshop Provider (WIP)
-tags: [go, lib, tf]
+tags: [Go, Library, Terraform]
 url: https://github.com/halvardssm/terraform-provider-domeneshop
 description: A Terraform provider for Domeneshop.
 icon: "cloud-rain"

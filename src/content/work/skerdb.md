@@ -1,7 +1,7 @@
 ---
 symbol: 📦
 title: SkerDB
-tags: [go, lib]
+tags: [Go, Library]
 url: https://codeberg.org/hmxrd/skerdb
 description: Self hosted multi user/database based on SQLite for SQL over HTTP
 icon: "package"

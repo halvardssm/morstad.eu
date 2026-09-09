@@ -1,7 +1,7 @@
 ---
 symbol: 🦕
 title: Nessie
-tags: [deno, js, ts, lib, docker, mysql, pg, sqlite]
+tags: [Deno, JavaScript, TypeScript, Library, Docker, MySQL, PostgreSQL, SQLite]
 url: https://github.com/halvardssm/deno-nessie
 description: A modular Deno library for PostgreSQL, MySQL, MariaDB and SQLite migrations.
 icon: "database"

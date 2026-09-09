@@ -1,7 +1,7 @@
 ---
 title: Hiring in a time of AI
 date: "2026-04-06"
-tags: [hiring]
+tags: [Hiring]
 summary: "How to hire talent when most are contucting interviews and tests with AI"
 disabled: true
 ---

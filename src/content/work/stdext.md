@@ -1,7 +1,7 @@
 ---
 symbol: 📦
 title: stdext
-tags: [go, lib]
+tags: [TypeScript, Library]
 url: https://github.com/halvardssm/stdext
 description: Extensions to the Go standard library, providing commonly used utility functions and types.
 icon: "package"

@@ -3,7 +3,7 @@ import Layout from "../layouts/Layout.astro";
 import ProjectCard from "../components/ProjectCard.astro";
 import PageHeader from "../components/PageHeader.astro";
 import { getCollection } from "astro:content";
-import { TAGS, TAG_COLORS } from "../utils/tags";
+import { getTagColor } from "../utils/tags";
 import { getGitHubStars } from "../utils/github";
 
 const projects = (await getCollection("work")).filter((p) => !p.data.disabled);
@@ -63,20 +63,18 @@ const featuredCols =
     <!-- Tag filter row -->
     <div class="flex flex-wrap gap-1.5 mb-4" id="tag-filters">
       {
-        allTags.map((code) => {
-          const tag = TAGS[code];
-          if (!tag) return null;
-          const colors = TAG_COLORS[tag.color];
+        allTags.map((name) => {
+          const colors = getTagColor(name);
           return (
             <button
-              data-tag={code}
+              data-tag={name}
               data-bg={colors.bg}
               data-text={colors.text}
               data-border={colors.border}
               class="work-tag"
               style={`font-size: 0.625rem; padding: 3px 9px; border-radius: 3px; border: 1px solid ${colors.border}; color: ${colors.text}; cursor: pointer; transition: all 0.15s;`}
             >
-              {tag.name}
+              {name}
             </button>
           );
         })

@@ -1,7 +1,7 @@
 ---
 title: Introduction to Deno
 date: "2022-03-26"
-tags: [deno]
+tags: [Deno]
 summary: "A quick overview of Deno and what makes it different from Node."
 ---
 

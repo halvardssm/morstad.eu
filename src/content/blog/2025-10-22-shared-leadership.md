@@ -1,7 +1,7 @@
 ---
 title: Shared Leadership - A Sustainable Model for Tech Teams
 date: "2025-10-22"
-tags: [organization]
+tags: [Organization, Management, Leadership]
 summary: "How to structure a modern tech team"
 disabled: false
 ---

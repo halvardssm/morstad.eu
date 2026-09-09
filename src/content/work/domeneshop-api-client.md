@@ -1,7 +1,7 @@
 ---
 symbol: 🐹
 title: Domeneshop Client
-tags: [go, lib]
+tags: [Go, Library]
 url: https://github.com/halvardssm/go-domeneshop-client
 description: A Go client for domene.shop.
 icon: "world"
