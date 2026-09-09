@@ -20,11 +20,11 @@ blog post must include this frontmatter:
 
 ```yaml
 title: <string, required>
-date: "<YYYY-MM-DD>"  # quoted, required
-tags: [<string>, ...]  # required, at least one
-summary: "<string>"  # optional but recommended, default to empty string
-codeFolderLink: "<url>"  # optional, for code-heavy posts
-disabled: <true|false>  # optional, defaults to false
+date: "<YYYY-MM-DD>" # quoted, required
+tags: [<string>, ...] # required, at least one
+summary: "<string>" # optional but recommended, default to empty string
+codeFolderLink: "<url>" # optional, for code-heavy posts
+disabled: <true|false> # optional, defaults to false
 ```
 
 ## What a plan should contain
@@ -32,11 +32,11 @@ disabled: <true|false>  # optional, defaults to false
 Work with the user to produce a plan that includes:
 
 1. **Working title** — the post title as it will appear in frontmatter.
-6. **Outline** — section-by-section breakdown with heading levels. Each
+2. **Outline** — section-by-section breakdown with heading levels. Each
    section should have a one-line description of what it will cover.
-7. **Key points** — the main arguments or takeaways the reader should leave
+3. **Key points** — the main arguments or takeaways the reader should leave
    with.
-8. **Audience** — who the post is written for.
+4. **Audience** — who the post is written for.
 
 ## Planning process
 
@@ -51,7 +51,6 @@ Work with the user to produce a plan that includes:
    `YYYY-MM-DD-slug.md` in `src/content/blog/`. Set `disabled: true` in
    frontmatter for drafts so they don't appear on the site until ready.
    For each section in the outline, add the information as comments using `[//]: # (comment)`
-
 
 ## Tone and style
 
