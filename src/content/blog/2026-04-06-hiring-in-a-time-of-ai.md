@@ -3,7 +3,7 @@ title: Hiring in a Time of AI
 date: "2026-04-06"
 tags: [Hiring, AI, Interviewing, HR]
 summary: "How to adapt your hiring process when AI is used by both recruiters and applicants."
-disabled: true
+disabled: false
 ---
 
 # Hiring in a Time of AI
