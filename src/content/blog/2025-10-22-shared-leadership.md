@@ -2,7 +2,7 @@
 title: Shared Leadership - A Sustainable Model for Tech Teams
 date: "2025-10-22"
 tags: [Organization, Management, Leadership]
-summary: "Why one team lead doing technical, managerial, and leadership work is unsustainable, how dual-leadership fixes it, and how to buld a team around it."
+summary: "Why one team lead doing technical, managerial, and leadership work is unsustainable, how dual-leadership fixes it, and how to build a team around it."
 disabled: false
 ---
 
@@ -28,7 +28,7 @@ This is the true cost of single-leader teams.
 
 The model I propose: instead of one leader at 100-120%, split the role between two people at 60-80% each. This creates redundancy in both knowledge and task coverage, with the added benefit of enabling a 4-day work week, a model researched and proven to improve retention and employee satisfaction while maintaining the same output.[^1]
 
-Finding one person with all the required skills, managerial, technical and leadership, is increasingly difficult, and those who meet all criteria know their worth.
+Finding one person with all the required skills, managerial, technical, and leadership, is increasingly difficult, and those who meet all criteria know their worth.
 
 ### Making It Work
 
@@ -62,7 +62,7 @@ An ideal team of up to 12 engineers includes:
 4. 1-2 Junior Engineers
 5. ~5 Mid-Level Engineers
 
-With this structure, the team can function consistently even when people are sick, on leave, or transitioning out. The leads share knowledge, maintain both overlapping and specialized focus areas, and ensure continuity, one is always available to hold the reins and transfer knowledge.
+With this structure, the team can function consistently even when people are sick, on leave, or transitioning out. The leads share knowledge, maintain both overlapping and specialized focus areas, and ensure continuity: one is always available to hold the reins and transfer knowledge.
 
 Seniors can onboard new team members, and juniors always have guidance. To further strengthen knowledge sharing, consider pair programming where two engineers work together on the same task.
 
@@ -76,8 +76,6 @@ Of course, this is the ideal. Reality isn't always this clean.
 - **Junior Engineer:** Works alongside senior or mid-level engineers, focusing on learning technology and domain-specific knowledge.
 
 [^1]: https://www.4dayweek.com/research
-
----
 
 ## Conclusion
 
