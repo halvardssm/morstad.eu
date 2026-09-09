@@ -12,7 +12,7 @@ summary: "Building a chat app with WebSockets, using Deno for the backend and Re
 
 In this post, we will take a look at how to create a chat application by using Deno as our build tool for the frontend and backend. For our frontend, we will use the same setup with React as in the [previous blogpost](/posts/deno-react-csr), while the backend will be vanilla Deno.
 
-For the chat functionality, we will be using WebSockets and also storing the chat on the server to provide a historical chat log. To keep the application simple, we will not require a login, and we will also skip validation and sanitation of messages.
+For the chat functionality, we will be using WebSockets and also storing the chat on the server to provide a historical chat log. To keep the application simple, we will not require a login, and we will also skip validation and sanitization of messages.
 
 ## Shared Types (part 1)
 
@@ -30,7 +30,7 @@ Now that we have a shared interface ready, we can move on to the backend.
 
 ## The Server (part 1)
 
-As we know from the Deno manual, the simplest way of creating a server is by
+As we know from the Deno docs, the simplest way of creating a server is by
 using the higher-level helper that is built in. Create a `server.ts` file and
 add this to it.
 
@@ -38,7 +38,7 @@ add this to it.
 Deno.serve({ port: 8000 }, (req) => {});
 ```
 
-Now that the server is ready, we can add the WebSocket server integration. To do this, we use the built-in [upgradeWebSocket](https://doc.deno.land/deno/stable/~/Deno.upgradeWebSocket) to initiate the socket and create a response. Change the server to the following.
+Now that the server is ready, we can add the WebSocket server integration. To do this, we use the built-in [upgradeWebSocket](https://docs.deno.com/api/deno/~/Deno.upgradeWebSocket) to initiate the socket and create a response. Change the server to the following.
 
 ```ts
 Deno.serve({ port: 8000 }, (req) => {
@@ -96,7 +96,7 @@ Deno.serve({ port: 8000 }, (req) => {
 
 Now that we have a basic setup for our server, we can move on to the client. For this, it is going to be a pretty straightforward React application.
 
-Since we need to bundle for the web, start by adding a deno config file `deno.client.jsonc`. This will ensure that Deno will use the correct typings when transpiling TSX.
+Since we need to bundle for the web, start by adding a Deno config file `deno.client.jsonc`. This will ensure that Deno will use the correct typings when transpiling TSX.
 
 ```json
 {
@@ -167,7 +167,7 @@ watch_client:
 bundle_client:
     deno bundle --config deno.client.jsonc client.tsx client.js
 serve_client:
-    deno run --allow-net --allow-read https://deno.land/std/http/file_server.ts .
+    deno run --allow-net --allow-read https://jsr.io/@std/http/file-server .
 dev:
     make -j 3 serve_server serve_client watch_client
 ```
@@ -185,7 +185,7 @@ Open
 
 ## Shared Types (part 2)
 
-Once you have confirmed that the server and client both work and that the connection is established, we can move on to establish an interface for the WebSocket messages. We can have two types of WS messages in our application:
+Once you have confirmed that the server and client both work and that the connection is established, we can move on to establishing an interface for the WebSocket messages. We can have two types of WS messages in our application:
 
 - `backlog`: A message which should be sent from the server to the client as an initial message when the connection has been established. This message should contain the chat history.
 - `message`: A message which is sent from a client to the rest of the chatroom.
