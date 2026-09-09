@@ -9,11 +9,10 @@ import PageHeader from "../components/PageHeader.astro";
 
   <!-- Hero -->
   <div class="mb-6" style="padding-right: 40px;">
-    <div class="flex flex-wrap items-center gap-x-4 gap-y-2 mb-2">
+    <div class="flex flex-wrap items-center gap-x-4 gap-y-2 mb-1">
       <h1 class="font-medium m-0 text-heading" style="font-size: 1.25rem;">
         Halvard Mørstad
       </h1>
-      <p class="m-0 text-muted" style="font-size: 0.875rem;">Principal Engineer | Cloud & Infrastructure | Fractional CTO</p>
       <div class="flex items-center gap-3">
         <a
           href="https://github.com/halvardssm"
@@ -36,6 +35,9 @@ import PageHeader from "../components/PageHeader.astro";
         </a>
       </div>
     </div>
+    <p class="m-0 text-muted text-xs mb-2">
+      Principal Engineer | Cloud & Infrastructure | Fractional CTO
+    </p>
     <p class="m-0 text-muted" style="font-size: 0.875rem; line-height: 1.7;">
       I help founders and business leaders turn ideas into working software,
       without needing a technical team in place yet.
@@ -57,6 +59,13 @@ import PageHeader from "../components/PageHeader.astro";
       style="padding: 0.5rem 0.875rem; font-size: 0.8125rem; display: inline-flex; align-items: center;"
     >
       View my work
+    </a>
+    <a
+      href="/blog"
+      class="btn-outline"
+      style="padding: 0.5rem 0.875rem; font-size: 0.8125rem; display: inline-flex; align-items: center;"
+    >
+      Check out my blog
     </a>
   </div>
 
@@ -80,7 +89,7 @@ import PageHeader from "../components/PageHeader.astro";
       someone who can build the product, make the right technical decisions, and
       eventually hand it off to a team. Hiring a full engineering team on day
       one is expensive and risky. You need someone who can take you from "this
-      is what we want to build" to "this is how we build it."
+      is what we want to build" to "this is how we build it".
     </p>
   </section>
 
@@ -147,34 +156,12 @@ import PageHeader from "../components/PageHeader.astro";
     </div>
   </section>
 
-  <!-- Stats -->
-  <dl
-    class="flex gap-6 py-4 m-0"
-    style="border-top: 1px solid var(--color-border); border-bottom: 1px solid var(--color-border);"
-  >
-    <div>
-      <dt class="text-heading font-medium" style="font-size: 1.25rem;">~10</dt>
-      <dd class="m-0 text-dim" style="font-size: 0.6875rem;">
-        years experience
-      </dd>
-    </div>
-    <div>
-      <dt class="text-heading font-medium" style="font-size: 1.25rem;">12</dt>
-      <dd class="m-0 text-dim" style="font-size: 0.6875rem;">people led</dd>
-    </div>
-    <div>
-      <dt class="text-heading font-medium" style="font-size: 1.25rem;">25+</dt>
-      <dd class="m-0 text-dim" style="font-size: 0.6875rem;">
-        projects delivered
-      </dd>
-    </div>
-  </dl>
-
   <!-- What it's like to work with me -->
-  <section class="mt-8 mb-8">
-    <h2 class="m-0 mb-3 text-dim" style="font-size: 0.75rem;">
-      What it's like to work with me
-    </h2>
+  <section
+    class="mt-8 mb-8"
+    style="border-top: 1px solid var(--color-border); padding-top: 1.25rem;"
+  >
+    <h2 class="m-0 mb-3 text-dim text-xs">What it's like to work with me</h2>
     <div class="flex flex-col gap-2">
       <p class="m-0 text-muted" style="font-size: 0.8125rem; line-height: 1.7;">
         <span class="text-dim">I speak human, not jargon. </span>You'll always
@@ -223,49 +210,50 @@ import PageHeader from "../components/PageHeader.astro";
     </p>
   </section>
 
-  <!-- Track record -->
+  <!-- Notable companies -->
   <section
     class="mb-8"
     style="border-top: 1px solid var(--color-border); padding-top: 1.25rem;"
   >
-    <h2 class="m-0 mb-2.5 text-dim" style="font-size: 0.75rem;">
-      Track record
+    <h2 class="m-0 mb-2 text-dim" style="font-size: 0.75rem;">
+      Notable companies
     </h2>
-    <dl class="flex flex-col gap-3 m-0">
-      <div class="flex items-center gap-4">
-        <dt
-          class="text-heading font-medium"
-          style="font-size: 1.25rem; min-width: 3.75rem;"
-        >
-          60%
-        </dt>
-        <dd
-          class="m-0 text-muted"
-          style="font-size: 0.8125rem; line-height: 1.6;"
-        >
-          deploy time reduction for a client infra migration, from hours to
-          minutes.
-        </dd>
+    <div class="grid grid-cols-3 gap-2 mt-2">
+      <div class="card" style="padding: 1rem; height: 100%;">
+        <div class="text-heading font-medium mb-1" style="font-size: 0.875rem;">
+          AWS European Sovereign Cloud
+        </div>
+        <div class="text-muted text-xs m-0 mb-2">
+          Systems Development Engineer
+        </div>
+        <p class="m-0 text-muted text-xs leading-relaxed">
+          Building out the european sovreign cloud. Working together and
+          facilitated the onboarding of AWS services.
+        </p>
       </div>
-      <div
-        class="flex items-center gap-4"
-        style="border-top: 1px solid var(--color-border); padding-top: 0.75rem;"
-      >
-        <dt
-          class="text-heading font-medium"
-          style="font-size: 1.25rem; min-width: 3.75rem;"
-        >
-          ~10
-        </dt>
-        <dd
-          class="m-0 text-muted"
-          style="font-size: 0.8125rem; line-height: 1.6;"
-        >
-          years across startups and enterprise, from prototype to production at
-          scale.
-        </dd>
+      <div class="card" style="padding: 1rem; height: 100%;">
+        <div class="text-heading font-medium mb-1" style="font-size: 0.875rem;">
+          JOURNEE
+        </div>
+        <div class="text-muted text-xs m-0 mb-2">
+          Cloud & Infrastructure Engineer
+        </div>
+        <p class="m-0 text-muted text-xs leading-relaxed">
+          Developed and managed the system for running 10k on-demand concurrent
+          cloud GPU servers across multiple cloud services.
+        </p>
       </div>
-    </dl>
+      <div class="card" style="padding: 1rem; height: 100%;">
+        <div class="text-heading font-medium mb-1" style="font-size: 0.875rem;">
+          HelloRider
+        </div>
+        <div class="text-muted text-xs m-0 mb-2">Full Stack Developer</div>
+        <p class="m-0 text-muted text-xs leading-relaxed">
+          Optimized cloud architecture. Refactored and reduced legacy monolithic
+          systems to reduce costs and improve performance.
+        </p>
+      </div>
+    </div>
   </section>
 
   <!-- About me -->

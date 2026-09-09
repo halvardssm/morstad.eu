@@ -10,9 +10,8 @@ import H3 from "../components/text/H3.astro";
 <Layout>
   <!-- Hero -->
   <div class="mb-8" style="padding-right: 40px;">
-    <div class="flex flex-wrap items-center gap-x-4 gap-y-2 mb-8">
+    <div class="flex flex-wrap items-center gap-x-4 gap-y-2 mb-1">
       <H1>&gt; halvard_mørstad</H1>
-      <p class="m-0 text-muted text-sm">Principal Engineer | Cloud & Infrastructure | Fractional CTO</p>
       <div class="flex items-center gap-3">
         <a
           href="https://github.com/halvardssm"
@@ -35,6 +34,9 @@ import H3 from "../components/text/H3.astro";
         </a>
       </div>
     </div>
+    <p class="m-0 text-muted text-xs mb-2">
+      Principal Engineer | Cloud & Infrastructure | Fractional CTO
+    </p>
     <p class="m-0 text-muted text-sm leading-relaxed">
       // Cloud and infrastructure engineer, occasionally full-stack.<br />
       // Ten years in, still enjoy picking up a stack I've never touched.<br />
@@ -145,21 +147,46 @@ import H3 from "../components/text/H3.astro";
     </p>
   </div>
 
-  <!-- Stats -->
-  <dl class="flex gap-6 py-4 mb-5 m-0 border-y-1 border-gray-600">
-    <div>
-      <dt class="text-heading font-medium text-xl">~10</dt>
-      <dd class="m-0 text-dim text-xs">years experience</dd>
+  <!-- Notable companies -->
+  <div class="py-4 mb-5 m-0 border-y-1 border-gray-600">
+    <H2 class="text-dim mb-5">// notable companies</H2>
+    <div class="grid grid-cols-3 gap-2 mt-2">
+      <div class="card" style="padding: 1rem; height: 100%;">
+        <div class="text-heading font-medium mb-1" style="font-size: 0.875rem;">
+          AWS European Sovereign Cloud
+        </div>
+        <div class="text-muted text-xs m-0 mb-2">
+          Systems Development Engineer
+        </div>
+        <p class="m-0 text-muted text-xs leading-relaxed">
+          Building out the european sovreign cloud. Working together and
+          facilitated the onboarding of AWS services.
+        </p>
+      </div>
+      <div class="card" style="padding: 1rem; height: 100%;">
+        <div class="text-heading font-medium mb-1" style="font-size: 0.875rem;">
+          JOURNEE
+        </div>
+        <div class="text-muted text-xs m-0 mb-2">
+          Cloud & Infrastructure Engineer
+        </div>
+        <p class="m-0 text-muted text-xs leading-relaxed">
+          Developed and managed the system for running 10k on-demand concurrent
+          cloud GPU servers across multiple cloud services.
+        </p>
+      </div>
+      <div class="card" style="padding: 1rem; height: 100%;">
+        <div class="text-heading font-medium mb-1" style="font-size: 0.875rem;">
+          HelloRider
+        </div>
+        <div class="text-muted text-xs m-0 mb-2">Full Stack Developer</div>
+        <p class="m-0 text-muted text-xs leading-relaxed">
+          Optimized cloud architecture. Refactored and reduced legacy monolithic
+          systems to reduce costs and improve performance.
+        </p>
+      </div>
     </div>
-    <div>
-      <dt class="text-heading font-medium text-xl">8</dt>
-      <dd class="m-0 text-dim text-xs">engineers led</dd>
-    </div>
-    <div>
-      <dt class="text-heading font-medium text-xl">25+</dt>
-      <dd class="m-0 text-dim text-xs">projects shipped</dd>
-    </div>
-  </dl>
+  </div>
 
   <!-- Use cases -->
   <H2 class="text-dim mb-3 mt-8">// what I can do for you</H2>
