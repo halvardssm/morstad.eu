@@ -39,9 +39,12 @@ import {
   IconStar,
   IconRss,
   IconExternalLink,
+  IconBrandAws,
+  IconMotorbike,
+  IconCircleFilled,
 } from "@tabler/icons-react";
 
-const ICONS: Record<string, FC<{ size?: number; color?: string; stroke?: number }>> = {
+const ICONS = {
   home: IconHome,
   "arrow-left": IconArrowLeft,
   "brand-github": IconBrandGithub,
@@ -81,10 +84,15 @@ const ICONS: Record<string, FC<{ size?: number; color?: string; stroke?: number 
   star: IconStar,
   rss: IconRss,
   "external-link": IconExternalLink,
-};
+  aws: IconBrandAws,
+  bike: IconMotorbike,
+  "circle-filled": IconCircleFilled,
+} as const satisfies Record<string, FC<{ size?: number; color?: string; stroke?: number }>>;
+
+export type IconName = keyof typeof ICONS;
 
 type IconProps = {
-  name: string;
+  name: IconName;
   size?: number;
   color?: string;
   stroke?: number;

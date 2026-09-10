@@ -1,0 +1,30 @@
+---
+import Card from "./Card.astro";
+import H2 from "./text/H2.astro";
+import CompanyCard from "./CompanyCard.astro";
+import Icon from "./Icon";
+---
+
+<div class="grid md:grid-cols-3 gap-2 mb-8 mt-3">
+    <CompanyCard
+        icon="aws"
+        iconColor="#85b7eb"
+        title="AWS European Sovereign Cloud"
+        subtitle="Systems Development Engineer"
+        description="Building out the european sovreign cloud. Working together and facilitated the onboarding of AWS services."
+    />
+    <CompanyCard
+        icon="circle-filled"
+        iconColor="#f0997b"
+        title="JOURNEE"
+        subtitle="Cloud & Infrastructure Engineer"
+        description="Developed and managed the system for running 10k on-demand concurrent cloud GPU servers across multiple cloud services."
+    />
+    <CompanyCard
+        icon="bike"
+        iconColor="#97c459"
+        title="HelloRider"
+        subtitle="Full Stack Developer"
+        description="Optimized cloud architecture. Refactored and reduced legacy monolithic systems to reduce costs and improve performance."
+    />
+</div>

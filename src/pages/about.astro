@@ -2,6 +2,7 @@
 import Layout from "../layouts/Layout.astro";
 import Icon from "../components/Icon.tsx";
 import PageHeader from "../components/PageHeader.astro";
+import CompanyCards from "../components/CompanyCards.astro";
 ---
 
 <Layout title="About — Halvard Mørstad">
@@ -218,42 +219,7 @@ import PageHeader from "../components/PageHeader.astro";
     <h2 class="m-0 mb-2 text-dim" style="font-size: 0.75rem;">
       Notable companies
     </h2>
-    <div class="grid grid-cols-3 gap-2 mt-2">
-      <div class="card" style="padding: 1rem; height: 100%;">
-        <div class="text-heading font-medium mb-1" style="font-size: 0.875rem;">
-          AWS European Sovereign Cloud
-        </div>
-        <div class="text-muted text-xs m-0 mb-2">
-          Systems Development Engineer
-        </div>
-        <p class="m-0 text-muted text-xs leading-relaxed">
-          Building out the european sovreign cloud. Working together and
-          facilitated the onboarding of AWS services.
-        </p>
-      </div>
-      <div class="card" style="padding: 1rem; height: 100%;">
-        <div class="text-heading font-medium mb-1" style="font-size: 0.875rem;">
-          JOURNEE
-        </div>
-        <div class="text-muted text-xs m-0 mb-2">
-          Cloud & Infrastructure Engineer
-        </div>
-        <p class="m-0 text-muted text-xs leading-relaxed">
-          Developed and managed the system for running 10k on-demand concurrent
-          cloud GPU servers across multiple cloud services.
-        </p>
-      </div>
-      <div class="card" style="padding: 1rem; height: 100%;">
-        <div class="text-heading font-medium mb-1" style="font-size: 0.875rem;">
-          HelloRider
-        </div>
-        <div class="text-muted text-xs m-0 mb-2">Full Stack Developer</div>
-        <p class="m-0 text-muted text-xs leading-relaxed">
-          Optimized cloud architecture. Refactored and reduced legacy monolithic
-          systems to reduce costs and improve performance.
-        </p>
-      </div>
-    </div>
+    <CompanyCards />
   </section>
 
   <!-- About me -->
