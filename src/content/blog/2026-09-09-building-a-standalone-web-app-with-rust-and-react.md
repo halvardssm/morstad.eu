@@ -10,9 +10,15 @@ disabled: true
 
 <!-- Why a single binary matters: simplified deployment, no separate static file server, self-contained artifact. Brief note on what the post covers and what it skips (serving and deployment). -->
 
+Sometimes, you just want to have something running. It does not have to scale to bilions of users, but should handle a bit of traffic. It can be for something yu self host, or simply something running locally on your laptop.
+
+In these cases, having a single binary that serves a static website is the perfect fit, and having a single binary also simplifies the deployment regardless of if you are hosting it using docker, or directly on the system.
+
 ## Project Structure
 
 <!-- The monorepo layout: a Rust backend crate and a React frontend directory side by side. How the two fit together at build time. -->
+
+In this post I will be using Rust and React
 
 ## The Build Pipeline
 
