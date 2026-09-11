@@ -1,9 +1,9 @@
 ---
 symbol: 🐹
-title: Domeneshop Client
+title: Domeneshop Go
 tags: [Go, Library]
-url: https://github.com/halvardssm/go-domeneshop-client
-description: A Go client for domene.shop.
+url: https://github.com/halvardssm/domeneshop-go
+description: A Go SDK and Terraform/OpenTofu provider for domene.shop.
 icon: "world"
 iconColor: "#85b7eb"
 featured: false
